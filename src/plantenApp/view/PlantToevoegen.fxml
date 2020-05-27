@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <TitledPane text="Standaard">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <HBox layoutX="14.0" layoutY="14.0">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox alignment="CENTER_LEFT">
+                                             <children>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Type:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Familie:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Geslacht:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Soort:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Variant:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <ComboBox prefHeight="30.0" prefWidth="120.0" />
+                                                <TextField prefHeight="30.0" prefWidth="120.0" />
+                                                <TextField prefHeight="30.0" prefWidth="120.0" />
+                                                <TextField prefHeight="30.0" prefWidth="120.0" />
+                                                <TextField prefHeight="30.0" prefWidth="120.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <VBox>
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="240.0" text="  Optimale plandichtheid:">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox>
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="30.0" prefWidth="20.0" text="X" />
+                                                <TextField prefHeight="30.0" prefWidth="100.0" />
+                                                <Label alignment="CENTER" prefHeight="30.0" prefWidth="20.0" text="Y" />
+                                                <TextField prefHeight="30.0" prefWidth="100.0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <TitledPane prefHeight="14.0" prefWidth="1096.0" text="AbiotischeFactoren">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <VBox layoutX="14.0" layoutY="14.0">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox alignment="CENTER_LEFT">
+                                             <children>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Bezonning:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Voedingsbehoefte:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Vochtbehoefte:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <Slider prefHeight="30.0" prefWidth="90.0" />
+                                                      <Label alignment="CENTER" prefHeight="30.0" prefWidth="30.0" text="0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Slider prefHeight="30.0" prefWidth="90.0" />
+                                                      <Label alignment="CENTER" prefHeight="30.0" prefWidth="30.0" text="0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Slider prefHeight="30.0" prefWidth="90.0" />
+                                                      <Label alignment="CENTER" prefHeight="30.0" prefWidth="30.0" text="0" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <Label prefHeight="30.0" prefWidth="240.0" text="Reactie antagonitische omgeving:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox prefHeight="30.0" prefWidth="240.0" />
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" prefWidth="120.0" text="Grondsoort:">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox prefHeight="30.0" prefWidth="120.0" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <VBox>
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="240.0" text="Habitat:">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox>
+                                             <children>
+                                                <ComboBox prefHeight="30.0" prefWidth="450.0" />
+                                                <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="+" />
+                                             </children>
+                                          </HBox>
+                                          <ListView prefHeight="155.0" prefWidth="480.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <TitledPane text="Commensalisme">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <VBox layoutX="14.0" layoutY="14.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="240.0" text="Ontwikkelingssnelheid:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox />
+                                    <ComboBox prefHeight="30.0" prefWidth="240.0" />
+                                    <Label prefHeight="30.0" prefWidth="120.0" text="Sociabiliteit:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox>
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="I" />
+                                          <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="II" />
+                                          <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="III" />
+                                          <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="IV" />
+                                          <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="V" />
+                                       </children>
+                                    </HBox>
+                                    <Label prefHeight="30.0" prefWidth="120.0" text="Strategie:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox>
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Unknown" />
+                                                <Label prefHeight="30.0" prefWidth="30.0" />
+                                                <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="C" />
+                                                <Label prefHeight="30.0" prefWidth="30.0" />
+                                                <Label prefHeight="30.0" prefWidth="30.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox>
+                                             <children>
+                                                <Label prefHeight="30.0" prefWidth="30.0" />
+                                                <Label prefHeight="30.0" prefWidth="30.0" />
+                                                <Label prefHeight="30.0" prefWidth="30.0" />
+                                                <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+                                                <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+                                                <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+                                                <Label prefHeight="30.0" prefWidth="30.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox>
+                                             <children>
+                                                <Label prefHeight="30.0" prefWidth="30.0" />
+                                                <Label prefHeight="30.0" prefWidth="30.0" />
+                                                <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="R" />
+                                                <Label prefHeight="30.0" prefWidth="30.0" />
+                                                <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+                                                <Label prefHeight="30.0" prefWidth="30.0" />
+                                                <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="S" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="260.0" layoutY="14.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="240.0" text="Levensduur/oncurrentiekracht">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox>
+                                       <children>
+                                          <ComboBox prefHeight="30.0" prefWidth="210.0" />
+                                          <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="+" />
+                                       </children>
+                                    </HBox>
+                                    <ListView prefHeight="176.0" prefWidth="240.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <TitledPane text="Extra">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <HBox layoutX="14.0" layoutY="14.0">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox alignment="CENTER_LEFT">
+                                             <children>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Nectarwaarde:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Pollenwaarde:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Bijvriendelijk:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Vlindervriendelijk:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <Slider prefHeight="30.0" prefWidth="90.0" />
+                                                      <Label alignment="CENTER" prefHeight="30.0" prefWidth="30.0" text="0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Slider prefHeight="30.0" prefWidth="90.0" />
+                                                      <Label alignment="CENTER" prefHeight="30.0" prefWidth="30.0" text="0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" />
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="J" />
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="N" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" />
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="J" />
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="N" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox>
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Eetbaar:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Kruidgebruik:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Geurend:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Vorstgevoelig:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" />
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="J" />
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="N" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" />
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="J" />
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="N" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" />
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="J" />
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="N" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" />
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="J" />
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="N" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+               </children>
+            </VBox>
+            <TitledPane text="Fenotype">
+              <content>
+                <AnchorPane>
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Bladgrootte tot:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Bladvorm">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Ratio bloei/blad:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" prefWidth="120.0" text="Spruitfenologie:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <ComboBox prefHeight="30.0" prefWidth="120.0" />
+                                                <ComboBox prefHeight="30.0" prefWidth="120.0" />
+                                                <ComboBox prefHeight="30.0" prefWidth="120.0" />
+                                                <ComboBox prefHeight="30.0" prefWidth="120.0" />
+                                             </children>
+                                          </VBox>
+                                          <Label text="       " />
+                                          <TitledPane text="Levensvorm volgens Raunkhiaer">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                   <children>
+                                                      <HBox layoutX="14.0" layoutY="14.0">
+                                                         <children>
+                                                            <ImageView fitHeight="226.0" fitWidth="469.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../Images/img/LevensvormenvolgensRaunkiaer.gif" />
+                                                               </image>
+                                                            </ImageView>
+                                                            <VBox>
+                                                               <children>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="25.0" text="1. Hydrofyt">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="25.0" text="2. Hydrofyt">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="25.0" text="3. Helofyt">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="25.0" text="4. Cryptophyt ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="25.0" text="5. Cryptophyt ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="25.0" text="6. Hemikryptofyt ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="25.0" text="7. Chamaefyt">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="25.0" text="8. Chamaefyt">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="25.0" text="9. Fanerophyt">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <TitledPane text="Monthly">
+                                <content>
+                                  <AnchorPane>
+                                       <children>
+                                          <VBox layoutX="14.0" layoutY="14.0">
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" prefWidth="120.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="30.0" prefWidth="80.0" text="Jan">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="30.0" prefWidth="80.0" text="Feb">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="30.0" prefWidth="80.0" text="Maa">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="30.0" prefWidth="80.0" text="Apr">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="30.0" prefWidth="80.0" text="Mei">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="30.0" prefWidth="80.0" text="Jun">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="30.0" prefWidth="80.0" text="Jul">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="30.0" prefWidth="80.0" text="Aug">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="30.0" prefWidth="80.0" text="Sept">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="30.0" prefWidth="80.0" text="Okt">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="30.0" prefWidth="80.0" text="Nov">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="30.0" prefWidth="80.0" text="Dec">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" prefWidth="120.0" text="Max bladhoogte">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" prefWidth="120.0" text="Bladkleur">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" prefWidth="120.0" text="Min bloeihoogte">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" prefWidth="120.0" text="Max bloeihoogte">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                      <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" prefWidth="120.0" text="Bloeikleur">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                      <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                              <TitledPane text="Habitus">
+                                <content>
+                                  <AnchorPane>
+                                       <children>
+                                          <HBox layoutX="14.0" layoutY="14.0">
+                                             <children>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_01.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_02.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_03.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_04.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_05.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_06.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_07.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_08.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_09.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_10.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_11.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_12.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_13.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_14.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/Habitus_15.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                              <TitledPane text="Bloeiwijze">
+                                 <content>
+                                    <AnchorPane>
+                                       <children>
+                                          <HBox layoutX="14.0" layoutY="14.0">
+                                             <children>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Aar" />
+                                                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/aar.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Brede pluim" />
+                                                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/bredepluim.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Etage" />
+                                                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/etage.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Bol of knop" />
+                                                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/knop.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Margrietachtig" />
+                                                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/margrietachtig.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Schotel" />
+                                                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/platscherm-schotel.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Scherm" />
+                                                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/scherm.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Smalle pluim" />
+                                                      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../Images/img/smallepluim.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+         </children>
+      </HBox>
+      <Button layoutX="1495.0" layoutY="980.0" mnemonicParsing="false" text="Voeg plant toe">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="1700.0" layoutY="980.0" mnemonicParsing="false" text="Terug">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,175 @@
+
+/*knoppen rechtsboven voor mnimaliseren, maximaliseren, en afsluiten programma*/
+.SystemTray:hover{
+    -fx-cursor: hand;
+}
+.SystemTray{
+    -fx-font-size: 20px;
+    -fx-text-fill: #8c8c8c;
+    -fx-background-color: none;
+    -fx-font-weight: bold;
+}
+#btnExit:hover{
+    -fx-text-fill: #cb0000;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.7) , 10, 0.0 , 0 , 0 );
+}
+#btnminimize:hover{
+    -fx-text-fill: #0076dc;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.7) , 10, 0.0 , 0 , 0 );
+}
+#btnMaximize:hover{
+    -fx-text-fill: #298e21;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.7) , 10, 0.0 , 0 , 0 );
+}
+#btnminimize{
+    -fx-font-size: 25px;
+}
+
+
+#btnZoek{
+    -fx-background-color: #81bd3d;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 30px;
+    -fx-background-radius: 10pt;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 0 );
+
+}
+#btnZoek:hover{
+    -fx-background-color: #9dc470;
+    -fx-font-family: "Arial Black";
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+}
+
+.combo-box{
+     -fx-background-color: #514e4e;
+     -fx-font-family: "Arial";
+     -fx-text-alignment: center;
+     -fx-font-size: 13px;
+     -fx-background-radius: 5pt 5pt;
+     -fx-text-fill: #efefef;
+     -fx-prompt-text-fill: #d0d0d0;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 0 );
+ }
+
+.combo-box .list-cell
+{
+    -fx-background:#514e4e;
+    -fx-background-color: transparent;
+    -fx-text-fill: #efefef;
+    -fx-text-alignment: center;
+    -fx-padding: 3 0 2 7;
+    -fx-cell-size: 1.66667em;
+}
+
+.combo-box-popup .list-view
+{
+    -fx-background-color: #868181;
+    -fx-font-family: "Arial";
+    -fx-text-alignment: center;
+    -fx-font-size: 13px;
+    -fx-background-radius: 5pt 5pt;
+    -fx-text-fill: #efefef;
+    -fx-prompt-text-fill: #d0d0d0;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+}
+
+.combo-box-popup .list-view .list-cell
+{
+    -fx-padding: 4 0 4 5;
+    /* No alternate highlighting */
+    -fx-background-color: white;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover
+{
+    -fx-background: -fx-accent;
+    -fx-background-color: -fx-selection-bar;
+    -fx-text-fill: -fx-selection-bar-text;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover
+{
+    -fx-background-color: white;
+    -fx-text-fill: -fx-text-inner-color;
+}
+
+
+.combo-box-base:hover
+{
+    -fx-color: -fx-hover-base;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+}
+
+.combo-box-base:showing
+{
+    -fx-color: -fx-pressed-base;
+}
+
+.zoekbalk{
+    -fx-background-color: #514e4e;
+    -fx-text-fill: #efefef;
+    -fx-font-size: 15pt;
+    -fx-prompt-text-fill: #d0d0d0;
+    -fx-font-family: Arial;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 0 );
+}
+/*sliders*/
+/* Styling the slider track */
+.slider > .track {
+    -fx-background-color: #514e4e;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 0 );
+}
+/* Styling the slider thumb */
+.slider > .thumb {
+    -fx-background-color: green;
+}
+
+.check-box {
+    mark-color: #efefef;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 0 );
+}
+
+.check-box:selected > .box {
+    /* background color for selected checkbox */
+    -fx-background-color: #9dc470;
+}
+
+.check-box > .box {
+    /* background color of unselected checkbox */
+    -fx-background-color: #514e4e;
+}
+
+.check-box:selected > .box > .mark,
+.check-box:indeterminate  > .box > .mark {
+    /* modify mark color */
+    -fx-background-color: mark-color;
+}
+
+.color-picker{
+    -fx-background-color: #514e4e;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 0 );
+}
+
+.spinner{
+    -fx-background-color: lightgrey;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 0 );
+    -fx-text-fill: #efefef;
+}
+
+
+.radio-button > .radio{
+    -fx-background-color: #514e4e;
+}
+
+.radio-button:selected>.radio{
+    -fx-background-color: #9dc470;
+}
+
+.radio-button > .radio>.dot{
+    -fx-background-color:none;
+}
+
+.radio-button:selected>.radio>.dot{
+    -fx-background-color: #efefef;
+}
