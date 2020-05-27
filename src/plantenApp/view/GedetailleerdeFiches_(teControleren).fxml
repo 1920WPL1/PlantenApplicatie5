@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="888.0" prefWidth="1506.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TitledPane animated="false" collapsible="false" text="Controle">
+        <content>
+          <AnchorPane>
+               <children>
+                  <VBox layoutX="14.0" layoutY="14.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="OK">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Niet OK">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Wijzig">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Terug">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <TitledPane animated="false" collapsible="false" text="Fiche">
+                          <content>
+                            <AnchorPane>
+                                 <children>
+                                    <VBox layoutX="14.0" layoutY="14.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" text="Detail habitus">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true">
+                                                         <image>
+                                                            <Image url="@../../../Downloads/home-slideheader_02-img.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" text="Detail blad">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true">
+                                                         <image>
+                                                            <Image url="@../../../Downloads/fit%20(1).jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" text="Detail bloei">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true">
+                                                         <image>
+                                                            <Image url="@../../../Downloads/flower-1235236_960_720.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <Label prefWidth="50.0" />
+                                                <VBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" text="Beheer">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <VBox>
+                                                               <children>
+                                                                  <Label prefHeight="30.0" text="Behandeling ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Values" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Values" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                            <Label prefWidth="20.0" />
+                                                            <VBox>
+                                                               <children>
+                                                                  <Label prefHeight="30.0" text="Frequentie ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Values" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Values" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                            <Label prefWidth="20.0" />
+                                                            <VBox>
+                                                               <children>
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" text="Jan">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" text="Feb">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" text="Maa">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" text="Apr">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" text="Mei">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" text="Jun">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" text="Jul">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" text="Aug">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" text="Sep">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" text="Okt">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" text="Nov">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" text="Dec">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                          <HBox>
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Standaard">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Type: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Familie: " textFill="RED">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Geslacht: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Soort: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Variant: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Optimale plantdichtheid ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Label prefHeight="30.0" text="X: ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Label prefHeight="30.0" text="Y: ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value" textFill="RED">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <Label prefWidth="50.0" />
+                                                <HBox>
+                                                   <children>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Commensalisme">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Ontwikkelinkssnelheid: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Sociabiliteit">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Strategie: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Levensduur/ Concurrentiekracht: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox>
+                                                               <children>
+                                                                  <CheckBox mnemonicParsing="false" prefHeight="30.0" text="I ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                                  <CheckBox mnemonicParsing="false" prefHeight="30.0" text="II ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                                  <CheckBox mnemonicParsing="false" prefHeight="30.0" text="III ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                                  <CheckBox mnemonicParsing="false" prefHeight="30.0" text="IV ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                                  <CheckBox mnemonicParsing="false" prefHeight="30.0" text="V ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                               </children>
+                                                            </HBox>
+                                                            <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Values" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Values" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <Label prefWidth="50.0" />
+                                                <HBox>
+                                                   <children>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Abiotische factoren">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bezonning: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Vochtbehoefte: " textFill="RED">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Voedingsbehoefte: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Reactie antagonistische omgeving: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Grondsoort: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Habitat:">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider prefHeight="30.0" />
+                                                                  <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider prefHeight="30.0" />
+                                                                  <Label prefHeight="30.0" text="Value" textFill="RED">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider prefHeight="30.0" />
+                                                                  <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Values" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Values" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <Label prefWidth="50.0" />
+                                                <HBox>
+                                                   <children>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Extra">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Nectarwaarde: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Pollenwaarde: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bijvriendelijk: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Vlindervriendelijk: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Eetbaar: " textFill="RED">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Kruidgebruik: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Geurend: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Vorstgevoelig: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider max="5.0" prefHeight="30.0" />
+                                                                  <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider max="5.0" prefHeight="30.0" />
+                                                                  <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <Label prefHeight="30.0" text="Ja" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Ja" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Nee" textFill="RED">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Ja" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Onbekend" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Nee" textFill="#838383">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                          <Label prefWidth="50.0" />
+                                          <VBox>
+                                             <children>
+                                                <Label prefHeight="30.0" text="Fenotype">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox>
+                                                   <children>
+                                                      <HBox>
+                                                         <children>
+                                                            <VBox>
+                                                               <children>
+                                                                  <Label prefHeight="30.0" text="Bladgrootte tot:">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Bladvorm" textFill="RED">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Ratio bloei/blad:">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Spruitfenologie:">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Levensvorm volgens Raunkhiaer: ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Habitus: ">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../Images/img/Habitus_01.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox>
+                                                               <children>
+                                                                  <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Value" textFill="RED">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Value" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" textFill="#838383">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Bloeiwijze: " textFill="RED">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="30.0" text="Value" textFill="RED">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../Images/img/aar.jpg" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                      <Label prefWidth="50.0" />
+                                                      <TitledPane animated="false" collapsible="false" text="Monthly">
+                                                         <content>
+                                                            <AnchorPane>
+                                                               <children>
+                                                                  <VBox layoutX="14.0" layoutY="14.0">
+                                                                     <children>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <Label prefHeight="30.0" prefWidth="120.0">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Jan">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Feb">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Maa">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Apr">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Mei">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Jun">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Jul">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Aug">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Sept">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Okt">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Nov">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Dec">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <Label prefHeight="30.0" prefWidth="120.0" text="Max bladhoogte">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <Label prefHeight="30.0" prefWidth="120.0" text="Bladkleur">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <Label prefHeight="30.0" prefWidth="120.0" text="Min bloeihoogte" textFill="RED">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="RED">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="RED">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="RED">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="RED">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="RED">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <Label prefHeight="30.0" prefWidth="120.0" text="Max bloeihoogte">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="0" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <Label prefHeight="30.0" prefWidth="120.0" text="Bloeikleur">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" text="Kleur" textFill="#838383">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

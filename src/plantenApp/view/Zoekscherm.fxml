@@ -1,0 +1,2100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="1860.0" minHeight="-Infinity" minWidth="1860.0" prefHeight="1080.0" prefWidth="1860.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="2228.0" prefWidth="1860.0">
+         <children>
+            <TitledPane maxWidth="1860.0" minWidth="1829.0" prefWidth="1829.0" text="Zoek">
+              <content>
+                <AnchorPane maxWidth="1860.0" minWidth="1860.0" prefWidth="1860.0">
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" text="Type: ">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox prefHeight="30.0" prefWidth="150.0" />
+                                                   </children>
+                                                </HBox>
+                                                <Label minWidth="20.0" />
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="30.0" text="Familie: ">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox prefHeight="30.0" prefWidth="150.0" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                          <Label prefHeight="30.0" text="Search:">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefHeight="30.0" promptText="Familie Geslacht Soort Variant" />
+                                       </children>
+                                    </VBox>
+                                    <Label minWidth="20.0" />
+                                    <HBox>
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label prefHeight="30.0" text="Bladkleur: ">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" text="Bladhoogte: ">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" text="Bloeikleur">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" text="Bloeihoogte: ">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <ComboBox prefHeight="30.0" prefWidth="120.0" />
+                                                      <Button minHeight="30.0" minWidth="30.0" mnemonicParsing="false" style="-fx-background-color: green;" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Spinner prefHeight="30.0" prefWidth="65.0" />
+                                                      <Label alignment="CENTER" minWidth="10.0" prefHeight="30.0" prefWidth="20.0" text=" - ">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Spinner prefHeight="30.0" prefWidth="65.0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <ComboBox prefHeight="30.0" prefWidth="120.0" />
+                                                      <Button minHeight="30.0" minWidth="30.0" mnemonicParsing="false" style="-fx-background-color: magenta;" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Spinner prefHeight="30.0" prefWidth="65.0" />
+                                                      <Label alignment="CENTER" minWidth="10.0" prefHeight="30.0" prefWidth="20.0" text=" - ">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Spinner prefHeight="30.0" prefWidth="65.0" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <Label minWidth="20.0" />
+                                    <HBox>
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label prefHeight="30.0" text="Bezonning: ">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" text="Vochtbehoefte: ">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" text="Grondsoort: ">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="30.0" text="Bladgrootte: ">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <Slider max="5.0" prefHeight="30.0" prefWidth="80.0" />
+                                                      <Label alignment="CENTER" prefHeight="30.0" text="None">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Slider max="7.0" prefHeight="30.0" prefWidth="80.0" />
+                                                      <Label alignment="CENTER" prefHeight="30.0" text="None">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="Z" />
+                                                      <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="L" />
+                                                      <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="K" />
+                                                   </children>
+                                                </HBox>
+                                                <ComboBox prefHeight="30.0" prefWidth="120.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <Label minWidth="20.0" />
+                                    <HBox>
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label prefHeight="30.0" text="Habitat: ">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox prefHeight="30.0" prefWidth="250.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <Label minWidth="20.0" prefHeight="120.0" prefWidth="468.0" />
+                                    <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Zoek">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Label minWidth="20.0" />
+                              <TitledPane prefWidth="1800.0" text="Advanced">
+                                <content>
+                                  <AnchorPane>
+                                       <children>
+                                          <HBox layoutX="14.0" layoutY="14.0">
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Abiotische factoren: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Voedingsbehoefte: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Reactie antagonistische omgeving: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <Label prefHeight="30.0" text="Commensalisme: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Ontwikkelingssnelheid: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Levensduur/Concurrentiekracht: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Sociabiliteit: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Strategie: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Extra:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Nectarwaarde: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Pollenwaarde: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Bijvriendelijk: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Vlindervriendelijk: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Eetbaar: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Kruidgebruik: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Geurend: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Vorstgevoelig: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <Label prefHeight="30.0" text="Fenotype:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Bladvorm:">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Ratio bloei/blad: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Spruitfenologie: ">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <Label prefHeight="30.0" text="Beheer">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Behandeling">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="Maand">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                            <CheckBox mnemonicParsing="false" prefHeight="30.0" text="per x jaar">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </CheckBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider prefHeight="30.0" prefWidth="174.0" />
+                                                                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="30.0" text="0">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <ComboBox prefHeight="30.0" prefWidth="240.0" />
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <ComboBox prefHeight="30.0" prefWidth="240.0" />
+                                                            <ComboBox prefHeight="30.0" prefWidth="240.0" />
+                                                            <HBox>
+                                                               <children>
+                                                                  <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="I">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                                  <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="II">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                                  <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="III">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                                  <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="IV">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                                  <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="V">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                               </children>
+                                                            </HBox>
+                                                            <VBox>
+                                                               <children>
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Onbekend">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </RadioButton>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" />
+                                                                        <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="C">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </RadioButton>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" />
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" />
+                                                                        <Label prefHeight="30.0" prefWidth="65.0" />
+                                                                        <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="25.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </RadioButton>
+                                                                        <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="25.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </RadioButton>
+                                                                        <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </RadioButton>
+                                                                        <Label prefHeight="30.0" prefWidth="30.0" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <Label prefHeight="30.0" prefWidth="63.0" />
+                                                                        <RadioButton mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="30.0" text="R">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </RadioButton>
+                                                                        <Label prefHeight="30.0" prefWidth="23.0" />
+                                                                        <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </RadioButton>
+                                                                        <Label prefHeight="30.0" prefWidth="11.0" />
+                                                                        <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="S">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </RadioButton>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </VBox>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider prefHeight="30.0" prefWidth="174.0" />
+                                                                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="30.0" text="0">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider prefHeight="30.0" prefWidth="174.0" />
+                                                                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="30.0" text="0">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Ja">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Nee">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" text="Onbekend">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Ja">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Nee">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" text="Onbekend">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Ja">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Nee">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" text="Onbekend">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Ja">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Nee">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" text="Onbekend">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Ja">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Nee">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" text="Onbekend">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Ja">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Nee">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                                  <RadioButton mnemonicParsing="false" prefHeight="30.0" text="Onbekend">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </RadioButton>
+                                                               </children>
+                                                            </HBox>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <ComboBox prefHeight="30.0" prefWidth="200.0" />
+                                                            <ComboBox prefHeight="30.0" prefWidth="200.0" />
+                                                            <ComboBox prefHeight="30.0" prefWidth="200.0" />
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <ComboBox prefHeight="30.0" prefWidth="200.0" />
+                                                            <ComboBox prefHeight="30.0" prefWidth="200.0" />
+                                                            <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <Label minWidth="20.0" />
+                                                <VBox>
+                                                   <children>
+                                                      <TitledPane text="Maandelijks">
+                                                         <content>
+                                                            <AnchorPane>
+                                                               <children>
+                                                                  <VBox layoutX="14.0" layoutY="14.0">
+                                                                     <children>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <Label prefHeight="30.0" prefWidth="120.0">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label prefHeight="30.0" prefWidth="80.0" text="Jan">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label prefHeight="30.0" prefWidth="80.0" text="Feb">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label prefHeight="30.0" prefWidth="80.0" text="Maa">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label prefHeight="30.0" prefWidth="80.0" text="Apr">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label prefHeight="30.0" prefWidth="80.0" text="Mei">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label prefHeight="30.0" prefWidth="80.0" text="Jun">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label prefHeight="30.0" prefWidth="80.0" text="Jul">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label prefHeight="30.0" prefWidth="80.0" text="Aug">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label prefHeight="30.0" prefWidth="80.0" text="Sept">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label prefHeight="30.0" prefWidth="80.0" text="Okt">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label prefHeight="30.0" prefWidth="80.0" text="Nov">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <Label prefHeight="30.0" prefWidth="80.0" text="Dec">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Max bladhoogte">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </CheckBox>
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Bladkleur">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </CheckBox>
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Min bloeihoogte">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </CheckBox>
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Max bloeihoogte">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </CheckBox>
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                              <Spinner prefHeight="30.0" prefWidth="80.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Bloeikleur">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </CheckBox>
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                              <ComboBox prefHeight="30.0" prefWidth="80.0" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                      <TitledPane text="Habitus">
+                                                         <content>
+                                                            <AnchorPane>
+                                                               <children>
+                                                                  <HBox layoutX="14.0" layoutY="14.0">
+                                                                     <children>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <Label minWidth="20.0" />
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_15.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_01.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_02.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_03.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_04.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_05.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_06.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_07.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_08.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_09.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_10.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_11.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_12.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_13.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Habitus" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/Habitus_14.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                      <TitledPane text="Bloeiwijze">
+                                                         <content>
+                                                            <AnchorPane>
+                                                               <children>
+                                                                  <HBox layoutX="14.0" layoutY="14.0">
+                                                                     <children>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <Label minWidth="20.0" />
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Aar" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/aar.jpg" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Brede pluim" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/bredepluim.jpg" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Etage" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/etage.jpg" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Bol of knop" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/knop.jpg" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Margrietachtig" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/margrietachtig.jpg" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Schotel" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/platscherm-schotel.jpg" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Scherm" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/scherm.jpg" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Smalle pluim" />
+                                                                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../Images/img/smallepluim.jpg" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                      <TitledPane text="Levensvorm volgens Raunkhiaer">
+                                                        <content>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                               <children>
+                                                                  <HBox layoutX="14.0" layoutY="14.0">
+                                                                     <children>
+                                                                        <CheckBox mnemonicParsing="false" prefHeight="30.0">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </CheckBox>
+                                                                        <Label minWidth="20.0" />
+                                                                        <ImageView fitHeight="226.0" fitWidth="469.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../Images/img/LevensvormenvolgensRaunkiaer.gif" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                        <VBox>
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="25.0" text="1. Hydrofyt">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </RadioButton>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="25.0" text="2. Hydrofyt">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </RadioButton>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="25.0" text="3. Helofyt">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </RadioButton>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="25.0" text="4. Cryptophyt ">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </RadioButton>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="25.0" text="5. Cryptophyt ">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </RadioButton>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="25.0" text="6. Hemikryptofyt ">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </RadioButton>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="25.0" text="7. Chamaefyt">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </RadioButton>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="25.0" text="8. Chamaefyt">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </RadioButton>
+                                                                              <RadioButton mnemonicParsing="false" prefHeight="25.0" text="9. Fanerophyt">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </RadioButton>
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </content>
+                                                      </TitledPane>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" text="Overzicht zoekopdracht">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1080.0" prefWidth="1870.0">
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0">
+                           <children>
+                              <TitledPane text="Familie Geslacht Soort Variant">
+                                <content>
+                                  <AnchorPane>
+                                       <children>
+                                          <HBox layoutX="14.0" layoutY="14.0">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@../../../Downloads/home-slideheader_02-img.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Type:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Familie:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Soort:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Geslacht: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Variant:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Bladkleur: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bladhoogte: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bloeikleur">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bloeihoogte: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Groen, Bruin">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="0 - 100">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Paars">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="20-60">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Bezonning: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Vochtbehoefte: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Grondsoort: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bladgrootte: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider disable="true" max="4.0" prefHeight="30.0" prefWidth="80.0" value="2.0" />
+                                                                  <Label alignment="CENTER" prefHeight="30.0" text="Z-HS">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider disable="true" max="6.0" prefHeight="30.0" prefWidth="80.0" value="3.0" />
+                                                                  <Label alignment="CENTER" prefHeight="30.0" text="Fris">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <Label prefHeight="30.0" text="Zand, Leem">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="20">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Habitat: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Gemengde boord met droge bodem GB1">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Gemengde boord met vochtige bodem GB3">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bos en onder bomen met frisse bodem B2">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Open plaats met vochtige bodem OP3B">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="+ 4">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Details">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Label prefWidth="20.0" />
+                                                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Beheer">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Wijzig">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Prioriteit instellen">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TitledPane>
+                              <TitledPane animated="false" expanded="false" text="Familie Geslacht Soort Variant">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TitledPane>
+                              <TitledPane animated="false" expanded="false" text="Familie Geslacht Soort Variant">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TitledPane>
+                              <TitledPane animated="false" expanded="false" text="Familie Geslacht Soort Variant">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TitledPane>
+                              <TitledPane animated="false" expanded="false" text="Familie Geslacht Soort Variant">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TitledPane>
+                              <TitledPane animated="false" expanded="false" text="Familie Geslacht Soort Variant">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TitledPane>
+                              <TitledPane text="Familie Geslacht Soort Variant">
+                                 <content>
+                                    <AnchorPane>
+                                       <children>
+                                          <HBox layoutX="14.0" layoutY="14.0">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@../../../Downloads/home-slideheader_02-img.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Type:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Familie:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Soort:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Geslacht: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Variant:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Bladkleur: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bladhoogte: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bloeikleur">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bloeihoogte: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Groen, Bruin">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="0 - 100">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Paars">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="20-60">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Bezonning: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Vochtbehoefte: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Grondsoort: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bladgrootte: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider disable="true" max="4.0" prefHeight="30.0" prefWidth="80.0" value="2.0" />
+                                                                  <Label alignment="CENTER" prefHeight="30.0" text="Z-HS">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider disable="true" max="6.0" prefHeight="30.0" prefWidth="80.0" value="3.0" />
+                                                                  <Label alignment="CENTER" prefHeight="30.0" text="Fris">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <Label prefHeight="30.0" text="Zand, Leem">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="20">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Habitat: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Gemengde boord met droge bodem GB1">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Gemengde boord met vochtige bodem GB3">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bos en onder bomen met frisse bodem B2">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Open plaats met vochtige bodem OP3B">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="+ 4">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Details">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Label prefWidth="20.0" />
+                                                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Beheer">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Wijzig">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Prioriteit instellen">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TitledPane>
+                              <TitledPane text="Familie Geslacht Soort Variant">
+                                 <content>
+                                    <AnchorPane>
+                                       <children>
+                                          <HBox layoutX="14.0" layoutY="14.0">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@../../../Downloads/home-slideheader_02-img.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Type:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Familie:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Soort:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Geslacht: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Variant:">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Value">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Bladkleur: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bladhoogte: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bloeikleur">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bloeihoogte: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Groen, Bruin">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="0 - 100">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Paars">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="20-60">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Bezonning: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Vochtbehoefte: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Grondsoort: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bladgrootte: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider disable="true" max="4.0" prefHeight="30.0" prefWidth="80.0" value="2.0" />
+                                                                  <Label alignment="CENTER" prefHeight="30.0" text="Z-HS">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Slider disable="true" max="6.0" prefHeight="30.0" prefWidth="80.0" value="3.0" />
+                                                                  <Label alignment="CENTER" prefHeight="30.0" text="Fris">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <Label prefHeight="30.0" text="Zand, Leem">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="20">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Habitat: ">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox>
+                                                         <children>
+                                                            <Label prefHeight="30.0" text="Gemengde boord met droge bodem GB1">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Gemengde boord met vochtige bodem GB3">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Bos en onder bomen met frisse bodem B2">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="Open plaats met vochtige bodem OP3B">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" text="+ 4">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefWidth="20.0" />
+                                                      <VBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Details">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Label prefWidth="20.0" />
+                                                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Beheer">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Wijzig">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Prioriteit instellen">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TitledPane>
+                              <TitledPane animated="false" expanded="false" text="Familie Geslacht Soort Variant">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TitledPane>
+                              <TitledPane animated="false" expanded="false" text="Familie Geslacht Soort Variant">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TitledPane>
+                           </children>
+                        </VBox>
+                        <Button layoutX="1739.0" layoutY="14.0" mnemonicParsing="false" text="Export">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
