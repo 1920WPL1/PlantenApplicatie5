@@ -45,6 +45,7 @@ public class controller_login {
 
     public void click_Terug(MouseEvent mouseEvent) {
         try {
+            // van beheer gebruikers scherm naar Zoekscherm
             Parent root = FXMLLoader.load(getClass().getResource("view/Zoekscherm.fxml"));
             Scene scene = new Scene(root); Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
             window.setScene(scene); window.show();

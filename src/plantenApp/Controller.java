@@ -230,6 +230,11 @@ public class Controller {
     public void Clicked_Nectarwaarde(MouseEvent mouseEvent) {
         Togledisable(chkNectarwaarde, slrNectarwaarde);
     }
+
+    public void click_BeheerGebruikerProfiel(MouseEvent mouseEvent) {
+        // Van zoekscherm naar BeheerGebruikers scherm
+
+    }
 }
 
 
