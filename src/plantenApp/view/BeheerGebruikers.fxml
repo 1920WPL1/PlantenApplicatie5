@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.controller_login">
    <children>
       <TitledPane animated="false" collapsible="false" text="Beheer gebruikers">
         <content>
@@ -20,7 +19,7 @@
                <children>
                   <VBox layoutX="14.0" layoutY="14.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Terug">
+                        <Button fx:id="btnTerug" mnemonicParsing="false" onMouseClicked="#click_Terug" text="Terug">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -29,9 +28,9 @@
                            <children>
                               <VBox>
                                  <children>
-                                    <TextField prefHeight="30.0" prefWidth="240.0" promptText="Search" />
+                                    <TextField fx:id="txtZoekGebruiker" prefHeight="30.0" prefWidth="240.0" promptText="Search" />
                                     <HBox />
-                                    <ListView prefHeight="336.0" prefWidth="240.0" />
+                                    <ListView fx:id="lstResGebruikers" prefHeight="336.0" prefWidth="240.0" />
                                  </children>
                               </VBox>
                               <Label prefHeight="30.0" prefWidth="20.0">
@@ -80,17 +79,17 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label prefHeight="30.0" text="Voornaam Achternaam" textFill="#8a8a8a">
+                                    <Label fx:id="lblVoornaamAchterNaam" prefHeight="30.0" text="Voornaam Achternaam" textFill="#8a8a8a">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label prefHeight="30.0" text="E-mail" textFill="#8a8a8a">
+                                    <Label fx:id="lblEmail" prefHeight="30.0" text="E-mail" textFill="#8a8a8a">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label prefHeight="30.0" text="Datum" textFill="#8a8a8a">
+                                    <Label fx:id="lblDatum" prefHeight="30.0" text="Datum" textFill="#8a8a8a">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -100,7 +99,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox prefHeight="30.0" prefWidth="150.0" />
+                                    <ComboBox fx:id="cmbRol" prefHeight="30.0" prefWidth="150.0" />
                                     <HBox>
                                        <children>
                                           <Label prefHeight="30.0" prefWidth="100.0" textFill="#8a8a8a">
@@ -108,7 +107,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <Button mnemonicParsing="false" prefHeight="30.0" text="Save">
+                                          <Button fx:id="btnSaveGebruiker" mnemonicParsing="false" onMouseClicked="#Click_SaveGebruiker" prefHeight="30.0" text="Save">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -121,7 +120,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Button layoutX="383.0" layoutY="401.0" mnemonicParsing="false" prefHeight="30.0" text="Verwijder gebruiker">
+                  <Button fx:id="btnVerwijderGebruiker" layoutX="383.0" layoutY="401.0" mnemonicParsing="false" onMouseClicked="#Click_VerwijderGebruiker" prefHeight="30.0" text="Verwijder gebruiker">
                      <font>
                         <Font size="14.0" />
                      </font>

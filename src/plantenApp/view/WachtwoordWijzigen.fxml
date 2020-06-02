@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.controller_login">
    <children>
       <TitledPane animated="false" collapsible="false" text="Wachtwoord wijzigen">
          <content>
@@ -33,11 +33,11 @@
                         </VBox>
                         <VBox>
                            <children>
-                              <TextField prefHeight="30.0" prefWidth="120.0" promptText="****" />
-                              <TextField prefHeight="30.0" prefWidth="120.0" promptText="****" />
+                              <TextField fx:id="txtWachtwoordWijzigen" prefHeight="30.0" prefWidth="120.0" promptText="****" />
+                              <TextField fx:id="txtBevWachtwoordWijzigen" prefHeight="30.0" prefWidth="120.0" promptText="****" />
                               <HBox>
                                  <children>
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" text="Verander wachtwoord" />
+                                    <Button fx:id="btnVeranderWachtwoord" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#Click_wijzigWachtwoord" prefHeight="30.0" text="Verander wachtwoord" />
                                  </children>
                               </HBox>
                            </children>
