@@ -4,12 +4,19 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
 import plantenApp.java.dao.AbiotischeFactorenDAO;
+
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import plantenApp.java.dao.Database;
 import plantenApp.java.dao.InfoTablesDAO;
 import plantenApp.java.dao.PlantDAO;
 import plantenApp.java.model.InfoTables;
 import plantenApp.java.model.Plant;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -88,6 +95,45 @@ public class Controller {
         } else {
             slider.setDisable(true);
             return false;
+        }
+    }
+
+
+    public void Clicked_Bezonning(MouseEvent mouseEvent) {
+        Togledisable(chkBezonning, slrBezonning);
+    }
+
+    public void Clicked_Vochtbehoefte(MouseEvent mouseEvent) {
+        Togledisable(chkVochtbehoefte, slrVochtbehoefte);
+    }
+
+    public void Clicked_VoedingsBehoefte(MouseEvent mouseEvent) {
+        Togledisable(chkVoedingsbehoefte, slrVoedingsbehoefte);
+    }
+
+    public void Clicked_Ontwikkelingssnelheid(MouseEvent mouseEvent) {
+        Togledisable(chkOntwikkelingsnelheid, slrOntwikkelingssnelheid);
+    }
+
+    public void Clicked_Pollenwaarde(MouseEvent mouseEvent) {
+        Togledisable(chkPollenwaarde, slrPollenwaarde);
+    }
+
+    public void Clicked_Nectarwaarde(MouseEvent mouseEvent) {
+        Togledisable(chkNectarwaarde, slrNectarwaarde);
+    }
+
+
+    public void click_BeheerGebruikerProfiel(MouseEvent mouseEvent) throws Exception {
+        // naar het scherm van beheergebruikers.
+        try {
+            Parent root2 = FXMLLoader.load(getClass().getResource("view/BeheerGebruikers.fxml"));
+            Scene scene = new Scene(root2);
+            Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+            window.setScene(scene);
+            window.show();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
