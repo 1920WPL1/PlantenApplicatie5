@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="plantenApp.controller_login" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TitledPane animated="false" collapsible="false" text="Gebruikers aanvraag">
         <content>
@@ -54,7 +54,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Goedkeuren">
+                              <Button fx:id="btnGoedkeurenAanvraag" mnemonicParsing="false" onMouseClicked="#clicked_GoedkeurenAanvraag" prefHeight="30.0" prefWidth="150.0" text="Goedkeuren">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -68,17 +68,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="30.0" text="Voornaam Achternaam" textFill="#8a8a8a">
+                              <Label fx:id="lblNaamAanvraag" prefHeight="30.0" text="Voornaam Achternaam" textFill="#8a8a8a">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="30.0" text="E-mail" textFill="#8a8a8a">
+                              <Label fx:id="lblEmailAanvraag" prefHeight="30.0" text="E-mail" textFill="#8a8a8a">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="30.0" text="Datum" textFill="#8a8a8a">
+                              <Label fx:id="lblDatumAanvraag" prefHeight="30.0" text="Datum" textFill="#8a8a8a">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -88,7 +88,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <ComboBox prefHeight="30.0" prefWidth="150.0" />
+                              <ComboBox fx:id="cmbRol" prefHeight="30.0" prefWidth="150.0" />
                               <Label prefHeight="30.0" textFill="#8a8a8a">
                                  <font>
                                     <Font size="14.0" />
@@ -96,7 +96,7 @@
                               </Label>
                               <HBox>
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Verwijder aanvraag">
+                                    <Button fx:id="btnVerwijderAanvraag" mnemonicParsing="false" onMouseClicked="#clicked_VerwijderAanvraag" prefHeight="30.0" prefWidth="150.0" text="Verwijder aanvraag">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
