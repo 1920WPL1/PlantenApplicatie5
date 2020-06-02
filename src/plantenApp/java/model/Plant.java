@@ -1,6 +1,8 @@
 package plantenApp.java.model;
 
-/**@author Siebe*/
+/**
+ * @author Siebe
+ */
 public class Plant {
     private int id;
     private String type;
@@ -10,6 +12,11 @@ public class Plant {
     private String variatie;
     private int minPlantdichtheid;
     private int maxPlantdichtheid;
+
+    private AbiotischeFactoren abiotischeFactoren;
+    private Commensalisme commensalisme;
+    private Fenotype fenotype;
+    private Extra extra;
 
     public Plant(int id, String type, String familie, String geslacht, String soort, String variatie, int minPlantdichtheid, int maxPlantdichtheid) {
         this.id = id;
@@ -52,5 +59,37 @@ public class Plant {
 
     public int getMaxPlantdichtheid() {
         return maxPlantdichtheid;
+    }
+
+    public AbiotischeFactoren getAbiotischeFactoren() {
+        return abiotischeFactoren;
+    }
+
+    public void setAbiotischeFactoren(AbiotischeFactoren abiotischeFactoren) {
+        this.abiotischeFactoren = abiotischeFactoren;
+    }
+
+    public Commensalisme getCommensalisme() {
+        return commensalisme;
+    }
+
+    public void setCommensalisme(Commensalisme commensalisme) {
+        this.commensalisme = commensalisme;
+    }
+
+    public Fenotype getFenotype() {
+        return fenotype;
+    }
+
+    public void setFenotype(Fenotype fenotype) {
+        this.fenotype = fenotype;
+    }
+
+    public Extra getExtra() {
+        return extra;
+    }
+
+    public void setExtra(Extra extra) {
+        this.extra = extra;
     }
 }
