@@ -12,7 +12,7 @@ public class Main extends Application {
     private double yOffset = 0;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("view/Zoekscherm.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/Inloggen.fxml"));
         primaryStage.setTitle("Planten applicatie");
         primaryStage.setScene(new Scene(root, 1278, 858));
         primaryStage.show();
