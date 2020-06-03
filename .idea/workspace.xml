@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="458cf08c-d7b0-4752-a547-bf77a3780def" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers_Groep3.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties_Groep3.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/plantenApp/view/Homescreen_Admin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plantenApp/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/controller_login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/controller_login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/Zoekscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/Zoekscherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +29,13 @@
     </option>
     <expand />
     <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,6 +77,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1103" y="600" key="Github.CreateGistDialog" timestamp="1591176279687">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1103" y="600" key="Github.CreateGistDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591176279687" />
     <state width="1578" height="398" key="GridCell.Tab.0.bottom" timestamp="1591110192842">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

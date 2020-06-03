@@ -234,7 +234,28 @@ public class Controller {
     public void click_BeheerGebruikerProfiel(MouseEvent mouseEvent) {
         // Van zoekscherm naar BeheerGebruikers scherm
 
+
     }
+
+    // Nieuw scherm: Beheer Registraties (aangemaakt door groep 5)
+
+    public void clicked_NaarZoekscherm(MouseEvent mouseEvent) {
+    }
+
+    public void clicked_Goedkeuren(MouseEvent mouseEvent) {
+    }
+
+    public void clicked_Afwijzen(MouseEvent mouseEvent) {
+    }
+
+    // Nieuw Scherm: Beheer Gebruikers
+
+    public void clicked_VerwijderenGebruiker(MouseEvent mouseEvent) {
+    }
+
+    public  void clicked_wijzigGebruiker(MouseEvent mouseEvent) {
+    }
+    
 }
 
 
