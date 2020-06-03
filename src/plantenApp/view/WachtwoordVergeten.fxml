@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="plantenApp.ControllerLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TitledPane animated="false" collapsible="false" text="Wachtwoord vergeten">
         <content>
@@ -24,7 +24,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="30.0" prefWidth="240.0" promptText="email" />
+                              <TextField fx:id="txtEmail" prefHeight="30.0" prefWidth="240.0" promptText="email" />
                               <HBox>
                                  <children>
                                     <Label prefHeight="30.0" prefWidth="182.0">
@@ -32,7 +32,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" text="Verstuur" />
+                                    <Button fx:id="btnVerstuurEmail" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#clicked_MailVersturen" prefHeight="30.0" text="Verstuur" />
                                  </children>
                               </HBox>
                            </children>

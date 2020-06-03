@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="plantenApp.ControllerLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TitledPane animated="false" collapsible="false" text="Aanvraag">
          <content>
@@ -43,10 +43,10 @@
                         </VBox>
                         <VBox>
                            <children>
-                              <TextField prefHeight="30.0" prefWidth="120.0" />
-                              <TextField prefHeight="30.0" prefWidth="120.0" />
-                              <TextField prefHeight="30.0" prefWidth="120.0" />
-                              <TextField prefHeight="30.0" prefWidth="120.0" promptText="****" />
+                              <TextField fx:id="txtVoornaam" prefHeight="30.0" prefWidth="120.0" />
+                              <TextField fx:id="txtAchternaam" prefHeight="30.0" prefWidth="120.0" />
+                              <TextField fx:id="txtEmail" prefHeight="30.0" prefWidth="120.0" />
+                              <TextField fx:id="txtWachtwoord" prefHeight="30.0" prefWidth="120.0" promptText="****" />
                               <HBox>
                                  <children>
                                     <Label prefHeight="30.0" prefWidth="60.0">
@@ -54,7 +54,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" text="Verstuur" />
+                                    <Button fx:id="btnVerstuur" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#clicked_Versturen" prefHeight="30.0" text="Verstuur" />
                                  </children>
                               </HBox>
                            </children>
