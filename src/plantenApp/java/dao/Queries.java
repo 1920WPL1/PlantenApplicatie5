@@ -224,5 +224,16 @@ public interface Queries {
     String NTFOTOBlOEIWIJZE =
             "SELECT afbeelding FROM bloeiwijze";
     //endregion
+
+
+    /**
+     * @Author Bart
+     * de queries die gebruikt worden voor de gebruikerstabel
+     */
+    //region Gebruiker
+    String GETALLGEBRUIKERS = "SELECT * FROM gebruiker";
+    String GETGEBRUIKERBYEMAILADRES = "SELECT * FROM gebruiker WHERE email = ?";
+
+    //endregion
 }
 

@@ -1,2 +1,4 @@
 # Project exclude paths
 /out/
+/src/plantenApp/java/model/Gebruiker.java
+/src/plantenApp/java/dao/GebruikerDAO.java

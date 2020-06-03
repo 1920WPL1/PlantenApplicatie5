@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="plantenApp.controller_login" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerLogin">
    <children>
-      <TitledPane animated="false" collapsible="false" text="Login">
+      <TitledPane animated="false" collapsible="false" prefHeight="167.0" prefWidth="272.0" text="Login">
         <content>
           <AnchorPane>
                <children>
@@ -29,13 +29,12 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="lblWachtwoordVergeten" onMouseClicked="#click_WwVergeten" text="Wachtwoord vergeten" textFill="#9a9a9a" />
                            </children>
                         </VBox>
                         <VBox>
                            <children>
                               <TextField fx:id="txtEmail" prefHeight="30.0" prefWidth="120.0" promptText="email" />
-                              <TextField fx:id="lblWachtwoord" prefHeight="30.0" prefWidth="120.0" promptText="****" />
+                              <TextField fx:id="txtWachtwoord" prefHeight="30.0" prefWidth="120.0" promptText="****" />
                               <HBox>
                                  <children>
                                     <Label prefHeight="30.0" prefWidth="60.0">
@@ -43,13 +42,15 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="btnLogin" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#clicked_Login" prefHeight="30.0" prefWidth="60.0" text="Login" />
+                                    <Button fx:id="btnLogin" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#clicked_Login" prefHeight="30.0" prefWidth="85.0" text="Login" />
                                  </children>
                               </HBox>
                            </children>
                         </VBox>
                      </children>
                   </HBox>
+                  <Button fx:id="btnRegistreer" alignment="CENTER" layoutX="190.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#Clicked_Registreer" prefHeight="30.0" prefWidth="85.0" text="Registreer" />
+                  <Label fx:id="lblWachtwoordVergeten" layoutX="14.0" layoutY="102.0" onMouseClicked="#click_WwVergeten" text="Wachtwoord vergeten" textFill="#9a9a9a" />
                </children>
             </AnchorPane>
         </content>
