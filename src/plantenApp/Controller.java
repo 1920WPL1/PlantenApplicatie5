@@ -255,7 +255,28 @@ public class Controller {
 
     public  void clicked_wijzigGebruiker(MouseEvent mouseEvent) {
     }
-    
+
+    // hoofdscherm applicatie 
+    public void click_NaarZoekscherm(MouseEvent mouseEvent) {
+    }
+
+    public void click_ProfielBeheren(MouseEvent mouseEvent) {
+    }
+
+    public void click_RegistratiesBeheren(MouseEvent mouseEvent) {
+    }
+
+    public void click_GebruikersBeheren(MouseEvent mouseEvent) {
+    }
+
+    public void clicked_ToevoegenPlant(MouseEvent mouseEvent) {
+    }
+
+    public void click_PlantZoekWijzig(MouseEvent mouseEvent) {
+    }
+
+    public void click_PlantAanvraagBeheren(MouseEvent mouseEvent) {
+    }
 }
 
 

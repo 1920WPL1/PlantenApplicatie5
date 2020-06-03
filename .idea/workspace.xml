@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="458cf08c-d7b0-4752-a547-bf77a3780def" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers_Groep3.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties_Groep3.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plantenApp/view/Homescreen_Admin.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/plantenApp/view/HoofdScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plantenApp/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
