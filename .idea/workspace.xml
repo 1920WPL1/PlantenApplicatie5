@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e374eeba-3a26-4dce-a08b-71c628190216" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mssql_jdbc_7_4_1_jre11.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlantenApplicatie.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PlantenApplicatie.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/controller_login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/ControllerLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/java/dao/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/java/dao/Queries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/ControllerLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/ControllerLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers_Groep3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers_Groep3.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/Inloggen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/Inloggen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/RegistratieAanvragen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/RegistratieAanvragen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/WachtwoordVergeten.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/WachtwoordVergeten.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/WachtwoordWijzigen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/WachtwoordWijzigen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties_Groep3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties_Groep3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/Zoekscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/Zoekscherm.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +98,7 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2d28d2a4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2d4036a7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />

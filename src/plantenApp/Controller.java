@@ -1,8 +1,10 @@
 package plantenApp;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
+import javafx.scene.input.MouseEvent;
 import plantenApp.java.dao.AbiotischeFactorenDAO;
 import plantenApp.java.dao.Database;
 import plantenApp.java.dao.InfoTablesDAO;
@@ -23,6 +25,7 @@ public class Controller {
     public ComboBox<String> cboBladvorm;
     public ComboBox<String> cboMaand;
     public ComboBox<String> cboReactie;
+    public Button btnNaarZoekScherm;
     private InfoTables infoTables;
     private Connection dbConnection;
 
@@ -91,6 +94,45 @@ public class Controller {
         }
     }
 
+    public void clicked_wijzigGebruiker(MouseEvent mouseEvent) {
+    }
+
+    public void clicked_VerwijderenGebruiker(MouseEvent mouseEvent) {
+    }
+
+    public void clicked_NaarZoekscherm(MouseEvent mouseEvent) {
+    }
+
+    public void clicked_Goedkeuren(MouseEvent mouseEvent) {
+    }
+
+    public void clicked_Afwijzen(MouseEvent mouseEvent) {
+    }
+
+    public void click_NaarZoekscherm(MouseEvent mouseEvent) {
+    }
+
+    public void click_ProfielBeheren(MouseEvent mouseEvent) {
+    }
+
+    public void click_RegistratiesBeheren(MouseEvent mouseEvent) {
+    }
+
+    public void click_GebruikersBeheren(MouseEvent mouseEvent) {
+    }
+
+    public void clicked_ToevoegenPlant(MouseEvent mouseEvent) {
+    }
+
+    public void click_PlantZoekWijzig(MouseEvent mouseEvent) {
+    }
+
+    public void click_PlantAanvraagBeheren(MouseEvent mouseEvent) {
+    }
+
+    public void click_BeheerGebruikerProfiel(MouseEvent mouseEvent){
+
+    }
 }
 
 
