@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="458cf08c-d7b0-4752-a547-bf77a3780def" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/plantenApp/view/HoofdScherm.fxml" afterDir="false" />
+    <list default="true" id="e374eeba-3a26-4dce-a08b-71c628190216" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plantenApp/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/ControllerLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/ControllerLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers_Groep3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers_Groep3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties_Groep3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties_Groep3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/Zoekscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/Zoekscherm.fxml" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,12 +42,34 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectViewState">
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
+  <component name="ProjectId" id="1cmKeE9nnOBN4xV8wclwOoSm9QO" />
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="C:/Program Files/Java/jdbc SQL driver/mssql-jdbc-7.4.1.jre11.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.3174404" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="plantenApp.java.model" />
+      <recent name="plantenApp.java.dao" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -62,35 +91,50 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2d4036a7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e374eeba-3a26-4dce-a08b-71c628190216" name="Default Changelist" comment="" />
+      <created>1591128421127</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591128421127</updated>
+      <workItem from="1591128422354" duration="24000" />
+      <workItem from="1591164409925" duration="12697000" />
+    </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="1103" y="600" key="Github.CreateGistDialog" timestamp="1591176279687">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1103" y="600" key="Github.CreateGistDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591176279687" />
-    <state width="1578" height="398" key="GridCell.Tab.0.bottom" timestamp="1591110192842">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1578" height="398" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591110192842" />
-    <state width="1578" height="398" key="GridCell.Tab.0.center" timestamp="1591110192841">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1578" height="398" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591110192841" />
-    <state width="1578" height="398" key="GridCell.Tab.0.left" timestamp="1591110192841">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1578" height="398" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591110192841" />
-    <state width="1578" height="398" key="GridCell.Tab.0.right" timestamp="1591110192842">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1578" height="398" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591110192842" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

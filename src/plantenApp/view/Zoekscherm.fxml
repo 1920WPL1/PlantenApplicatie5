@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="plantenApp.Controller" maxHeight="-Infinity" maxWidth="1860.0" minHeight="-Infinity" minWidth="1860.0" prefHeight="1080.0" prefWidth="1860.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="plantenApp.ControllerLogin" maxHeight="-Infinity" maxWidth="1860.0" minHeight="-Infinity" minWidth="1860.0" prefHeight="1080.0" prefWidth="1860.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="2228.0" prefWidth="1860.0">
          <children>
