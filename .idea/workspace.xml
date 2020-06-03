@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75237531-da4b-48c5-b64c-3e7e71f0f55e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/plantenApp/java/dao/Gebruiker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlantenApplicatie.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PlantenApplicatie.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/java/dao/Gebruiker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/java/dao/gebruikerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/resources/config.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +26,30 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="planten@DESKTOP" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="planten@DESKTOP" type="feb32156:DbDataSourceImpl" />
+        <item name="master: database" type="ccb7ac2a:MsImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="planten@DESKTOP" type="feb32156:DbDataSourceImpl" />
+        <item name="master: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="planten@DESKTOP" type="feb32156:DbDataSourceImpl" />
+        <item name="master: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -41,6 +69,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/WPL_K" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2303665" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -85,7 +116,7 @@
       <option name="presentableId" value="Default" />
       <updated>1591187166523</updated>
       <workItem from="1591187167876" duration="212000" />
-      <workItem from="1591190372735" duration="469000" />
+      <workItem from="1591190372735" duration="1785000" />
     </task>
     <servers />
   </component>

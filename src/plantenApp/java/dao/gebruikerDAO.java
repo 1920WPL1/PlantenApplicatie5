@@ -11,7 +11,6 @@ public class gebruikerDAO implements Queries {
         stmtSelectGebruikerById = dbConnection.prepareStatement(GETGEBRUIKERBYGEBRUIKERID);
 
 
-
     }
 
     public gebruiker getById(int id) throws SQLException {
@@ -20,7 +19,7 @@ public class gebruikerDAO implements Queries {
         stmtSelectGebruikerByGebruikerId.setInt(1, id);
         ResultSet rs = stmtSelectGebruikerByGebruikerId.executeQuery();
         if (rs.next()) {
-            gebr = new gebruiker(
+            abio = new gebruiker(
                     rs.getInt("gebruiker_id"),
                     rs.getString("voornaam"),
                     rs.getString("achternaam"),
