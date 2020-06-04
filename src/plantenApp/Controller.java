@@ -129,10 +129,7 @@ public class Controller {
 
     public void click_PlantAanvraagBeheren(MouseEvent mouseEvent) {
     }
-
-    public void click_BeheerGebruikerProfiel(MouseEvent mouseEvent){
-
-    }
+    
 }
 
 
