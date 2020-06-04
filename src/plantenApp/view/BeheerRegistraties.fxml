@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="359.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.Controller">
-   <Button fx:id="btnZoekScherm" layoutX="486.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#clicked_NaarZoekscherm" text="Zoekscherm" />
-   <Label layoutX="32.0" layoutY="29.0" text="Aanvragen registraties van gebruikers">
+<AnchorPane prefHeight="359.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerBeheerRegistraties">
+   <Button fx:id="btnHoofdscherm" layoutX="486.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#clicked_NaarHoofdscherm" text="Hoofdscherm" />
+   <Label layoutX="32.0" layoutY="29.0" text="Aanvragen registraties">
       <font>
          <Font name="System Bold" size="12.0" />
       </font>
@@ -19,7 +19,3 @@
    <Button fx:id="btnAanvraagAfwijzen" layoutX="191.0" layoutY="296.0" mnemonicParsing="false" onMouseClicked="#clicked_Afwijzen" text="Registratie aanvraag afwijzen" />
 
 </AnchorPane>
-
-
-
-

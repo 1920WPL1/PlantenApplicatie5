@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerHoofdscherm">
    <children>
       <Label alignment="CENTER" layoutX="232.0" layoutY="14.0" text="Hoofdscherm Applicatie">
          <font>
@@ -14,12 +14,12 @@
          </font>
       </Label>
       <Line endX="283.3333740234375" endY="-1.9073486328125E-5" layoutX="207.0" layoutY="40.0" startX="-100.0" />
-      <Button fx:id="btnNaarZoekScherm" layoutX="35.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#click_NaarZoekscherm" text="Zoekscherm Planten" />
-      <Button fx:id="btnProfielBeheren" layoutX="446.0" layoutY="134.0" mnemonicParsing="false" onMouseClicked="#click_ProfielBeheren" text="Profiel beheren" />
-      <Button fx:id="btnRegistratiesBeheren" layoutX="433.0" layoutY="240.0" mnemonicParsing="false" onMouseClicked="#click_RegistratiesBeheren" text="Registraties beheren" />
-      <Button fx:id="btnGebruikersBeheren" layoutX="435.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#click_GebruikersBeheren" text="Gebruikers beheren" />
-      <Button fx:id="btnToevoegenPlant" layoutX="245.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#clicked_ToevoegenPlant" text="Plant toevoegen" />
-      <Button fx:id="btnPlantZoekWijzig" layoutX="219.0" layoutY="189.0" mnemonicParsing="false" onMouseClicked="#click_PlantZoekWijzig" text="Planten zoeken &amp; wijzigen" />
-      <Button fx:id="btnPlantenAanvraag" layoutX="215.0" layoutY="241.0" mnemonicParsing="false" onMouseClicked="#click_PlantAanvraagBeheren" text="Planten aanvragen beheren" />
+      <Button fx:id="btnZoekScherm" layoutX="39.0" layoutY="173.0" mnemonicParsing="false" onMouseClicked="#click_NaarZoekscherm" text="Zoekscherm Planten" />
+      <Button fx:id="btnProfielBeheren" layoutX="252.0" layoutY="94.0" mnemonicParsing="false" onMouseClicked="#click_ProfielBeheren" text="Profiel beheren" />
+      <Button fx:id="btnRegistratiesBeheren" layoutX="238.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#click_RegistratiesBeheren" text="Registraties beheren" />
+      <Button fx:id="btnGebruikersBeheren" layoutX="439.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#click_GebruikersBeheren" text="Gebruikers beheren" />
+      <Button fx:id="btnToevoegenPlant" layoutX="448.0" layoutY="173.0" mnemonicParsing="false" onMouseClicked="#clicked_ToevoegenPlant" text="Plant toevoegen" />
+      <Button fx:id="btnPlantZoekWijzig" layoutX="222.0" layoutY="173.0" mnemonicParsing="false" onMouseClicked="#click_PlantZoekWijzig" text="Planten zoeken &amp; wijzigen" />
+      <Button fx:id="btnPlantenAanvraag" layoutX="20.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#click_PlantAanvraagBeheren" text="Planten aanvragen beheren" />
    </children>
 </AnchorPane>
