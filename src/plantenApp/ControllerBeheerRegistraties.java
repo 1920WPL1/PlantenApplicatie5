@@ -1,18 +1,21 @@
-package plantenApp
+package plantenApp;
 
-import javafx.scene.control.Button
-import javafx.scene.control.ListView
-import javafx.scene.input.MouseEvent
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 
-class ControllerBeheerRegistraties {
-    var btnZoekScherm: Button? = null
-    var lstAanvraagRegistraties: ListView<*>? = null
-    var btnAanvraagGoedkeuren: Button? = null
-    var btnAanvraagAfwijzen: Button? = null
+public class ControllerBeheerRegistraties {
+    public ListView lstAanvraagRegistraties;
+    public Button btnAanvraagGoedkeuren;
+    public Button btnAanvraagAfwijzen;
+    public Button btnHoofdscherm;
 
-    fun clicked_NaarZoekscherm(mouseEvent: MouseEvent) {}
+    public void clicked_Goedkeuren(MouseEvent mouseEvent) {
+    }
 
-    fun clicked_Goedkeuren(mouseEvent: MouseEvent) {}
+    public void clicked_Afwijzen(MouseEvent mouseEvent) {
+    }
 
-    fun clicked_Afwijzen(mouseEvent: MouseEvent) {}
+    public void clicked_NaarHoofdscherm(MouseEvent mouseEvent) {
+    }
 }

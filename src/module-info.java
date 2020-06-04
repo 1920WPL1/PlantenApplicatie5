@@ -4,5 +4,5 @@ module PlantenApplicatie {
     requires java.desktop;
     requires java.sql;
 
-    opens plantenApp ;
+    opens plantenApp;
 }

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerBeheerGebruikers">
 
    <AnchorPane prefHeight="415.0" prefWidth="600.0">
       <children>
@@ -16,12 +16,7 @@
          <TextField fx:id="txtZoekFGebruiker" layoutX="38.0" layoutY="86.0" />
          <Button fx:id="btnWijzigGebruiker" layoutX="260.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#clicked_wijzigGebruiker" text="Gebruiker wijzigen" />
          <Button fx:id="btnGebruikerVerwijderen" layoutX="394.0" layoutY="367.0" mnemonicParsing="false" onMouseClicked="#clicked_VerwijderenGebruiker" text="Gebruiker verwijderen" />
-         <Button fx:id="btnZoekScherm" layoutX="486.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#clicked_NaarZoekscherm" text="Zoekscherm" />
-         <Label layoutX="38.0" layoutY="18.0" text="Homescreen Admin">
-            <font>
-               <Font name="System Bold" size="12.0" />
-            </font>
-         </Label>
+         <Button fx:id="btnHoofdscherm" layoutX="486.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#clicked_NaarHoofdscherm" text="Hoofdscherm" />
          <Label layoutX="38.0" layoutY="60.0" text="Gebruikers wijzigen">
             <font>
                <Font name="System Bold" size="12.0" />
