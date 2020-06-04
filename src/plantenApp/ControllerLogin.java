@@ -1,4 +1,3 @@
-
 package plantenApp;
 
 import javafx.fxml.FXMLLoader;
@@ -17,8 +16,14 @@ import plantenApp.java.dao.GebruikerDAO;
 import plantenApp.java.model.Gebruiker;
 
 import javax.swing.*;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 public class ControllerLogin {
@@ -27,6 +32,7 @@ public class ControllerLogin {
     private Connection dbConnection;
     public TextField txtEmail;
     public TextField txtWachtwoord;
+    public Button btnZoekScherm;
     private GebruikerDAO gebruikerDAO;
 
     // Scherm: Registreren Student
@@ -44,7 +50,6 @@ public class ControllerLogin {
 
     /**
      * Author Bart Maes
-     * <p>
      * bij opstarten connectie en gebruikerDao aanroepen
      */
     public void initialize() throws SQLException {
@@ -73,17 +78,39 @@ public class ControllerLogin {
 
             //user bestaat niet in database
             if (user == null) {
-                int dialogButton = JOptionPane.YES_NO_OPTION;
-                JOptionPane.showConfirmDialog(null, "Het opgegeven emailadres is geen VIVES-account. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?", "Emailadres niet gekend", dialogButton, JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                //controleren of gebruiker reeds geregistreerd is  --> hiervoor nog extra veld "geregistreerd" nodig in tabel gebruiker
+                int dialogButton = JOptionPane.showConfirmDialog(null,
+                        "Het opgegeven emailadres Werd niet herkend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
+                        "Emailadres niet gekend", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
-                //indien ja, controle of opgegeven wachtwoord klopt
+                if (dialogButton == JOptionPane.YES_OPTION) {
+                    loadScreen(mouseEvent, "view/AanvraagToegang.fxml");
+                }
+
+            } else {
+                if (false) { //controleren of gebruiker reeds geregistreerd is  --> hiervoor nog extra veld "geregistreerd" nodig in tabel gebruiker
+
+                } else {   //indien geregistreerd, controle of opgegeven wachtwoord klopt
+                    // @author Jasper
+                    // test: aanmaken hash van ingevoerd wachtwoord
+                    byte[] hashFromLogin = HashFromPassword(sWachtwoord);
+                    // test: opslaan van hash
+                    gebruikerDAO.setWachtWoordHash(user.getGebruiker_id(), hashFromLogin);
+                }
+
+                //indien wachtwoord klopt, controle op rol
+
+                loadScreen(mouseEvent, "view/HoofdScherm.fxml");
+                String rol = user.getRol();
+
+                if (rol.equals("admin")) {
+                    btnZoekScherm.setVisible(false);
+
+                }
 
 
                 //indien nee, geef melding dat ze zich eerst moeten registreren
 
-                loadScreen(mouseEvent, "view/Zoekscherm.fxml");
+
             }
         }
 
@@ -99,13 +126,7 @@ public class ControllerLogin {
             */
     }
 
-    /**
-     * Author Bart Maes
-     *
-     * @param email
-     * @Return true or false
-     * validatie emailadres
-     */
+    public void click_WwVergeten(MouseEvent mouseEvent) {
 
     public static boolean isValid(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
@@ -118,6 +139,8 @@ public class ControllerLogin {
             return false;
         return pat.matcher(email).matches();
     }
+
+    // methodes
 
     /**
      * Author Bart Maes
@@ -139,53 +162,70 @@ public class ControllerLogin {
         }
     }
 
-    // Scherm: Inloggen
-    public void clicked_Versturen(MouseEvent mouseEvent) {
-        loadScreen(mouseEvent,"view/Zoekscherm.fxml");
-    }
-
-    // Scherm: Wachtwoord vergeten
-    public void clicked_MailVersturen(MouseEvent mouseEvent) {
-    }
-
-    // Scherm: Wachtwoord vergeten
-    public void click_WwVergeten(MouseEvent mouseEvent) {
-
-    }
-
-    // Scherm: Beheren Registraties
-    public void clicked_GoedkeurenAanvraag(MouseEvent mouseEvent) {
-    }
-
-    // Scherm: Beheren Registraties
-    public void clicked_VerwijderAanvraag(MouseEvent mouseEvent) {
-    }
 
     /**
      * Author Bart Maes
      *
-     * @param mouseEvent
-     * @Return overgang van het beheer gebruiker naar zoekscherm
+     * @param email
+     * @Return true or false
+     * validatie emailadres
      */
-    public void click_Terug(MouseEvent mouseEvent) {
-        loadScreen(mouseEvent, "view/Zoekscherm.fxml");
-    }
+    public static boolean isValid(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
 
-    public void Click_SaveGebruiker(MouseEvent mouseEvent) {
-
-    }
-
-    public void Click_VerwijderGebruiker(MouseEvent mouseEvent) {
-
-    }
-
-    public void Click_wijzigWachtwoord(MouseEvent mouseEvent) {
-
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
     }
 
 
-    public void click_BeheerGebruikerProfiel(MouseEvent mouseEvent) {
+    /**
+     * @param wachtwoord Wachtwoord om te hashen
+     * @return hash van het wachtwoord : array van 80 bytes
+     * @throws NoSuchAlgorithmException
+     * @author Jasper
+     * @apiNote Versleuteling van het wachtwoord tot een hash met hash algoritme SHA-512 (= sterkste beschikbaar in Java)
+     */
+    private byte[] HashFromPassword(String wachtwoord) throws NoSuchAlgorithmException {
+        // Salt = 16 willekeurige bytes
+        // Bij elke nieuw wachtwoord wordt een salt aangemaakt
+        // Hash = salt + resultaat hashfunctie(salt + password)
 
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[16];
+        random.nextBytes(salt);
+
+        // MessageDigest = hash functie
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
+        md.update(salt); // salt toevoegen aan functie
+        byte[] hashFunctionResult = md.digest(wachtwoord.getBytes(StandardCharsets.UTF_8)); // wachtwoord toevoegen aan functie
+
+        // resultaat hashfunctie is altijd 64 bytes bij algoritme SHA-512
+        // 64 bytes hashfunctie + 16 bytes salt = 80 bytes hash
+        byte[] hash = new byte[80];
+        for (int i = 0; i < 15; i++) {
+            hash[i] = salt[i];
+        }
+        for (int i = 16; i < 79; i++) {
+            hash[i] = hashFunctionResult[i];
+        }
+
+        return hash;
+    }
+
+
+    /**
+     * @param wachtwoord Ingevoerd wachtwoord
+     * @param salt       Eerste 16 bytes van hash in database
+     * @return
+     * @author Jasper
+     */
+    private boolean CheckPasswordCorrect(String wachtwoord, byte[] salt) {
+        return true; // TODO: 3-6-2020  Ophalen salt uit hash uit database, controleren of salt + hashfunctie van wachtwoord+salt gelijk is aan de hash in database
     }
 
     /**

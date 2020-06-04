@@ -11,7 +11,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("view/Registreren.fxml"));
         primaryStage.setTitle("Planten applicatie");
-        primaryStage.setScene(new Scene(root, 1278, 858));
+        primaryStage.setScene(new Scene(root, 429, 189));
         primaryStage.show();
     }
 

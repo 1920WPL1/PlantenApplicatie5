@@ -6,12 +6,19 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import plantenApp.java.dao.AbiotischeFactorenDAO;
+
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import plantenApp.java.dao.Database;
 import plantenApp.java.dao.InfoTablesDAO;
 import plantenApp.java.dao.PlantDAO;
 import plantenApp.java.model.InfoTables;
 import plantenApp.java.model.Plant;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -93,43 +100,6 @@ public class Controller {
             return false;
         }
     }
-
-    public void clicked_wijzigGebruiker(MouseEvent mouseEvent) {
-    }
-
-    public void clicked_VerwijderenGebruiker(MouseEvent mouseEvent) {
-    }
-
-    public void clicked_NaarZoekscherm(MouseEvent mouseEvent) {
-    }
-
-    public void clicked_Goedkeuren(MouseEvent mouseEvent) {
-    }
-
-    public void clicked_Afwijzen(MouseEvent mouseEvent) {
-    }
-
-    public void click_NaarZoekscherm(MouseEvent mouseEvent) {
-    }
-
-    public void click_ProfielBeheren(MouseEvent mouseEvent) {
-    }
-
-    public void click_RegistratiesBeheren(MouseEvent mouseEvent) {
-    }
-
-    public void click_GebruikersBeheren(MouseEvent mouseEvent) {
-    }
-
-    public void clicked_ToevoegenPlant(MouseEvent mouseEvent) {
-    }
-
-    public void click_PlantZoekWijzig(MouseEvent mouseEvent) {
-    }
-
-    public void click_PlantAanvraagBeheren(MouseEvent mouseEvent) {
-    }
-    
 }
 
 
