@@ -1,4 +1,4 @@
-package plantenApp;
+package plantenApp.controllers;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,7 +19,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class ControllerLogin {
@@ -71,10 +70,9 @@ public class ControllerLogin {
                 }
 
             } else {
-                if(false) { //controleren of gebruiker reeds geregistreerd is  --> hiervoor nog extra veld "geregistreerd" nodig in tabel gebruiker
+                if (false) { //controleren of gebruiker reeds geregistreerd is  --> hiervoor nog extra veld "geregistreerd" nodig in tabel gebruiker
 
-                }
-                else{   //indien geregistreerd, controle of opgegeven wachtwoord klopt
+                } else {   //indien geregistreerd, controle of opgegeven wachtwoord klopt
                     // @author Jasper
                     // test: aanmaken hash van ingevoerd wachtwoord
                     byte[] hashFromLogin = HashFromPassword(sWachtwoord);
@@ -87,7 +85,7 @@ public class ControllerLogin {
                 loadScreen(mouseEvent, "view/HoofdScherm.fxml");
                 String rol = user.getRol();
 
-                if(rol.equals("admin")) {
+                if (rol.equals("admin")) {
                     btnZoekScherm.setVisible(false);
 
                 }
@@ -111,11 +109,12 @@ public class ControllerLogin {
             */
     }
 
-    /**@author Jasper
+    /**
      * @param wachtwoord Wachtwoord om te hashen
-     * @apiNote Versleuteling van het wachtwoord tot een hash met hash algoritme SHA-512 (= sterkste beschikbaar in Java)
      * @return hash van het wachtwoord : array van 80 bytes
      * @throws NoSuchAlgorithmException
+     * @author Jasper
+     * @apiNote Versleuteling van het wachtwoord tot een hash met hash algoritme SHA-512 (= sterkste beschikbaar in Java)
      */
 
     private byte[] HashFromPassword(String wachtwoord) throws NoSuchAlgorithmException {
@@ -130,27 +129,28 @@ public class ControllerLogin {
         // MessageDigest = hash functie
         MessageDigest md = MessageDigest.getInstance("SHA-512");
         md.update(salt); // salt toevoegen aan functie
-        byte[] hashFunctionResult =  md.digest(wachtwoord.getBytes(StandardCharsets.UTF_8)); // wachtwoord toevoegen aan functie
+        byte[] hashFunctionResult = md.digest(wachtwoord.getBytes(StandardCharsets.UTF_8)); // wachtwoord toevoegen aan functie
 
         // resultaat hashfunctie is altijd 64 bytes bij algoritme SHA-512
         // 64 bytes hashfunctie + 16 bytes salt = 80 bytes hash
-        byte[] hash = new byte [80];
-        for(int i = 0 ; i < 15 ; i++){
+        byte[] hash = new byte[80];
+        for (int i = 0; i < 15; i++) {
             hash[i] = salt[i];
         }
-        for(int i = 16 ; i < 79 ; i++){
+        for (int i = 16; i < 79; i++) {
             hash[i] = hashFunctionResult[i];
         }
 
         return hash;
     }
 
-    /**@author Jasper
+    /**
      * @param wachtwoord Ingevoerd wachtwoord
-     * @param salt Eerste 16 bytes van hash in database
+     * @param salt       Eerste 16 bytes van hash in database
      * @return
+     * @author Jasper
      */
-    private boolean CheckPasswordCorrect(String wachtwoord, byte[] salt){
+    private boolean CheckPasswordCorrect(String wachtwoord, byte[] salt) {
         return true; // TODO: 3-6-2020  Ophalen salt uit hash uit database, controleren of salt + hashfunctie van wachtwoord+salt gelijk is aan de hash in database
     }
 
