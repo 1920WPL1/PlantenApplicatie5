@@ -1,10 +1,10 @@
-
 package plantenApp;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -23,11 +23,13 @@ public class ControllerLogin {
     private Connection dbConnection;
     public TextField txtEmail;
     public TextField txtWachtwoord;
+    public Button btnZoekScherm;
     private GebruikerDAO gebruikerDAO;
+
 
     /**
      * Author Bart Maes
-     *
+     * <p>
      * bij opstarten connectie en gebruikerDao aanroepen
      */
     public void initialize() throws SQLException {
@@ -46,7 +48,7 @@ public class ControllerLogin {
         String sEmail = txtEmail.getText();
         String sWachtwoord = txtWachtwoord.getText();
 
-        if(sEmail.isEmpty() && sWachtwoord.isEmpty()) {
+        if (sEmail.isEmpty() && sWachtwoord.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Gelieve alle velden in te vullen",
                     "Ongeldige ingave", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -55,17 +57,33 @@ public class ControllerLogin {
 
             //user bestaat niet in database
             if (user == null) {
-                int dialogButton = JOptionPane.YES_NO_OPTION;
-                JOptionPane.showConfirmDialog (null, "Het opgegeven emailadres is geen VIVES-account. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?","Emailadres niet gekend",dialogButton, JOptionPane.INFORMATION_MESSAGE);
+                int dialogButton = JOptionPane.showConfirmDialog(null,
+                        "Het opgegeven emailadres is geen VIVES-account. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
+                        "Emailadres niet gekend", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+                if (dialogButton == JOptionPane.YES_OPTION) {
+                    loadScreen(mouseEvent, "view/AanvraagToegang.fxml");
+                }
+
             } else {
                 //controleren of gebruiker reeds geregistreerd is  --> hiervoor nog extra veld "geregistreerd" nodig in tabel gebruiker
 
                 //indien ja, controle of opgegeven wachtwoord klopt
 
+                //indien wachtwoord klopt, controle op rol
+
+                loadScreen(mouseEvent, "view/HoofdScherm.fxml");
+                String rol = user.getRol();
+
+                if(rol.equals("admin")) {
+                    btnZoekScherm.setVisible(false);
+
+                }
+
 
                 //indien nee, geef melding dat ze zich eerst moeten registreren
 
-                loadScreen(mouseEvent, "view/Zoekscherm.fxml");
+
             }
         }
 
@@ -89,9 +107,8 @@ public class ControllerLogin {
      * validatie emailadres
      */
 
-    public static boolean isValid(String email)
-    {
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+    public static boolean isValid(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
                 "A-Z]{2,7}$";
@@ -167,7 +184,49 @@ public class ControllerLogin {
 
 
     public void click_BeheerGebruikerProfiel(MouseEvent mouseEvent) {
-        
+
+    }
+
+    /**
+     * Author Bart Maes
+     *
+     * @param mouseEvent
+     * @Return overgang van het homescreen naar zoekscherm
+     */
+    // hoofdscherm
+    public void click_NaarZoekscherm(MouseEvent mouseEvent) {
+        loadScreen(mouseEvent, "view/Zoekscherm.fxml");
+    }
+
+    public void click_ProfielBeheren(MouseEvent mouseEvent) {
+    }
+
+    public void click_RegistratiesBeheren(MouseEvent mouseEvent) {
+    }
+
+    public void click_GebruikersBeheren(MouseEvent mouseEvent) {
+    }
+
+    public void clicked_ToevoegenPlant(MouseEvent mouseEvent) {
+    }
+
+    public void click_PlantZoekWijzig(MouseEvent mouseEvent) {
+    }
+
+    public void click_PlantAanvraagBeheren(MouseEvent mouseEvent) {
+    }
+
+    public void click_VerzendAanvraag(MouseEvent mouseEvent) {
+    }
+
+    public void click_AnnuleerAanvraag(MouseEvent mouseEvent) {
+        int dialogButton = JOptionPane.showConfirmDialog(null,
+                "Bent u zeker dat u de aanvraag wilt annuleren?",
+                "Annuleren", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+        if (dialogButton == JOptionPane.YES_OPTION) {
+            loadScreen(mouseEvent, "view/Inloggen.fxml");
+        }
     }
 }
 

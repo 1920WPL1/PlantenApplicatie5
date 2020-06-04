@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e374eeba-3a26-4dce-a08b-71c628190216" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plantenApp/ControllerLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/ControllerLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers_Groep3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerGebruikers_Groep3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties_Groep3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/BeheerRegistraties_Groep3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/Zoekscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/Zoekscherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/java/model/Gebruiker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/java/model/Gebruiker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/AanvraagToegang.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/AanvraagToegang.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/HoofdScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/HoofdScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plantenApp/view/Inloggen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plantenApp/view/Inloggen.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +28,37 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="planten@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="planten@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="planten: database" type="ccb7ac2a:MsImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="planten@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="planten: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="planten@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="planten: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+        <item name="fenotype: table" type="63ab2ba1:MsImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="planten@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="planten: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+        <item name="gebruiker: table" type="63ab2ba1:MsImplModel$Table" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -48,15 +77,21 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="C:/Program Files/Java/jdbc SQL driver/mssql-jdbc-7.4.1.jre11.jar!/" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/IdeaProjects/IdeaProjects/1_Programmeren/OefeningenOpArrays" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3174404" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="plantenApp" />
       <recent name="plantenApp.java.model" />
       <recent name="plantenApp.java.dao" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bartm\Documents\BART MAES\VIVES\WPL2\Repo\PlantenApplicatie5\src\plantenApp\view" />
+      <recent name="C:\Users\bartm\Documents\BART MAES\VIVES\WPL2\Repo\PlantenApplicatie5\src\plantenApp\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -118,6 +153,7 @@
       <updated>1591128421127</updated>
       <workItem from="1591128422354" duration="24000" />
       <workItem from="1591164409925" duration="12697000" />
+      <workItem from="1591251058194" duration="601000" />
     </task>
     <servers />
   </component>

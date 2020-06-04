@@ -4,7 +4,7 @@ package plantenApp.java.model;
  * @author Bart
  */
 public class Gebruiker {
-    private int gebruiker_id;
+    private int id;
     private String voornaam;
     private String achternaam;
     private String email;
@@ -12,10 +12,10 @@ public class Gebruiker {
     private Date aanvraag_datum;
     private Byte aanvraag_goedgekeurd;
     private Long wachtwoord_hash;
-    public Gebruiker(int gebruiker_id, String voornaam, String achternaam,
+    public Gebruiker(int id, String voornaam, String achternaam,
                      String email, String rol, Date aanvraag_datum,
                      Byte aanvraag_goedgekeurd, Long wachtwoord_hash) {
-        this.gebruiker_id = gebruiker_id;
+        this.id = id;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.email = email;
@@ -25,10 +25,10 @@ public class Gebruiker {
         this.wachtwoord_hash = wachtwoord_hash;
     }
     public int getGebruiker_id() {
-        return gebruiker_id;
+        return id;
     }
-    public void setGebruiker_id(int gebruiker_id) {
-        this.gebruiker_id = gebruiker_id;
+    public void setGebruiker_id(int id) {
+        this.id = id;
     }
     public String getVoornaam() {
         return voornaam;
