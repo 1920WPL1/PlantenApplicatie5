@@ -13,8 +13,13 @@ import plantenApp.java.dao.GebruikerDAO;
 import plantenApp.java.model.Gebruiker;
 
 import javax.swing.*;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class ControllerLogin {
@@ -66,9 +71,16 @@ public class ControllerLogin {
                 }
 
             } else {
-                //controleren of gebruiker reeds geregistreerd is  --> hiervoor nog extra veld "geregistreerd" nodig in tabel gebruiker
+                if(false) { //controleren of gebruiker reeds geregistreerd is  --> hiervoor nog extra veld "geregistreerd" nodig in tabel gebruiker
 
-                //indien ja, controle of opgegeven wachtwoord klopt
+                }
+                else{   //indien geregistreerd, controle of opgegeven wachtwoord klopt
+                    // @author Jasper
+                    // test: aanmaken hash van ingevoerd wachtwoord
+                    byte[] hashFromLogin = HashFromPassword(sWachtwoord);
+                    // test: opslaan van hash
+                    gebruikerDAO.setWachtWoordHash(user.getGebruiker_id(), hashFromLogin);
+                }
 
                 //indien wachtwoord klopt, controle op rol
 
@@ -98,6 +110,50 @@ public class ControllerLogin {
             } else {
             */
     }
+
+    /**@author Jasper
+     * @param wachtwoord Wachtwoord om te hashen
+     * @apiNote Versleuteling van het wachtwoord tot een hash met hash algoritme SHA-512 (= sterkste beschikbaar in Java)
+     * @return hash van het wachtwoord : array van 80 bytes
+     * @throws NoSuchAlgorithmException
+     */
+
+    private byte[] HashFromPassword(String wachtwoord) throws NoSuchAlgorithmException {
+        // Salt = 16 willekeurige bytes
+        // Bij elke nieuw wachtwoord wordt een salt aangemaakt
+        // Hash = salt + resultaat hashfunctie(salt + password)
+
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[16];
+        random.nextBytes(salt);
+
+        // MessageDigest = hash functie
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
+        md.update(salt); // salt toevoegen aan functie
+        byte[] hashFunctionResult =  md.digest(wachtwoord.getBytes(StandardCharsets.UTF_8)); // wachtwoord toevoegen aan functie
+
+        // resultaat hashfunctie is altijd 64 bytes bij algoritme SHA-512
+        // 64 bytes hashfunctie + 16 bytes salt = 80 bytes hash
+        byte[] hash = new byte [80];
+        for(int i = 0 ; i < 15 ; i++){
+            hash[i] = salt[i];
+        }
+        for(int i = 16 ; i < 79 ; i++){
+            hash[i] = hashFunctionResult[i];
+        }
+
+        return hash;
+    }
+
+    /**@author Jasper
+     * @param wachtwoord Ingevoerd wachtwoord
+     * @param salt Eerste 16 bytes van hash in database
+     * @return
+     */
+    private boolean CheckPasswordCorrect(String wachtwoord, byte[] salt){
+        return true; // TODO: 3-6-2020  Ophalen salt uit hash uit database, controleren of salt + hashfunctie van wachtwoord+salt gelijk is aan de hash in database
+    }
+
 
     /**
      * Author Bart Maes
