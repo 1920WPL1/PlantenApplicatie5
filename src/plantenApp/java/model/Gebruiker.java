@@ -11,12 +11,12 @@ public class Gebruiker {
     private String email;
     private String rol;
     private Date aanvraag_datum;
-    private boolean aanvraag_goedgekeurd;
-    private boolean geregistreerd;
+    private int aanvraag_goedgekeurd; // 0 : geen aanvraag (want vooraf geregistreerd) 1 : aanvraag ingediend 2: aanvraag goedgekeurd
+    private boolean geregistreerd; // false : niet geregistreerd true : geregistreerd
     private byte[] wachtwoord_hash;
     public Gebruiker(int gebruiker_id, String voornaam, String achternaam,
                      String email, String rol, Date aanvraag_datum,
-                     boolean aanvraag_goedgekeurd, boolean geregistreerd, byte[] wachtwoord_hash) {
+                     int aanvraag_goedgekeurd, boolean geregistreerd, byte[] wachtwoord_hash) {
         this.gebruiker_id = gebruiker_id;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
@@ -64,10 +64,10 @@ public class Gebruiker {
         this.aanvraag_datum = aanvraag_datum;
     }
 
-    public boolean isAanvraag_goedgekeurd() {
+    public int isAanvraag_goedgekeurd() {
         return aanvraag_goedgekeurd;
     }
-    public void setAanvraag_goedgekeurd(boolean aanvraag_goedgekeurd) {
+    public void setAanvraag_goedgekeurd(int aanvraag_goedgekeurd) {
         this.aanvraag_goedgekeurd = aanvraag_goedgekeurd;
     }
 
