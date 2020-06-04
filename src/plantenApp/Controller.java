@@ -1,8 +1,10 @@
 package plantenApp;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
+import javafx.scene.input.MouseEvent;
 import plantenApp.java.dao.AbiotischeFactorenDAO;
 
 
@@ -30,6 +32,7 @@ public class Controller {
     public ComboBox<String> cboBladvorm;
     public ComboBox<String> cboMaand;
     public ComboBox<String> cboReactie;
+    public Button btnNaarZoekScherm;
     private InfoTables infoTables;
     private Connection dbConnection;
 
@@ -97,46 +100,6 @@ public class Controller {
             return false;
         }
     }
-
-
-    public void Clicked_Bezonning(MouseEvent mouseEvent) {
-        Togledisable(chkBezonning, slrBezonning);
-    }
-
-    public void Clicked_Vochtbehoefte(MouseEvent mouseEvent) {
-        Togledisable(chkVochtbehoefte, slrVochtbehoefte);
-    }
-
-    public void Clicked_VoedingsBehoefte(MouseEvent mouseEvent) {
-        Togledisable(chkVoedingsbehoefte, slrVoedingsbehoefte);
-    }
-
-    public void Clicked_Ontwikkelingssnelheid(MouseEvent mouseEvent) {
-        Togledisable(chkOntwikkelingsnelheid, slrOntwikkelingssnelheid);
-    }
-
-    public void Clicked_Pollenwaarde(MouseEvent mouseEvent) {
-        Togledisable(chkPollenwaarde, slrPollenwaarde);
-    }
-
-    public void Clicked_Nectarwaarde(MouseEvent mouseEvent) {
-        Togledisable(chkNectarwaarde, slrNectarwaarde);
-    }
-
-
-    public void click_BeheerGebruikerProfiel(MouseEvent mouseEvent) throws Exception {
-        // naar het scherm van beheergebruikers.
-        try {
-            Parent root2 = FXMLLoader.load(getClass().getResource("view/BeheerGebruikers.fxml"));
-            Scene scene = new Scene(root2);
-            Stage window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-            window.setScene(scene);
-            window.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
 }
 
 

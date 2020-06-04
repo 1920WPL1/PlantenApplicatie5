@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="plantenApp.Controller" maxHeight="-Infinity" maxWidth="1860.0" minHeight="-Infinity" minWidth="1860.0" prefHeight="1080.0" prefWidth="1860.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="plantenApp.ControllerLogin" maxHeight="-Infinity" maxWidth="1860.0" minHeight="-Infinity" minWidth="1860.0" prefHeight="1080.0" prefWidth="1860.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="2228.0" prefWidth="1860.0">
          <children>
@@ -2090,12 +2090,12 @@
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <VBox layoutX="1356.0" layoutY="438.0" prefHeight="226.0" prefWidth="225.0">
+                        <VBox layoutX="1321.0" layoutY="389.0" prefHeight="200.0" prefWidth="233.0">
                            <children>
-                              <!-- <Button fx:id="btnBeheerGebruikerProfiel" mnemonicParsing="false" onMouseClicked="#click_BeheerGebruikerProfiel" text="Beheer Gebruiker van Profiel" /> -->
+                              <Button fx:id="btnBeheerGebruikerProfiel" mnemonicParsing="false" onMouseClicked="#click_BeheerGebruikerProfiel" text="BeheerGebruiker voor Gebruiker" />
                            </children>
                         </VBox>
-                        <Label layoutX="1356.0" layoutY="401.0" text="Profiel beheer Gebruikers">
+                        <Label layoutX="1321.0" layoutY="352.0" text="Beheer voor Gebruik zijn profiel">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
