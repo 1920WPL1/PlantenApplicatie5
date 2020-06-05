@@ -23,6 +23,19 @@ public class ControllerLogin {
     public TextField txtWachtwoord;
     private Gebruiker user;
 
+    // Scherm: Registreren Student
+    public TextField txtVivesMail;
+    public TextField txtVoornaamStudent;
+    public TextField txtAchternaamStudent;
+
+    public Label lblGelijkeWW;
+    public Label lblWachtwoordCorrectie;
+
+
+    public PasswordField pfWachtwoordStudent;
+    public PasswordField pfStudentWachtwoordHerhalen;
+
+
     /**
      * Author Bart Maes
      * bij opstarten connectie en gebruikerDao aanroepen
@@ -30,6 +43,7 @@ public class ControllerLogin {
     public void initialize() throws SQLException {
         dbConnection = Database.getInstance().getConnection();
         gebruikerDAO = new GebruikerDAO(dbConnection);
+
     }
 
     /**
@@ -88,6 +102,8 @@ public class ControllerLogin {
 
     public void click_WwVergeten(MouseEvent mouseEvent) {
 
+        }
+        return false;
     }
 
     // methodes

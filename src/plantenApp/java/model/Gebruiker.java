@@ -12,8 +12,8 @@ public class Gebruiker {
     private String email;
     private String rol;
     private Date aanvraag_datum;
-    private int aanvraag_goedgekeurd;
     private int geregistreerd;
+    private int aanvraag_goedgekeurd; // 0 : geen aanvraag (want vooraf geregistreerd) 1 : aanvraag ingediend 2: aanvraag goedgekeurd
     private byte[] wachtwoord_hash;
     private byte[] salt;
 
@@ -32,12 +32,12 @@ public class Gebruiker {
         this.salt = salt;
     }
 
-    public int getID() {
-        return id;
+    public int getGebruiker_id() {
+        return gebruiker_id;
     }
 
     public void setGebruiker_id(int id) {
-        this.id = id;
+        this.gebruiker_id = id;
     }
 
     public String getVoornaam() {
