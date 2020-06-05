@@ -17,5 +17,6 @@ public class ControllerBeheerRegistraties {
     }
 
     public void clicked_NaarHoofdscherm(MouseEvent mouseEvent) {
+
     }
 }

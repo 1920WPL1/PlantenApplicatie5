@@ -114,6 +114,4 @@ public class GebruikerDAO implements Queries {
         stmtSetWachtwoordHash.setInt(2, id);
         stmtSetWachtwoordHash.executeQuery();
     }
-
-
 }

@@ -31,10 +31,10 @@
          <Label layoutX="260.0" layoutY="176.0" text="Voornaam" />
          <Label layoutX="260.0" layoutY="200.0" text="E-mail" />
          <Label layoutX="260.0" layoutY="250.0" text="Rol" />
-         <ComboBox fx:id="cmbGebruikerRol" layoutX="378.0" layoutY="246.0" prefWidth="150.0" />
-         <Label fx:id="lblNaamGebruiker" layoutX="380.0" layoutY="151.0" text="Naam" textFill="#5f5f5f" />
-         <Label fx:id="lblVNaamGebruiker" layoutX="380.0" layoutY="176.0" text="Voornaam" textFill="#5f5f5f" />
-         <Label fx:id="lblEmailGebruiker" layoutX="380.0" layoutY="200.0" text="E-mail" textFill="#5f5f5f" />
+         <ComboBox fx:id="cmbGebruikerRol" disable="true" layoutX="378.0" layoutY="246.0" prefWidth="150.0" />
+         <TextField fx:id="txtNaam" disable="true" layoutX="379.0" layoutY="147.0" />
+         <TextField fx:id="txtVoornaam" disable="true" layoutX="379.0" layoutY="172.0" />
+         <TextField fx:id="txtEmail" disable="true" layoutX="379.0" layoutY="195.0" />
       </children>
    </AnchorPane>
 
