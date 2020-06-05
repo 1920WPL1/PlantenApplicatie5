@@ -166,6 +166,7 @@ public class ControllerRegistreren {
 
         // enable en disable button "registreren"
        btnRegistrerenStudent.setDisable(true);
+        loadScreen(mouseEvent, "view/Inloggen.fxml");
 
         }
 
@@ -183,14 +184,38 @@ public class ControllerRegistreren {
         loadScreen(mouseEvent,"view/Inloggen.fxml");
     }
 
-    public void click_ValideerMail(MouseEvent mouseEvent) {
+    public void click_ValideerMail(MouseEvent mouseEvent) throws SQLException {
         String emailAdres = txtVivesMail.getText();
-        if (emailAdres.isEmpty())
-        {
+
+        if (emailAdres.isEmpty()) {
             JOptionPane.showMessageDialog(null,"Gelieve een geldig e-mail adres in te vullen");
+
         } else {
             // validatie voor e-mailadres
             validateEmail(emailAdres);
+            // na validatie komt de knop registreren weer tevoorschijn.
+            btnRegistrerenStudent.setDisable(false);
+
+            /*
+            // controleren als de e-mail bestaat in het systeem.
+            Gebruiker email = gebruikerDAO.getByEmail(txtVivesMail.getText());
+            // e-mail bestaat niet in de database
+            if (email == null) {
+                int dialogButton = JOptionPane.showConfirmDialog(null, "Het opgegeven e-mail adres wordt niet herkend binnen het systeem. Gelieve eerst uw aanvraag te doen", "Emailadres niet gekend", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                // als de gebruiker op ja kiest wordt hij / zij weer door verwezen naar het aanvraag scherm.
+                if (dialogButton == JOptionPane.YES_OPTION) {
+                    loadScreen(mouseEvent, "view/AanvraagToegang.fxml");
+                }
+
+            } else {
+                if (false) {
+                    // controleren als het mail adres al gekend is binnen het systeem
+                } else {
+                    // indien email toch klopt kan de gebruiker zijn wachtwoord kiezen en registreren
+                }
+            }
+
+             */
 
         }
 

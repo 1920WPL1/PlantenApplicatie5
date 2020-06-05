@@ -39,6 +39,21 @@ public class ControllerHoofdscherm {
      * @Return overgangen / werking Hoofdscherm
      */
 
+    /*
+    * Rollen binnen de applicatie:
+    * Student
+    * Oud-student
+    * Docent
+    * Admin
+    * */
+
+    // Enable knoppen voor rollen
+    // om de knoppen dan weer op enable te krijgen wanneer de rol in functie zich op het hoofscherm bevindt werken we met - btnButton.setDisable(false).
+
+
+    // Disable knoppen voor rollen
+    // om de knoppen te onklikbaar te maken werken we met - btnButton.setDisable(isDisabled)
+
     // eerst verwijzen we aan de hand van MouseEvent de schermen door uit het hoofdscherm.
 
 
@@ -48,7 +63,7 @@ public class ControllerHoofdscherm {
     }
 
     public void click_ProfielBeheren(MouseEvent mouseEvent) {
-
+        loadScreen(mouseEvent, "view/BeheerGebruikers.fxml");
     }
 
     public void click_RegistratiesBeheren(MouseEvent mouseEvent) {
@@ -69,5 +84,6 @@ public class ControllerHoofdscherm {
     }
 
     public void click_PlantAanvraagBeheren(MouseEvent mouseEvent) {
+        loadScreen(mouseEvent,"view/BeheeBehandelingPlant.fxml");
     }
 }

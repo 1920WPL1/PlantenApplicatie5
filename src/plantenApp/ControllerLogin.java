@@ -72,7 +72,8 @@ public class ControllerLogin {
                 }
 
             } else {
-                if (false) { //controleren of gebruiker reeds geregistreerd is  --> hiervoor nog extra veld "geregistreerd" nodig in tabel gebruiker
+                if (false) {
+                    //controleren of gebruiker reeds geregistreerd is  --> hiervoor nog extra veld "geregistreerd" nodig in tabel gebruiker
 
                 } else {   //indien geregistreerd, controle of opgegeven wachtwoord klopt
                     // @author Jasper
