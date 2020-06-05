@@ -13,12 +13,14 @@ public class GebruikerDAO implements Queries {
     private PreparedStatement stmtSelectGebruikerByEmail;
     /** @Author Jasper */
     private PreparedStatement stmtSelectGebruikersByFullName;
+    private PreparedStatement stmtSetGebruikerById;
     private PreparedStatement stmtSetWachtwoordHash;
 
     public GebruikerDAO(Connection dbConnection) throws SQLException {
         this.dbConnection = dbConnection;
         stmtSelectGebruikerByEmail = dbConnection.prepareStatement(GETGEBRUIKERBYEMAILADRES);
         stmtSelectGebruikersByFullName = dbConnection.prepareStatement(GETGEBRUIKERSBYFULLNAME);
+        stmtSetGebruikerById = dbConnection.prepareStatement(SETGEBRUIKERBYID);
         stmtSetWachtwoordHash = dbConnection.prepareStatement(SETWACHTWOORDHASH);
     }
 
@@ -105,13 +107,32 @@ public class GebruikerDAO implements Queries {
     }
 
     /**@author Jasper
-     * @param id : id van gebruiker om nieuwe wachtwoord_hash voor in te stellen
+     * @param id : id van gebruiker om nieuwe wachtwoord_hash in te stellen
      * @param hash : nieuwe wachtwoord_hash
+     * @return 1 bij gewijzigd wachtwoord, 0 bij fout
      * @throws SQLException
      */
-    public void setWachtWoordHash(int id, byte[] hash) throws SQLException {
+    public int setWachtWoordHash(int id, byte[] hash) throws SQLException {
         stmtSetWachtwoordHash.setBytes(1, hash);
         stmtSetWachtwoordHash.setInt(2, id);
-        stmtSetWachtwoordHash.executeQuery();
+        return stmtSetWachtwoordHash.executeUpdate();
+    }
+
+    /**
+     * @param id id van gebruiker om te wijzigen
+     * @param voornaam
+     * @param achternaam
+     * @param email
+     * @param rol
+     * @return 1 => wijziging, 0 = geen wijziging uitgevoerd
+     * @throws SQLException
+     */
+    public int setGebruikerById(int id, String voornaam, String achternaam, String email, String rol) throws SQLException {
+        stmtSetGebruikerById.setString(1, voornaam);
+        stmtSetGebruikerById.setString(2, achternaam);
+        stmtSetGebruikerById.setString(3, email);
+        stmtSetGebruikerById.setString(4, rol);
+        stmtSetGebruikerById.setInt(5, id);
+        return stmtSetWachtwoordHash.executeUpdate();
     }
 }

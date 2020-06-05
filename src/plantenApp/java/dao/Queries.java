@@ -237,6 +237,8 @@ public interface Queries {
      * @Author Jasper
      */
     String SETWACHTWOORDHASH = "UPDATE gebruiker SET wachtwoord_hash = ? WHERE gebruiker_id = ? ";
+    String SETGEBRUIKERBYID = "UPDATE gebruiker SET voornaam = ?, achternaam = ?, email = ?, rol = ? WHERE gebruiker_id = ?";
     String GETGEBRUIKERSBYFULLNAME = "SELECT * FROM gebruiker WHERE voornaam LIKE ? OR achternaam LIKE ?";
+
     //endregion
 }

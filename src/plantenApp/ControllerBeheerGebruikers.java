@@ -31,9 +31,11 @@ public class ControllerBeheerGebruikers {
     public TextField txtNaam;
     public TextField txtVoornaam;
     public TextField txtEmail;
+    public Label lblMessage;
 
     private Connection connection;
     private ObservableList<Gebruiker> gebruikersFound;
+    private Gebruiker gebruikerSelected = null;
 
     // documentatie listviews:  https://docs.oracle.com/javafx/2/ui_controls/list-view.htm
 
@@ -67,6 +69,7 @@ public class ControllerBeheerGebruikers {
                 @Override
                 public void changed(ObservableValue<? extends Gebruiker> observableValue, Gebruiker oldSelect, Gebruiker newSelect ) {
                     if(newSelect != null) { // newSelect kan null zijn na nieuwe zoekopdracht met minder resultaten
+                        gebruikerSelected = newSelect;
                         txtVoornaam.setText(newSelect.getVoornaam());
                         txtNaam.setText(newSelect.getAchternaam());
                         txtEmail.setText(newSelect.getEmail());
@@ -77,6 +80,7 @@ public class ControllerBeheerGebruikers {
                         cmbGebruikerRol.setDisable(false);
                     }
                     else{ // Niemand geselecteerd => controls terug onaanpasbaar maken
+                        gebruikerSelected = null;
                         txtVoornaam.setText("");
                         txtNaam.setText("");
                         txtEmail.setText("");
@@ -106,8 +110,17 @@ public class ControllerBeheerGebruikers {
         }
     }
 
-    public void clicked_wijzigGebruiker(MouseEvent mouseEvent) {
-
+    public void clicked_wijzigGebruiker(MouseEvent mouseEvent) throws SQLException {
+        if(gebruikerSelected == null)
+        {
+            lblMessage.setText("Gelieve een gebruiker te selecteren");
+        } else{
+            System.out.println(gebruikerSelected.getGebruiker_id());
+            int iGeslaagd = new GebruikerDAO(connection).setGebruikerById( gebruikerSelected.getGebruiker_id(),
+            txtVoornaam.getText(), txtNaam.getText(), txtEmail.getText(), cmbGebruikerRol.getSelectionModel().getSelectedItem());
+            String sResult = (iGeslaagd == 1) ? "Wijziging uitgevoerd" : "Wijziging niet uitgevoerd";
+            lblMessage.setText(sResult);
+        }
     }
 
     public void clicked_VerwijderenGebruiker(MouseEvent mouseEvent) {
