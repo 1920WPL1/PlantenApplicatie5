@@ -6,8 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import plantenApp.java.model.Gebruiker;
 import javafx.stage.Stage;
 import plantenApp.java.dao.GebruikerDAO;
+
+/**
+ * @author Bart Maes
+ */
 
 public class ControllerHoofdscherm {
     public Button btnZoekScherm;
@@ -18,44 +23,7 @@ public class ControllerHoofdscherm {
     public Button btnPlantZoekWijzig;
     public Button btnPlantenAanvraag;
 
-    private GebruikerDAO gebruikerDAO;
-
-    public void loadScreen(MouseEvent event, String screenName) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(screenName));
-            Scene scene = new Scene(root);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(scene);
-            window.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Author Matthias Vancoillie
-     *
-     * @param  mouseEvent
-     * @Return overgangen / werking Hoofdscherm
-     */
-
-    /*
-    * Rollen binnen de applicatie:
-    * Student
-    * Oud-student
-    * Docent
-    * Admin
-    * */
-
-    // Enable knoppen voor rollen
-    // om de knoppen dan weer op enable te krijgen wanneer de rol in functie zich op het hoofscherm bevindt werken we met - btnButton.setDisable(false).
-
-
-    // Disable knoppen voor rollen
-    // om de knoppen te onklikbaar te maken werken we met - btnButton.setDisable(isDisabled)
-
-    // eerst verwijzen we aan de hand van MouseEvent de schermen door uit het hoofdscherm.
-
+    private Gebruiker user;
 
     public void click_NaarZoekscherm(MouseEvent mouseEvent) {
         // waar alleen de oud-student kan gebruik van maken. hij kan alleen planten zoeken, meer niets.
@@ -86,4 +54,17 @@ public class ControllerHoofdscherm {
     public void click_PlantAanvraagBeheren(MouseEvent mouseEvent) {
         loadScreen(mouseEvent,"view/BeheeBehandelingPlant.fxml");
     }
+
+    //methodes
+    public void setUser(Gebruiker user){
+        this.user = user;
+    }
+
+    public void setButtons() {
+        if(user.getRol().equals("admin")) {
+            btnZoekScherm.setVisible(false);
+        }
+
+    }
+
 }

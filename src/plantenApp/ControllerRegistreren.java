@@ -5,17 +5,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
+import plantenApp.java.dao.Database;
 import plantenApp.java.dao.GebruikerDAO;
 import plantenApp.java.model.Gebruiker;
+import plantenApp.java.model.LoginMethods;
 
 import javax.swing.*;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ControllerRegistreren {
@@ -34,20 +37,17 @@ public class ControllerRegistreren {
     public Label lblWachtwoordValidatie;
     public Label lblEmailBoodschap;
 
-    public void initialize(){
-        btnRegistrerenStudent.setDisable(true);
-    }
+    private Connection dbConnection;
+    private GebruikerDAO gebruikerDAO;
+    private Gebruiker user;
 
-    public void loadScreen(MouseEvent event, String screenName) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(screenName));
-            Scene scene = new Scene(root);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(scene);
-            window.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    /**
+     * @author Bart Maes
+     * bij opstarten connectie en gebruikerDao aanroepen
+     */
+    public void initialize() throws SQLException {
+        dbConnection = Database.getInstance().getConnection();
+        gebruikerDAO = new GebruikerDAO(dbConnection);
     }
 
     /**
@@ -182,6 +182,44 @@ public class ControllerRegistreren {
         // wanneer de gebruiker de registratie annuleert wilt dit zeggen dat hij / zij al een werkend account in bezig heeft.
         // hiermee worden ze dan terug gestuurd naar het inlogscherm
         loadScreen(mouseEvent,"view/Inloggen.fxml");
+    /**
+     * @author Bart Maes
+     * checks bij registratie
+     */
+    public void clicked_Registreren(MouseEvent mouseEvent) throws SQLException, NoSuchAlgorithmException {
+        String sEmail = txtEmail.getText();
+        String sVoornaam = txtVoornaam.getText();
+        String sAchternaam = txtAchternaam.getText();
+        String sWw = pfWachtwoord.getText();
+        String sWw_herhaling = pfWachtwoordHerhalen.getText();
+
+        //hieronder moeten er nog extra checks gebeuren
+
+        //controleer of gebruiker in systeem zit
+        user = gebruikerDAO.getByEmail(txtEmail.getText());
+
+        if (user == null) {
+            JOptionPane.showConfirmDialog(null,
+                    "Het opgegeven emailadres is niet gekend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
+                    "Emailadres niet gekend", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        } else {
+
+            byte[] salt = getSalt();
+            byte[] hashPassword = LoginMethods.HashFromPassword(sWw, salt);
+            //opslaan van hash en salt
+            gebruikerDAO.setWachtWoordHash(user.getID(), hashPassword, salt);
+
+            JOptionPane.showMessageDialog(null, "U bent succesvol geregistreerd",
+                    "Registratie succesvol!", JOptionPane.INFORMATION_MESSAGE);
+            LoginMethods.loadScreen(mouseEvent, getClass(), "view/Inloggen.fxml");
+        }
+
+    }
+    private static byte[] getSalt() {
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[16];
+        random.nextBytes(salt);
+        return salt;
     }
 
     public void click_ValideerMail(MouseEvent mouseEvent) throws SQLException {

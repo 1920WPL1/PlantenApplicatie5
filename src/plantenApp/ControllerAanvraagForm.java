@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import plantenApp.java.model.LoginMethods;
 
 import javax.swing.*;
 
@@ -26,7 +27,7 @@ public class ControllerAanvraagForm {
                 "Annuleren", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 
         if (dialogButton == JOptionPane.YES_OPTION) {
-           // loadScreen(mouseEvent, "view/Inloggen.fxml");
+            LoginMethods.loadScreen(mouseEvent, getClass() ,"view/Inloggen.fxml");
         }
 
     }

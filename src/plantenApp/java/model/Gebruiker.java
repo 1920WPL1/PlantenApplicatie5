@@ -4,23 +4,23 @@ import java.util.Date;
 
 /**
  * @author Bart
- * @author Jasper : datatypes
  */
 public class Gebruiker {
-    private int gebruiker_id;
+    private int id;
     private String voornaam;
     private String achternaam;
     private String email;
     private String rol;
     private Date aanvraag_datum;
-    private Boolean aanvraag_goedgekeurd;
-    private Boolean geregistreerd;
+    private int geregistreerd;
+    private int aanvraag_goedgekeurd; // 0 : geen aanvraag (want vooraf geregistreerd) 1 : aanvraag ingediend 2: aanvraag goedgekeurd
     private byte[] wachtwoord_hash;
+    private byte[] salt;
 
-    public Gebruiker(int gebruiker_id, String voornaam, String achternaam,
+    public Gebruiker(int id, String voornaam, String achternaam,
                      String email, String rol, Date aanvraag_datum,
-                     boolean aanvraag_goedgekeurd, boolean geregistreerd, byte[] wachtwoord_hash) {
-        this.gebruiker_id = gebruiker_id;
+                     int aanvraag_goedgekeurd, int geregistreerd, byte[] wachtwoord_hash, byte[] salt) {
+        this.id = id;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.email = email;
@@ -29,6 +29,7 @@ public class Gebruiker {
         this.aanvraag_goedgekeurd = aanvraag_goedgekeurd;
         this.geregistreerd = geregistreerd;
         this.wachtwoord_hash = wachtwoord_hash;
+        this.salt = salt;
     }
 
     public int getGebruiker_id() {
@@ -79,19 +80,19 @@ public class Gebruiker {
         this.aanvraag_datum = aanvraag_datum;
     }
 
-    public boolean isAanvraag_goedgekeurd() {
+    public int isAanvraag_goedgekeurd() {
         return aanvraag_goedgekeurd;
     }
 
-    public void setAanvraag_goedgekeurd(boolean aanvraag_goedgekeurd) {
+    public void setAanvraag_goedgekeurd(int aanvraag_goedgekeurd) {
         this.aanvraag_goedgekeurd = aanvraag_goedgekeurd;
     }
 
-    public boolean isGeregistreerd() {
+    public int isGeregistreerd() {
         return geregistreerd;
     }
 
-    public void setGeregistreerd(boolean geregistreerd) {
+    public void setGeregistreerd(int geregistreerd) {
         this.geregistreerd = geregistreerd;
     }
 
@@ -101,5 +102,13 @@ public class Gebruiker {
 
     public void setWachtwoord_hash(byte[] wachtwoord_hash) {
         this.wachtwoord_hash = wachtwoord_hash;
+    }
+
+    public byte[] getSalt() {
+        return salt;
+    }
+
+    public void setSalt(byte[] salt) {
+        this.salt = salt;
     }
 }

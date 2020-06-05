@@ -229,13 +229,17 @@ public interface Queries {
     /**
      * @Author Bart
      * de queries die gebruikt worden voor de gebruikerstabel
-     * @Author Jasper
+     * @Author Jasper, Bart
      * query SETWACHTWOORD_HASH
      */
     //region Gebruiker
     String GETALLGEBRUIKERS = "SELECT * FROM gebruiker";
     String GETGEBRUIKERBYEMAILADRES = "SELECT * FROM gebruiker WHERE email = ?";
-    String SETWACHTWOORDHASH = "UPDATE gebruiker SET wachtwoord_hash = ? WHERE gebruiker_id = ? ";
+    String SETWACHTWOORDHASH = "UPDATE gebruiker SET wachtwoord_hash = ?, salt = ?, geregistreerd = 1 WHERE gebruiker_id = ?";
+    /**
+    * @Author Jasper
+    */
+    String GETGEBRUIKERSBYFULLNAME = "SELECT * FROM gebruiker WHERE voornaam LIKE ? OR achternaam LIKE ?";
+    String SETGEBRUIKERBYID = "UPDATE gebruiker SET voornaam = ?, achternaam = ?, email = ?, rol = ? WHERE gebruiker_id = ?";
     //endregion
 }
-
