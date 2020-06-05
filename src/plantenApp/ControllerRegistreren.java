@@ -15,6 +15,8 @@ import plantenApp.java.model.Gebruiker;
 
 import javax.swing.*;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ControllerRegistreren {
     private GebruikerDAO gebruikerDAO;
@@ -30,6 +32,11 @@ public class ControllerRegistreren {
 
     public Label lblGelijkeWW;
     public Label lblWachtwoordValidatie;
+    public Label lblEmailBoodschap;
+
+    public void initialize(){
+        btnRegistrerenStudent.setDisable(true);
+    }
 
     public void loadScreen(MouseEvent event, String screenName) {
         try {
@@ -50,6 +57,34 @@ public class ControllerRegistreren {
      * @Return overgang en werking Registratie Student
      */
 
+    // Valideren van een e-mail
+    public boolean validateEmail(String sVivesEmail) {
+        boolean status = false;
+
+        //[a-zA-Z0-9_+&*-]+
+        String email_pattern = "^[a-zA-Z0-9_+&*-]+(?:\\." +
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9_+&*-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pattern = Pattern.compile(email_pattern);
+        Matcher matcher = pattern.matcher(sVivesEmail);
+
+       // if-else aanmaken om te kijken als het ingevoerde veld het pattern opvolgt.
+        if (matcher.matches()) {
+            status = true;
+
+            //return pattern.matcher(email_pattern).matches();
+            lblEmailBoodschap.setText("Dit is een geldig e-mailadres.");
+        } else {
+            status = false;
+            lblEmailBoodschap.setText("Dit is geen geldig e-mailadres");
+        }
+        return status;
+
+    }
+
+
     // Valideren van een wachtwoord
     /*
     Minstens 10 karakters
@@ -59,6 +94,7 @@ public class ControllerRegistreren {
      */
     public boolean validateWachtwoord(String sWachtwoordStudent) {
         if (sWachtwoordStudent.length() > 9) {
+
             if (checkPass(sWachtwoordStudent)) {
                 return true;
             } else {
@@ -72,6 +108,7 @@ public class ControllerRegistreren {
     }
 
     public boolean checkPass(String sWachtwoordStudent) {
+
         boolean hasNum = false;
         boolean hasCap = false;
         boolean hasLow = false;
@@ -95,47 +132,24 @@ public class ControllerRegistreren {
         return false;
     }
 
-    // valideren van vives e-mail
-
-
 
     public void clicked_RegistrerenStudent(MouseEvent mouseEvent) throws SQLException {
         // Scherm voor het registreren van een student
             // knop om de aanvraag op registratie in te dienen voor de student.
-
+            // knop om annulatie -> terug naar login
             // De ingevoerde velden binnen het scherm ophalen.
             String sVivesMail = txtVivesMail.getText();
-            String sVoornaamStudent = txtVoornaamStudent.getText();
-            String sAchternaamStudent = txtAchternaamStudent.getText();
-
             String sWachtwoordStudent = pfWachtwoordStudent.getText();
             String sWachtwoordHerhalenStudent = pfStudentWachtwoordHerhalen.getText();
 
+            // if else aanmaken voor e-mail - isEmpty controle
+        if (sVivesMail.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Gelieve een e-mail adres in te vullen");
+        } else {
 
-
-            // if-else aanmaken als controle wanneer velden niet zijn ingevuld door de student.
-
-            if (sVivesMail.isEmpty() && sVoornaamStudent.isEmpty() && sAchternaamStudent.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Gelieve alle velden in te vullen voor je registratie", "Ongeldige ingave", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                // controleren als de student al in de database aanwezig is.
-                Gebruiker student = gebruikerDAO.getByEmail(txtVivesMail.getText());
-
-                // Student is niet gekend in de database
-                if (student == null) {
-                    int dialogButton = JOptionPane.showConfirmDialog(null, "Het opgegeven vives e-mail is nog niet gekend. Wenst u een aanvraag te doen?", "Vives e-mail niet gekend", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-                    // yes of no in een  if-else structuur gaan verwerken
-                    if (dialogButton == JOptionPane.YES_NO_OPTION) {
-                        loadScreen(mouseEvent, "view/AanvraagToegang.fxml");
-                    } else {
-                        loadScreen(mouseEvent, "view/Inloggen.fxml");
-                    }
-                }
-
-            }
-
+        }
             // if-else aanmaken voor wachtwoord
-        if (sWachtwoordStudent.isEmpty()) {
+        if (sWachtwoordStudent.isEmpty() && sWachtwoordHerhalenStudent.isEmpty()) {
             JOptionPane.showMessageDialog(null,"Gelieve iets in te vullen als wachtwoord", "Ongeldige ingave", JOptionPane.INFORMATION_MESSAGE);
         } else {
             validateWachtwoord(sWachtwoordStudent);
@@ -148,19 +162,40 @@ public class ControllerRegistreren {
 
         } else {
             JOptionPane.showMessageDialog(null, "Wachtwoorden zijn niet gelijk", "Ongeldige invage", JOptionPane.INFORMATION_MESSAGE);
-            // als de wachtwoorden niet gelijk zijn dan worden de ingevoerde velden weer leeg.
-            /*
-            pfWachtwoordStudent.setText(null);
-            pfStudentWachtwoordHerhalen.setText(null);
-
-             */
         }
 
+        // enable en disable button "registreren"
+       btnRegistrerenStudent.setDisable(true);
+
         }
+
+    public void EnableDisable_Button(String sVivesMail)
+    {
+        boolean isDisabled = (sVivesMail.isEmpty() || sVivesMail.trim().isEmpty()
+                /* || (sWachtwoordStudent.isEmpty() || sWachtwoordStudent.trim().isEmpty() || (sWachtwoordHerhalenStudent.isEmpty() || sWachtwoordHerhalenStudent.trim().isEmpty() */);
+        btnRegistrerenStudent.setDisable(isDisabled);
+}
+
 
     public void clicked_AnnulerenRegistreren(MouseEvent mouseEvent) {
         // wanneer de gebruiker de registratie annuleert wilt dit zeggen dat hij / zij al een werkend account in bezig heeft.
         // hiermee worden ze dan terug gestuurd naar het inlogscherm
         loadScreen(mouseEvent,"view/Inloggen.fxml");
     }
+
+    public void click_ValideerMail(MouseEvent mouseEvent) {
+        String emailAdres = txtVivesMail.getText();
+        if (emailAdres.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null,"Gelieve een geldig e-mail adres in te vullen");
+        } else {
+            // validatie voor e-mailadres
+            validateEmail(emailAdres);
+
+        }
+
+    }
+
+
+
 }
