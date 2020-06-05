@@ -2,6 +2,11 @@ package plantenApp;
 
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import plantenApp.java.model.Gebruiker;
+
+/**
+ * @author Bart Maes
+ */
 
 public class ControllerHoofdscherm {
     public Button btnZoekScherm;
@@ -11,6 +16,8 @@ public class ControllerHoofdscherm {
     public Button btnToevoegenPlant;
     public Button btnPlantZoekWijzig;
     public Button btnPlantenAanvraag;
+
+    private Gebruiker user;
 
     public void click_NaarZoekscherm(MouseEvent mouseEvent) {
     }
@@ -32,4 +39,17 @@ public class ControllerHoofdscherm {
 
     public void click_PlantAanvraagBeheren(MouseEvent mouseEvent) {
     }
+
+    //methodes
+    public void setUser(Gebruiker user){
+        this.user = user;
+    }
+
+    public void setButtons() {
+        if(user.getRol().equals("admin")) {
+            btnZoekScherm.setVisible(false);
+        }
+
+    }
+
 }

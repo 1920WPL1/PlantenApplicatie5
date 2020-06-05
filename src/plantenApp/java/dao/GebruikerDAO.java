@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**@author Bart*/
+/**@author Bart Maes*/
 public class GebruikerDAO implements Queries {
     private Connection dbConnection;
     private PreparedStatement stmtSelectGebruikerByEmail;
@@ -19,6 +19,9 @@ public class GebruikerDAO implements Queries {
         stmtSetWachtwoordHash = dbConnection.prepareStatement(SETWACHTWOORDHASH);
     }
 
+    /**@author Bart Maes
+     * @return alle gebruikers
+     */
     public List<Gebruiker> getAllGebruiker() {
         List<Gebruiker> gebruikersList = new ArrayList<>();
         try {
@@ -33,9 +36,10 @@ public class GebruikerDAO implements Queries {
                                 rs.getString("email"),
                                 rs.getString("rol"),
                                 rs.getDate("aanvraag_datum"),
-                                rs.getBoolean("aanvraag_goedgekeurd"),
-                                rs.getBoolean("geregistreerd"),
-                                rs.getBytes("wachtwoord_hash")
+                                rs.getInt("aanvraag_goedgekeurd"),
+                                rs.getInt("geregistreerd"),
+                                rs.getBytes("wachtwoord_hash"),
+                                rs.getBytes("salt")
                         );
                 gebruikersList.add(gebruiker);
             }
@@ -45,7 +49,7 @@ public class GebruikerDAO implements Queries {
         return gebruikersList;
     }
 
-    /**@author Bart
+    /**@author Bart Maes
      * @param email -> email
      * @return gebruikersgegevens van emailadres
      */
@@ -61,17 +65,21 @@ public class GebruikerDAO implements Queries {
                     rs.getString("email"),
                     rs.getString("rol"),
                     rs.getDate("aanvraag_datum"),
-                    rs.getBoolean("aanvraag_goedgekeurd"),
-                    rs.getBoolean("geregistreerd"),
-                    rs.getBytes("wachtwoord_hash")
+                    rs.getInt("aanvraag_goedgekeurd"),
+                    rs.getInt("geregistreerd"),
+                    rs.getBytes("wachtwoord_hash"),
+                    rs.getBytes("salt")
             );
         }
         return user;
     }
 
-    public void setWachtWoordHash(int id, byte[] hash) throws SQLException {
+    public void setWachtWoordHash(int id, byte[] hash, byte[] salt) throws SQLException {
         stmtSetWachtwoordHash.setBytes(1, hash);
-        stmtSetWachtwoordHash.setInt(2, id);
-        stmtSetWachtwoordHash.executeQuery();
+        stmtSetWachtwoordHash.setBytes(2, salt);
+        stmtSetWachtwoordHash.setInt(3, id);
+        //stmtSetWachtwoordHash.executeQuery();
+        //aanpassing Bart Maes:
+        stmtSetWachtwoordHash.executeUpdate();
     }
 }
