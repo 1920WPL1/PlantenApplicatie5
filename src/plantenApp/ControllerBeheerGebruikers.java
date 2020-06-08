@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import plantenApp.java.dao.Database;
 import plantenApp.java.dao.GebruikerDAO;
 import plantenApp.java.model.Gebruiker;
+import plantenApp.java.model.LoginMethods;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -19,14 +20,10 @@ import java.util.List;
 public class ControllerBeheerGebruikers {
 
     public ComboBox<String> cmbGebruikerRol;
-    public Label lblNaamGebruiker;
-    public Label lblVNaamGebruiker;
-    public Label lblEmailGebruiker;
     public ListView lstGebruikersLijst;
     public TextField txtZoekFGebruiker;
     public Button btnWijzigGebruiker;
     public Button btnGebruikerVerwijderen;
-    public Button btnZoekScherm;
     public Button btnHoofdscherm;
     public TextField txtNaam;
     public TextField txtVoornaam;
@@ -95,6 +92,14 @@ public class ControllerBeheerGebruikers {
         );
     }
 
+    public void refreshGebruikersFound() throws SQLException {
+        List<Gebruiker> listGebruikersFound =
+                new GebruikerDAO(connection).getGebruikersByFullName(txtZoekFGebruiker.getText());
+        // gebruikers is een ObservableList en listGebruikersFound wordt gebruikt om hem te vullen
+        gebruikersFound = FXCollections.observableList(listGebruikersFound);
+        lstGebruikersLijst.setItems(gebruikersFound);
+    }
+
     /**@Author Jasper
      * @apiNote Enter in zoekvak: zoek op voornaam en achternaam. Resultaat verschijnt in ListView
      * @param actionEvent
@@ -102,31 +107,45 @@ public class ControllerBeheerGebruikers {
     public void enter_zoekGebruikers(ActionEvent actionEvent) throws SQLException {
         if(!txtZoekFGebruiker.getText().equals("")) // om te vermijden dat je alle gebruikers zou tonen (= te veel)
         {
-            List<Gebruiker> listGebruikersFound =
-                    new GebruikerDAO(connection).getGebruikersByFullName(txtZoekFGebruiker.getText());
-            // gebruikers is een ObservableList en listGebruikersFound wordt gebruikt om hem te vullen
-            gebruikersFound = FXCollections.observableList(listGebruikersFound);
-            lstGebruikersLijst.setItems(gebruikersFound);
+            refreshGebruikersFound();
         }
     }
 
+    /**@Author Jasper
+     * @param mouseEvent
+     * @throws SQLException
+     */
     public void clicked_wijzigGebruiker(MouseEvent mouseEvent) throws SQLException {
         if(gebruikerSelected == null)
         {
             lblMessage.setText("Gelieve een gebruiker te selecteren");
         } else{
-            System.out.println(gebruikerSelected.getGebruiker_id());
-            int iGeslaagd = new GebruikerDAO(connection).setGebruikerById( gebruikerSelected.getGebruiker_id(),
-            txtVoornaam.getText(), txtNaam.getText(), txtEmail.getText(), cmbGebruikerRol.getSelectionModel().getSelectedItem());
+            int iGeslaagd = new GebruikerDAO(connection).setGebruikerById(
+                    gebruikerSelected.getId(), txtVoornaam.getText(), txtNaam.getText(), txtEmail.getText(), cmbGebruikerRol.getSelectionModel().getSelectedItem());
             String sResult = (iGeslaagd == 1) ? "Wijziging uitgevoerd" : "Wijziging niet uitgevoerd";
             lblMessage.setText(sResult);
         }
     }
 
-    public void clicked_VerwijderenGebruiker(MouseEvent mouseEvent) {
+    /**@Author Jasper
+     * @param mouseEvent
+     * @throws SQLException
+     */
+    public void clicked_VerwijderenGebruiker(MouseEvent mouseEvent) throws SQLException {
+        if(gebruikerSelected == null)
+        {
+            lblMessage.setText("Gelieve een gebruiker te selecteren");
+        } else{
+            int iGeslaagd = new GebruikerDAO(connection).deleteGebruikerById(gebruikerSelected.getId());
+            String sResult = (iGeslaagd == 1) ? "Gebruiker verwijderd" : "Gebruiker niet verwijderd";
+            lblMessage.setText(sResult);
+            if(iGeslaagd == 1){
+                refreshGebruikersFound(); // gezochte gebruikers opnieuw ophalen => verwijderde gebruiker wordt niet meer getoond in lijst
+            }
+        }
     }
 
     public void clicked_NaarHoofdscherm(MouseEvent mouseEvent) {
-
+        LoginMethods.loadScreen(mouseEvent, getClass(),"view/Hoofdscherm.fxml");
     }
 }
