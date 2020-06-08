@@ -125,7 +125,7 @@ public class GebruikerDAO implements Queries {
         stmtSetWachtwoordHash.setBytes(2, salt);
         stmtSetWachtwoordHash.setInt(3, id);
         //aanpassing Bart Maes:
-        return stmtSetWachtwoordHash.executeUpdate();
+        stmtSetWachtwoordHash.executeUpdate();
     }
 
     /**
