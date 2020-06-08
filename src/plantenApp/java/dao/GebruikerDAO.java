@@ -100,8 +100,9 @@ public class GebruikerDAO implements Queries {
                                 rs.getString("rol"),
                                 rs.getDate("aanvraag_datum"),
                                 rs.getInt("aanvraag_goedgekeurd"),
-                                rs.getBoolean("geregistreerd"),
-                                rs.getBytes("wachtwoord_hash")
+                                rs.getInt("geregistreerd"),
+                                rs.getBytes("wachtwoord_hash"),
+                                rs.getBytes("salt")
                         );
                 gebruikersList.add(gebruiker);
             }

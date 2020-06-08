@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -19,11 +20,10 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ControllerRegistreren {
-    private GebruikerDAO gebruikerDAO;
-
     public Button btnRegistrerenStudent;
     public Button btnAnnulerenRegistreren;
     public TextField txtVoornaamStudent;
@@ -174,28 +174,29 @@ public class ControllerRegistreren {
         boolean isDisabled = (sVivesMail.isEmpty() || sVivesMail.trim().isEmpty()
                 /* || (sWachtwoordStudent.isEmpty() || sWachtwoordStudent.trim().isEmpty() || (sWachtwoordHerhalenStudent.isEmpty() || sWachtwoordHerhalenStudent.trim().isEmpty() */);
         btnRegistrerenStudent.setDisable(isDisabled);
-}
+    }
 
 
     public void clicked_AnnulerenRegistreren(MouseEvent mouseEvent) {
         // wanneer de gebruiker de registratie annuleert wilt dit zeggen dat hij / zij al een werkend account in bezig heeft.
         // hiermee worden ze dan terug gestuurd naar het inlogscherm
-        loadScreen(mouseEvent,"view/Inloggen.fxml");
+         LoginMethods.loadScreen(mouseEvent, getClass(), "view/Inloggen.fxml");
+    }
     /**
      * @author Bart Maes
      * checks bij registratie
      */
     public void clicked_Registreren(MouseEvent mouseEvent) throws SQLException, NoSuchAlgorithmException {
-        String sEmail = txtEmail.getText();
-        String sVoornaam = txtVoornaam.getText();
-        String sAchternaam = txtAchternaam.getText();
-        String sWw = pfWachtwoord.getText();
-        String sWw_herhaling = pfWachtwoordHerhalen.getText();
+        String sEmail = txtVivesMail.getText();
+        String sVoornaam = txtVoornaamStudent.getText();
+        String sAchternaam = txtAchternaamStudent.getText();
+        String sWw = pfWachtwoordStudent.getText();
+        String sWw_herhaling = pfStudentWachtwoordHerhalen.getText();
 
         //hieronder moeten er nog extra checks gebeuren
 
         //controleer of gebruiker in systeem zit
-        user = gebruikerDAO.getByEmail(txtEmail.getText());
+        user = gebruikerDAO.getByEmail(txtVivesMail.getText());
 
         if (user == null) {
             JOptionPane.showConfirmDialog(null,
@@ -206,7 +207,7 @@ public class ControllerRegistreren {
             byte[] salt = getSalt();
             byte[] hashPassword = LoginMethods.HashFromPassword(sWw, salt);
             //opslaan van hash en salt
-            gebruikerDAO.setWachtWoordHash(user.getID(), hashPassword, salt);
+            gebruikerDAO.setWachtWoordHash(user.getId(), hashPassword, salt);
 
             JOptionPane.showMessageDialog(null, "U bent succesvol geregistreerd",
                     "Registratie succesvol!", JOptionPane.INFORMATION_MESSAGE);

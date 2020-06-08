@@ -2,6 +2,8 @@ package plantenApp;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import plantenApp.java.dao.Database;
@@ -101,9 +103,7 @@ public class ControllerLogin {
     }
 
     public void click_WwVergeten(MouseEvent mouseEvent) {
-
-        }
-        return false;
+        ;
     }
 
     // methodes

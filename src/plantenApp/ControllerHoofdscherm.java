@@ -10,6 +10,8 @@ import plantenApp.java.model.Gebruiker;
 import javafx.stage.Stage;
 import plantenApp.java.dao.GebruikerDAO;
 
+import static plantenApp.java.model.LoginMethods.loadScreen;
+
 /**
  * @author Bart Maes
  */
@@ -27,7 +29,7 @@ public class ControllerHoofdscherm {
 
     public void click_NaarZoekscherm(MouseEvent mouseEvent) {
         // waar alleen de oud-student kan gebruik van maken. hij kan alleen planten zoeken, meer niets.
-        loadScreen(mouseEvent, "view/Zoekscherm.fxml");
+        loadScreen(mouseEvent, getClass(), "view/Zoekscherm.fxml");
     }
 
     public void click_ProfielBeheren(MouseEvent mouseEvent) {
@@ -35,20 +37,20 @@ public class ControllerHoofdscherm {
     }
 
     public void click_RegistratiesBeheren(MouseEvent mouseEvent) {
-        loadScreen(mouseEvent,"view/BeheerRegistraties.fxml");
+        loadScreen(mouseEvent, getClass(), "view/BeheerRegistraties.fxml");
     }
 
     public void click_GebruikersBeheren(MouseEvent mouseEvent) {
-        loadScreen(mouseEvent,"view/BeheerGebruikers.fxml");
+        loadScreen(mouseEvent, getClass(), "view/BeheerGebruikers.fxml");
     }
 
     public void clicked_ToevoegenPlant(MouseEvent mouseEvent) {
-        loadScreen(mouseEvent, "view/PlantToevoegen.fxml");
+        loadScreen(mouseEvent, getClass(), "view/PlantToevoegen.fxml");
     }
 
     public void click_PlantZoekWijzig(MouseEvent mouseEvent) {
         // waar student / docent meer bevoegdheden hebben op het zoekscherm.
-        loadScreen(mouseEvent, "view/Zoekscherm");
+        loadScreen(mouseEvent, getClass(), "view/Zoekscherm");
     }
 
     public void click_PlantAanvraagBeheren(MouseEvent mouseEvent) {

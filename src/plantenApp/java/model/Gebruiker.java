@@ -32,12 +32,8 @@ public class Gebruiker {
         this.salt = salt;
     }
 
-    public int getGebruiker_id() {
-        return gebruiker_id;
-    }
-
-    public void setGebruiker_id(int id) {
-        this.gebruiker_id = id;
+    public int getId() {
+        return id;
     }
 
     public String getVoornaam() {
