@@ -41,7 +41,7 @@ public class GebruikerDAO implements Queries {
                                 rs.getString("email"),
                                 rs.getString("rol"),
                                 rs.getDate("aanvraag_datum"),
-                                rs.getInt("aanvraag_goedgekeurd"),
+                                rs.getInt("aanvraag_status"),
                                 rs.getInt("geregistreerd"),
                                 rs.getBytes("wachtwoord_hash"),
                                 rs.getBytes("salt")
@@ -70,7 +70,7 @@ public class GebruikerDAO implements Queries {
                     rs.getString("email"),
                     rs.getString("rol"),
                     rs.getDate("aanvraag_datum"),
-                    rs.getInt("aanvraag_goedgekeurd"),
+                    rs.getInt("aanvraag_status"),
                     rs.getInt("geregistreerd"),
                     rs.getBytes("wachtwoord_hash"),
                     rs.getBytes("salt")
@@ -99,9 +99,10 @@ public class GebruikerDAO implements Queries {
                                 rs.getString("email"),
                                 rs.getString("rol"),
                                 rs.getDate("aanvraag_datum"),
-                                rs.getInt("aanvraag_goedgekeurd"),
-                                rs.getBoolean("geregistreerd"),
-                                rs.getBytes("wachtwoord_hash")
+                                rs.getInt("aanvraag_status"),
+                                rs.getInt("geregistreerd"),
+                                rs.getBytes("wachtwoord_hash"),
+                                rs.getBytes("salt")
                         );
                 gebruikersList.add(gebruiker);
             }
@@ -111,13 +112,13 @@ public class GebruikerDAO implements Queries {
         return gebruikersList;
     }
 
-    /**@author Jasper
+    /**@author Jasper, Bart
      * @param id : id van gebruiker om nieuwe wachtwoord_hash in te stellen
      * @param hash : nieuwe wachtwoord_hash
      * @return 1 bij gewijzigd wachtwoord, 0 bij fout
      * @throws SQLException
      */
-    public int setWachtWoordHash(int id, byte[] hash, byte[] salt) throws SQLException {
+    public void setWachtWoordHash(int id, byte[] hash, byte[] salt) throws SQLException {
         stmtSetWachtwoordHash.setBytes(1, hash);
         stmtSetWachtwoordHash.setBytes(2, salt);
         stmtSetWachtwoordHash.setInt(3, id);
@@ -140,6 +141,8 @@ public class GebruikerDAO implements Queries {
         stmtSetGebruikerById.setString(3, email);
         stmtSetGebruikerById.setString(4, rol);
         stmtSetGebruikerById.setInt(5, id);
-        return stmtSetWachtwoordHash.executeUpdate();
+        //return stmtSetWachtwoordHash.executeUpdate();
+        //aanpassing Bart Maes (verkeerde statement hierboven?):
+        return stmtSetGebruikerById.executeUpdate();
     }
 }
