@@ -241,5 +241,6 @@ public interface Queries {
     */
     String GETGEBRUIKERSBYFULLNAME = "SELECT * FROM gebruiker WHERE voornaam LIKE ? OR achternaam LIKE ?";
     String SETGEBRUIKERBYID = "UPDATE gebruiker SET voornaam = ?, achternaam = ?, email = ?, rol = ? WHERE gebruiker_id = ?";
+    String DELETEGEBRUIKERBYID = "DELETE FROM gebruiker WHERE gebruiker_id = ?";
     //endregion
 }

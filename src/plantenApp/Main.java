@@ -9,10 +9,12 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("view/BeheerGebruikers.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/Inloggen.fxml"));
         primaryStage.setTitle("Planten applicatie");
-        primaryStage.setScene(new Scene(root, 429, 189));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        //schermen fixed size
+        primaryStage.setResizable(false);
     }
 
     public static void main(String[] args) {
