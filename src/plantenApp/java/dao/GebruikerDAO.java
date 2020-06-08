@@ -15,6 +15,7 @@ public class GebruikerDAO implements Queries {
     private PreparedStatement stmtSelectGebruikersByFullName;
     private PreparedStatement stmtSetGebruikerById;
     private PreparedStatement stmtSetWachtwoordHash;
+    private PreparedStatement stmtDeleteGebruikerById;
 
     public GebruikerDAO(Connection dbConnection) throws SQLException {
         this.dbConnection = dbConnection;
@@ -22,6 +23,7 @@ public class GebruikerDAO implements Queries {
         stmtSelectGebruikersByFullName = dbConnection.prepareStatement(GETGEBRUIKERSBYFULLNAME);
         stmtSetGebruikerById = dbConnection.prepareStatement(SETGEBRUIKERBYID);
         stmtSetWachtwoordHash = dbConnection.prepareStatement(SETWACHTWOORDHASH);
+        stmtDeleteGebruikerById = dbConnection.prepareStatement(DELETEGEBRUIKERBYID);
     }
 
     /**@author Bart Maes
@@ -123,7 +125,7 @@ public class GebruikerDAO implements Queries {
         stmtSetWachtwoordHash.setBytes(2, salt);
         stmtSetWachtwoordHash.setInt(3, id);
         //aanpassing Bart Maes:
-        stmtSetWachtwoordHash.executeUpdate();
+        return stmtSetWachtwoordHash.executeUpdate();
     }
 
     /**
@@ -141,6 +143,16 @@ public class GebruikerDAO implements Queries {
         stmtSetGebruikerById.setString(3, email);
         stmtSetGebruikerById.setString(4, rol);
         stmtSetGebruikerById.setInt(5, id);
-        return stmtSetWachtwoordHash.executeUpdate();
+        return stmtSetGebruikerById.executeUpdate();
+    }
+
+    /**@Author Jasper
+     * @param id gebruiker om te verwijderen
+     * @return 1 => verwijdering, 0 = geen verwijdering uitgevoerd
+     * @throws SQLException
+     */
+    public int deleteGebruikerById(int id) throws SQLException {
+        stmtDeleteGebruikerById.setInt(1, id);
+        return stmtDeleteGebruikerById.executeUpdate();
     }
 }
