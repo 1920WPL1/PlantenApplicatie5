@@ -132,7 +132,6 @@ public class ControllerRegistreren {
         return false;
     }
 
-
     public void clicked_RegistrerenStudent(MouseEvent mouseEvent) throws SQLException {
         // Scherm voor het registreren van een student
             // knop om de aanvraag op registratie in te dienen voor de student.

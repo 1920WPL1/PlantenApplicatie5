@@ -36,26 +36,23 @@ public class ControllerBeheerGebruikers {
 
     // documentatie listviews:  https://docs.oracle.com/javafx/2/ui_controls/list-view.htm
 
-    /**@Author Jasper
-     * @apiNote instellen van connection en weergave ListView
-     * @throws SQLException
-     */
+    /* @Author Jasper */
     public void initialize() throws SQLException {
         this.connection = Database.getInstance().getConnection();
 
         // Tonen van naam gebruikers ipv 'gebruiker' object
         // door CellFactory van ListView aan te passen zodat hij ListCells aanmaakt met eigen invulling voor updateItem( item, bool)
         lstGebruikersLijst.setCellFactory(param -> new ListCell<Gebruiker>() {
-                    @Override
-                    protected void updateItem(Gebruiker gebruiker, boolean isEmpty) {
-                        super.updateItem(gebruiker, isEmpty);
-                        if (gebruiker == null || isEmpty) {
-                            setText(null);
-                        } else {
-                            setText(gebruiker.getVoornaam() + " " + gebruiker.getAchternaam());
-                        }
-                    }
-                });
+            @Override
+            protected void updateItem(Gebruiker gebruiker, boolean isEmpty) {
+                super.updateItem(gebruiker, isEmpty);
+                if (gebruiker == null || isEmpty) {
+                    setText(null);
+                } else {
+                    setText(gebruiker.getVoornaam() + " " + gebruiker.getAchternaam());
+                }
+            }
+        });
 
         // Combobox met rol vullen
         cmbGebruikerRol.setItems(FXCollections.observableArrayList("gast", "student", "docent", "admin"));
@@ -91,8 +88,8 @@ public class ControllerBeheerGebruikers {
             }
         );
     }
-
-    public void refreshGebruikersFound() throws SQLException {
+    /* @Author Jasper */
+    private void refreshGebruikersFound() throws SQLException {
         List<Gebruiker> listGebruikersFound =
                 new GebruikerDAO(connection).getGebruikersByFullName(txtZoekFGebruiker.getText());
         // gebruikers is een ObservableList en listGebruikersFound wordt gebruikt om hem te vullen

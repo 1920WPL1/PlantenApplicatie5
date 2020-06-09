@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,9 +14,22 @@
          <Font name="System Bold" size="12.0" />
       </font>
    </Label>
-   <Label layoutX="32.0" layoutY="62.0" text="Aanvragen" />
-   <ListView fx:id="lstAanvraagRegistraties" layoutX="31.0" layoutY="85.0" prefHeight="200.0" prefWidth="491.0" />
-   <Button fx:id="btnAanvraagGoedkeuren" layoutX="32.0" layoutY="296.0" mnemonicParsing="false" onMouseClicked="#clicked_Goedkeuren" text="Registratie goedkeuren" />
-   <Button fx:id="btnAanvraagAfwijzen" layoutX="191.0" layoutY="296.0" mnemonicParsing="false" onMouseClicked="#clicked_Afwijzen" text="Registratie aanvraag afwijzen" />
+   <ListView fx:id="lstAanvraagRegistraties" layoutX="31.0" layoutY="85.0" prefHeight="235.0" prefWidth="200.0" />
+   <Button fx:id="btnAanvraagGoedkeuren" layoutX="252.0" layoutY="296.0" mnemonicParsing="false" onMouseClicked="#clicked_Goedkeuren" text="Registratie goedkeuren" />
+   <Button fx:id="btnAanvraagAfwijzen" layoutX="411.0" layoutY="296.0" mnemonicParsing="false" onMouseClicked="#clicked_Afwijzen" text="Registratie aanvraag afwijzen" />
+   <Label layoutX="254.0" layoutY="85.0" text="Info Aanvraag">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="253.0" layoutY="111.0" text="Naam" />
+   <Label layoutX="253.0" layoutY="136.0" text="Voornaam" />
+   <Label layoutX="253.0" layoutY="160.0" text="E-mail" />
+   <Label layoutX="253.0" layoutY="210.0" text="Rol" />
+   <ComboBox fx:id="cmbGebruikerRol" disable="true" layoutX="371.0" layoutY="206.0" prefWidth="150.0" />
+   <Label fx:id="lblMessage" layoutX="253.0" layoutY="251.0" text="Gelieve een gebruiker te selecteren" />
+   <Label fx:id="lblNaam" layoutX="371.0" layoutY="111.0" prefHeight="17.0" prefWidth="150.0" text="?" />
+   <Label fx:id="lblVoornaam" layoutX="371.0" layoutY="136.0" prefHeight="17.0" prefWidth="150.0" text="?" />
+   <Label fx:id="lblEmail" layoutX="371.0" layoutY="160.0" prefHeight="17.0" prefWidth="150.0" text="?" />
 
 </AnchorPane>

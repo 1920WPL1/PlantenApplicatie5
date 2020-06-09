@@ -13,7 +13,7 @@ public class Gebruiker {
     private String rol;
     private Date aanvraag_datum;
     private int geregistreerd;
-    private int aanvraag_goedgekeurd; // 0 : geen aanvraag (want vooraf geregistreerd) 1 : aanvraag ingediend 2: aanvraag goedgekeurd
+    private int aanvraag_goedgekeurd; //  [aanvraag_status] [int] NOT NULL // 0 : geen aanvraag (want vooraf geregistreerd) 1 : aanvraag ingediend 2: aanvraag goedgekeurd
     private byte[] wachtwoord_hash;
     private byte[] salt;
 
