@@ -65,6 +65,21 @@ public class ControllerHoofdscherm {
             btnZoekScherm.setVisible(false);
         }
 
+        if (user.getRol().equals("docent")) {
+            btnZoekScherm.setVisible(false);
+        }
+
+        if (user.getRol().equals("student")) {
+            btnZoekScherm.setVisible(false);
+        }
+
+        if (user.getRol().equals("oud-student")) {
+            btnZoekScherm.setVisible(true);
+        }
+
+
+
+
     }
 
 }

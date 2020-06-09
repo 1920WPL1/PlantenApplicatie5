@@ -1,11 +1,8 @@
 package plantenApp;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -15,10 +12,10 @@ import plantenApp.java.model.Gebruiker;
 import plantenApp.java.model.LoginMethods;
 
 import javax.swing.*;
-import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ControllerRegistreren {
@@ -38,7 +35,7 @@ public class ControllerRegistreren {
     public Label lblEmailBoodschap;
 
     private Connection dbConnection;
-    private GebruikerDAO gebruikerDAO;
+    private GebruikerDAO gebruiker;
     private Gebruiker user;
 
     /**
@@ -178,7 +175,7 @@ public class ControllerRegistreren {
 }
 
 
-    public void clicked_AnnulerenRegistreren(MouseEvent mouseEvent) {
+    public byte[] clicked_AnnulerenRegistreren(MouseEvent mouseEvent) {
         // wanneer de gebruiker de registratie annuleert wilt dit zeggen dat hij / zij al een werkend account in bezig heeft.
         // hiermee worden ze dan terug gestuurd naar het inlogscherm
         loadScreen(mouseEvent,"view/Inloggen.fxml");
