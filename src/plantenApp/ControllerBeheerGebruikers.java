@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import plantenApp.java.dao.Database;
 import plantenApp.java.dao.GebruikerDAO;
 import plantenApp.java.model.Gebruiker;
@@ -29,6 +30,7 @@ public class ControllerBeheerGebruikers {
     public TextField txtVoornaam;
     public TextField txtEmail;
     public Label lblMessage;
+    public AnchorPane anchorPane;
 
     private Connection connection;
     private ObservableList<Gebruiker> gebruikersFound;
@@ -97,6 +99,14 @@ public class ControllerBeheerGebruikers {
         lstGebruikersLijst.setItems(gebruikersFound);
     }
 
+    public void refreshGebruikersFound() throws SQLException {
+        List<Gebruiker> listGebruikersFound =
+                new GebruikerDAO(connection).getGebruikersByFullName(txtZoekFGebruiker.getText());
+        // gebruikers is een ObservableList en listGebruikersFound wordt gebruikt om hem te vullen
+        gebruikersFound = FXCollections.observableList(listGebruikersFound);
+        lstGebruikersLijst.setItems(gebruikersFound);
+    }
+
     /**@Author Jasper
      * @apiNote Enter in zoekvak: zoek op voornaam en achternaam. Resultaat verschijnt in ListView
      * @param actionEvent
@@ -118,7 +128,7 @@ public class ControllerBeheerGebruikers {
             lblMessage.setText("Gelieve een gebruiker te selecteren");
         } else{
             int iGeslaagd = new GebruikerDAO(connection).setGebruikerById(
-                    gebruikerSelected.getId(), txtVoornaam.getText(), txtNaam.getText(), txtEmail.getText(), cmbGebruikerRol.getSelectionModel().getSelectedItem());
+                    gebruikerSelected.getGebruiker_id(), txtVoornaam.getText(), txtNaam.getText(), txtEmail.getText(), cmbGebruikerRol.getSelectionModel().getSelectedItem());
             String sResult = (iGeslaagd == 1) ? "Wijziging uitgevoerd" : "Wijziging niet uitgevoerd";
             lblMessage.setText(sResult);
         }
@@ -133,7 +143,7 @@ public class ControllerBeheerGebruikers {
         {
             lblMessage.setText("Gelieve een gebruiker te selecteren");
         } else{
-            int iGeslaagd = new GebruikerDAO(connection).deleteGebruikerById(gebruikerSelected.getId());
+            int iGeslaagd = new GebruikerDAO(connection).deleteGebruikerById(gebruikerSelected.getGebruiker_id());
             String sResult = (iGeslaagd == 1) ? "Gebruiker verwijderd" : "Gebruiker niet verwijderd";
             lblMessage.setText(sResult);
             if(iGeslaagd == 1){
@@ -143,6 +153,6 @@ public class ControllerBeheerGebruikers {
     }
 
     public void clicked_NaarHoofdscherm(MouseEvent mouseEvent) {
-        LoginMethods.loadScreen(mouseEvent, getClass(),"view/Hoofdscherm.fxml");
+        LoginMethods.loadScreen(anchorPane, getClass(),"view/Hoofdscherm.fxml");
     }
 }

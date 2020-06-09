@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerBeheerGebruikers">
 
-   <AnchorPane prefHeight="415.0" prefWidth="600.0">
+   <AnchorPane fx:id="anchorPane" prefHeight="415.0" prefWidth="600.0">
       <children>
          <ListView fx:id="lstGebruikersLijst" layoutX="38.0" layoutY="119.0" prefHeight="273.0" prefWidth="200.0" />
          <TextField fx:id="txtZoekFGebruiker" layoutX="38.0" layoutY="86.0" onAction="#enter_zoekGebruikers" prefWidth="115.0" promptText="Zoek op naam" />

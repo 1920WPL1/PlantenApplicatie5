@@ -1,28 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerAanvraagForm">
+<AnchorPane fx:id="anchorPane" prefHeight="387.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerAanvraagForm">
    <children>
-      <TextField fx:id="txtVoornaam" layoutX="251.0" layoutY="90.0" />
-      <Label layoutX="230.0" layoutY="14.0" prefHeight="49.0" prefWidth="190.0" text="aanvraag formulier">
+      <Label alignment="CENTER" layoutY="14.0" prefHeight="49.0" prefWidth="431.0" text="Aanvraagformulier" textAlignment="CENTER">
          <font>
-            <Font size="21.0" />
+            <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <TextField fx:id="txtAchternaam" layoutX="251.0" layoutY="134.0" />
-      <TextField fx:id="txtEmail" layoutX="251.0" layoutY="175.0" />
-      <Label layoutX="174.0" layoutY="94.0" text="Voornaam" />
-      <Label layoutX="174.0" layoutY="138.0" text="Achternaam" />
-      <Label layoutX="174.0" layoutY="179.0" text="email" />
-      <Label layoutX="174.0" layoutY="217.0" text="reden van aanvraag" />
-      <TextArea fx:id="txtRedenAanvraag" layoutX="161.0" layoutY="241.0" prefHeight="82.0" prefWidth="376.0" />
-      <Button fx:id="btnVerzendAanvraag" layoutX="164.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#click_VerzendAanvraag" text="Aanvraag verzenden" />
-      <Button fx:id="btnAnnuleerAanvraag" layoutX="394.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#click_AnnuleerAanvraag" text="Annuleren" />
+      <Button fx:id="btnVerzend" layoutX="86.0" layoutY="295.0" mnemonicParsing="false" onMouseClicked="#click_VerzendAanvraag" style="-fx-background-color: blue;" text="Verzenden" textFill="#f5f5f5">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="btnAnnuleer" layoutX="257.0" layoutY="295.0" mnemonicParsing="false" onMouseClicked="#click_AnnuleerAanvraag" style="-fx-background-color: blue;" text="Annuleren" textFill="#f5f5f5">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <VBox layoutX="86.0" layoutY="95.0" prefHeight="182.0" prefWidth="260.0">
+         <children>
+            <TextField fx:id="txtEmail" promptText="E-mailadres">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label fx:id="lblValidateEmail" prefHeight="17.0" prefWidth="260.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="txtVoornaam" promptText="Voornaam">
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtAchternaam" promptText="Achternaam">
+               <VBox.margin>
+                  <Insets bottom="27.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

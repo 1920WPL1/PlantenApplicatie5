@@ -1,11 +1,12 @@
 package plantenApp;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import plantenApp.java.dao.Database;
 import plantenApp.java.dao.GebruikerDAO;
 import plantenApp.java.model.Gebruiker;
@@ -23,19 +24,9 @@ public class ControllerLogin {
     private GebruikerDAO gebruikerDAO;
     public TextField txtEmail;
     public TextField txtWachtwoord;
+    public Label lblValidateEmail;
+    public AnchorPane anchorPane;
     private Gebruiker user;
-
-    // Scherm: Registreren Student
-    public TextField txtVivesMail;
-    public TextField txtVoornaamStudent;
-    public TextField txtAchternaamStudent;
-
-    public Label lblGelijkeWW;
-    public Label lblWachtwoordCorrectie;
-
-
-    public PasswordField pfWachtwoordStudent;
-    public PasswordField pfStudentWachtwoordHerhalen;
 
 
     /**
@@ -45,39 +36,39 @@ public class ControllerLogin {
     public void initialize() throws SQLException {
         dbConnection = Database.getInstance().getConnection();
         gebruikerDAO = new GebruikerDAO(dbConnection);
-
+        //valideren of het een geldig emailadres is
+        LoginMethods.checkEmail(txtEmail, lblValidateEmail);
     }
 
     /**
      * Author Bart Maes
      *
-     * @param mouseEvent
+     * @param actionEvent
      * @Return overgang van het login naar homescreen
      * controleren op email adres
      */
-    public void clicked_Login(MouseEvent mouseEvent) throws Exception {
+    public void clicked_Login(ActionEvent actionEvent) throws Exception {
+        //ingegeven email en wachtwoord in variabelen steken
         String sEmail = txtEmail.getText();
         String sWachtwoord = txtWachtwoord.getText();
 
-        if (sEmail.isEmpty() && sWachtwoord.isEmpty()) {
+        //controle op lege velden
+        if ((sEmail.trim().isEmpty() || sWachtwoord.trim().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Gelieve alle velden in te vullen",
                     "Ongeldige ingave", JOptionPane.INFORMATION_MESSAGE);
         } else {
             //controleer of gebruiker in systeem zit
             user = gebruikerDAO.getByEmail(txtEmail.getText());
 
+            //voor als iemand zich probeert in te loggen, ook al is hij/zij nog niet geregistreerd
             //user bestaat niet in database
             if (user == null) {
-                int dialogButton = JOptionPane.showConfirmDialog(null,
-                        "Het opgegeven emailadres is niet gekend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
-                        "Emailadres niet gekend", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-
-                if (dialogButton == JOptionPane.YES_OPTION) {
-                    LoginMethods.loadScreen(mouseEvent, getClass() ,"view/AanvraagToegang.fxml");
-                }
-
+                LoginMethods.OptionDialiog("Het opgegeven emailadres is niet gekend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
+                        "Emailadres niet gekend", anchorPane, getClass(), "view/AanvraagToegang.fxml", "view/Inloggen.fxml");
             } else {
+                //eerst controleren of de gebruiker al geregistreerd is (ze moeten eerst wachtwoord aanmaken)
                 if (user.isGeregistreerd() == 1) {
+                    //indien geregistreerd, dan controleren of het wachtwoord klopt
                     if (!CheckPasswordCorrect(sWachtwoord)) {
                         JOptionPane.showMessageDialog(null, "Het opgegeven wachtwoord klopt niet.",
                                 "Ongeldig wachtwoord", JOptionPane.INFORMATION_MESSAGE);
@@ -86,31 +77,30 @@ public class ControllerLogin {
                         FXMLLoader loader = LoginMethods.getLoader(getClass(), "view/HoofdScherm.fxml");
                         Parent root = LoginMethods.getRoot(loader);
                         actionsOnLoadHoofdscherm(loader);
-                        LoginMethods.getScreen(mouseEvent, root);
+                        LoginMethods.getScreen(anchorPane, root);
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "U bent nog niet geregistreerd",
-                            "Gelieve eerst te registreren.", JOptionPane.INFORMATION_MESSAGE);
+                    //indien niet geregistreerd, gepaste melding geven
+                    LoginMethods.OptionDialiog("U bent nog niet geregistreerd. Wenst u zich te registreren?",
+                            "Nog niet geregistreerd", anchorPane, getClass(), "view/Registreren.fxml", "view/Inloggen.fxml");
                 }
             }
-
         }
     }
 
-
     public void Clicked_Registreer(MouseEvent mouseEvent) {
-        LoginMethods.loadScreen(mouseEvent, getClass() ,"view/Registreren.fxml");
+        LoginMethods.loadScreen(anchorPane, getClass(), "view/Registreren.fxml");
     }
 
-    public void click_WwVergeten(MouseEvent mouseEvent) {
-        ;
+    public void click_WwVergeten(MouseEvent mouseEvent) throws Exception {
+        LoginMethods.loadScreen(anchorPane, getClass(), "view/WachtwoordVergeten.fxml");
     }
 
     // methodes
 
     /**
-     * @param wachtwoord Ingevoerd wachtwoord
-     * @return
+     * @param wachtwoord Ingevoerd wachtwoord vergelijken met het opgeslagen wachtwoord uit de database
+     * @return true or false
      * @author Bart Maes
      */
     private boolean CheckPasswordCorrect(String wachtwoord) throws NoSuchAlgorithmException {
@@ -128,12 +118,11 @@ public class ControllerLogin {
     }
 
 
-
+    //acties die moeten gebeuren bij het laden van het hoofdscherm
     public void actionsOnLoadHoofdscherm(FXMLLoader loader) {
         ControllerHoofdscherm controller = loader.getController();
         controller.setUser(user);
         controller.setButtons();
     }
-
 }
 

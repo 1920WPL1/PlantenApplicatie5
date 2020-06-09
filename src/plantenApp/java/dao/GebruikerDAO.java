@@ -115,13 +115,13 @@ public class GebruikerDAO implements Queries {
         return gebruikersList;
     }
 
-    /**@author Jasper
+    /**@author Jasper, Bart
      * @param id : id van gebruiker om nieuwe wachtwoord_hash in te stellen
      * @param hash : nieuwe wachtwoord_hash
      * @return 1 bij gewijzigd wachtwoord, 0 bij fout
      * @throws SQLException
      */
-    public int setWachtWoordHash(int id, byte[] hash, byte[] salt) throws SQLException {
+    public void setWachtWoordHash(int id, byte[] hash, byte[] salt) throws SQLException {
         stmtSetWachtwoordHash.setBytes(1, hash);
         stmtSetWachtwoordHash.setBytes(2, salt);
         stmtSetWachtwoordHash.setInt(3, id);
