@@ -13,6 +13,7 @@ import plantenApp.java.model.Gebruiker;
 import plantenApp.java.model.LoginMethods;
 
 import javax.swing.*;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.SQLException;

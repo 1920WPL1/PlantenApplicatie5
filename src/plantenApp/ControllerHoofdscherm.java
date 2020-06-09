@@ -34,7 +34,8 @@ public class ControllerHoofdscherm {
     }
 
     public void click_ProfielBeheren(MouseEvent mouseEvent) {
-        loadScreen(mouseEvent, "view/BeheerGebruikers.fxml");
+
+        LoginMethods.loadScreen(anchorPane, getClass(), "view/BeheerGebruikers.fxml");
     }
 
     public void click_RegistratiesBeheren(MouseEvent mouseEvent) {
@@ -55,7 +56,7 @@ public class ControllerHoofdscherm {
     }
 
     public void click_PlantAanvraagBeheren(MouseEvent mouseEvent) {
-        loadScreen(mouseEvent,"view/BeheeBehandelingPlant.fxml");
+        LoginMethods.loadScreen(anchorPane, getClass(),"view/BeheeBehandelingPlant.fxml");
     }
 
     //methodes
