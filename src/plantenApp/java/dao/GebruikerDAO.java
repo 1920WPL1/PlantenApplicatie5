@@ -16,6 +16,7 @@ public class GebruikerDAO implements Queries {
     private PreparedStatement stmtSetGebruikerById;
     private PreparedStatement stmtSetWachtwoordHash;
     private PreparedStatement stmtDeleteGebruikerById;
+    private PreparedStatement stmtSetGebruikerAanvraagStatusEnRol;
 
     public GebruikerDAO(Connection dbConnection) throws SQLException {
         this.dbConnection = dbConnection;
@@ -24,6 +25,7 @@ public class GebruikerDAO implements Queries {
         stmtSetGebruikerById = dbConnection.prepareStatement(SETGEBRUIKERBYID);
         stmtSetWachtwoordHash = dbConnection.prepareStatement(SETWACHTWOORDHASH);
         stmtDeleteGebruikerById = dbConnection.prepareStatement(DELETEGEBRUIKERBYID);
+        stmtSetGebruikerAanvraagStatusEnRol = dbConnection.prepareStatement(SETGEBRUIKERAANVRAAGSTATUSANDROL);
     }
 
     /**@author Bart Maes
@@ -146,12 +148,12 @@ public class GebruikerDAO implements Queries {
     }
 
     /**@Author Jasper
-     * @param id gebruiker om te verwijderen
+     * @param gebruiker_id gebruiker om te verwijderen
      * @return 1 => verwijdering, 0 = geen verwijdering uitgevoerd
      * @throws SQLException
      */
-    public int deleteGebruikerById(int id) throws SQLException {
-        stmtDeleteGebruikerById.setInt(1, id);
+    public int deleteGebruikerById(int gebruiker_id) throws SQLException {
+        stmtDeleteGebruikerById.setInt(1, gebruiker_id);
         return stmtDeleteGebruikerById.executeUpdate();
     }
 
@@ -174,5 +176,17 @@ public class GebruikerDAO implements Queries {
             ) );
         }
         return gebruikersList;
+    }
+
+    /**
+     * @param gebruiker_id gebruiker om aanvraag_status van te wijzigen
+     * @return int : aantal gewijzigde gebruikers (0 of 1)
+     * @throws SQLException
+     */
+    public int setGebruikerAanvraagStatusEnRol(int gebruiker_id, int aanvraag_status, String rol) throws  SQLException{
+        stmtSetGebruikerAanvraagStatusEnRol.setInt(1, aanvraag_status); // status 2 = goedgekeurd
+        stmtSetGebruikerAanvraagStatusEnRol.setString(2, rol);
+        stmtSetGebruikerAanvraagStatusEnRol.setInt(3,gebruiker_id);
+        return stmtSetGebruikerAanvraagStatusEnRol.executeUpdate();
     }
 }

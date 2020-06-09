@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import plantenApp.java.dao.Database;
 import plantenApp.java.dao.GebruikerDAO;
 import plantenApp.java.model.Gebruiker;
+import plantenApp.java.model.LoginMethods;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -96,13 +97,39 @@ public class ControllerBeheerRegistraties {
         lstAanvraagRegistraties.setItems(aanvragenFound);
     }
 
-    public void clicked_Goedkeuren(MouseEvent mouseEvent) {
+    /* @Author Jasper */
+    public void clicked_Goedkeuren(MouseEvent mouseEvent) throws SQLException {
+        if(aanvraagSelected == null){
+            lblMessage.setText("Gelieve een aanvraag te selecteren");
+        } else{
+            String rolSelected = (String) cmbGebruikerRol.getSelectionModel().getSelectedItem();
+            // aanvraag_status 2 = goedgekeurd
+            int iGeslaagd = new GebruikerDAO(connection).setGebruikerAanvraagStatusEnRol(
+                    aanvraagSelected.getId(), 2, rolSelected);
 
+            // instellen label message
+            String sMessage = (iGeslaagd == 1) ? "Aanvraag goedgekeurd" : "Aanvraag niet goedgekeurd";
+            lblMessage.setText(sMessage);
+        }
     }
 
-    public void clicked_Afwijzen(MouseEvent mouseEvent) {
+    /* @Author Jasper */
+    public void clicked_Afwijzen(MouseEvent mouseEvent) throws SQLException {
+        // gebruiker wordt verwijderd uit database
+        if(aanvraagSelected == null){
+            lblMessage.setText("Gelieve een aanvraag te selecteren");
+        } else{
+            int iGeslaagd = new GebruikerDAO(connection).deleteGebruikerById(aanvraagSelected.getId());
+            String sResult = (iGeslaagd == 1) ? "Aanvraag verwijderd" : "Aanvraag niet verwijderd";
+            lblMessage.setText(sResult);
+
+            if(iGeslaagd == 1){
+                refreshAanvragenFound(); // gezochte aanvragen opnieuw ophalen => verwijderde aanvraag wordt niet meer getoond in lijst
+            }
+        }
     }
 
     public void clicked_NaarHoofdscherm(MouseEvent mouseEvent) {
+        LoginMethods.loadScreen(mouseEvent, getClass(),"view/Hoofdscherm.fxml");
     }
 }
