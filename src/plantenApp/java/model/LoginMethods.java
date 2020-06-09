@@ -23,6 +23,8 @@ import java.util.regex.Pattern;
 
 public class LoginMethods {
 
+    public static Gebruiker userLoggedIn; // ingelogde gebruiker
+
     private static Object[] options = {"Ja", "Nee"};
 
     /**
@@ -104,7 +106,7 @@ public class LoginMethods {
      * OptionDialog om zelf waardes mee te geven: Ja/Nee ipv Yes/No
      */
 
-    public static void OptionDialiog(String message, String title, AnchorPane pane, Class className, String screenNameYes, String screenNameNo) {
+    public static void OptionDialog(String message, String title, AnchorPane pane, Class className, String screenNameYes, String screenNameNo) {
         //om zelf specifieke waardes te kunnen meegeven, werken we met Option Dialog ipv Confirm Dialog
         int dialogButton = JOptionPane.showOptionDialog(null,
                 message, title, JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);

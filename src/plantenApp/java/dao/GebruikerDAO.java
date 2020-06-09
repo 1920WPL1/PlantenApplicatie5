@@ -121,7 +121,7 @@ public class GebruikerDAO implements Queries {
      * @return 1 bij gewijzigd wachtwoord, 0 bij fout
      * @throws SQLException
      */
-    public void setWachtWoordHash(int id, byte[] hash, byte[] salt) throws SQLException {
+    public int setWachtWoordHash(int id, byte[] hash, byte[] salt) throws SQLException {
         stmtSetWachtwoordHash.setBytes(1, hash);
         stmtSetWachtwoordHash.setBytes(2, salt);
         stmtSetWachtwoordHash.setInt(3, id);

@@ -63,7 +63,7 @@ public class ControllerLogin {
             //voor als iemand zich probeert in te loggen, ook al is hij/zij nog niet geregistreerd
             //user bestaat niet in database
             if (user == null) {
-                LoginMethods.OptionDialiog("Het opgegeven emailadres is niet gekend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
+                LoginMethods.OptionDialog("Het opgegeven emailadres is niet gekend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
                         "Emailadres niet gekend", anchorPane, getClass(), "view/AanvraagToegang.fxml", "view/Inloggen.fxml");
             } else {
                 //eerst controleren of de gebruiker al geregistreerd is (ze moeten eerst wachtwoord aanmaken)
@@ -81,7 +81,7 @@ public class ControllerLogin {
                     }
                 } else {
                     //indien niet geregistreerd, gepaste melding geven
-                    LoginMethods.OptionDialiog("U bent nog niet geregistreerd. Wenst u zich te registreren?",
+                    LoginMethods.OptionDialog("U bent nog niet geregistreerd. Wenst u zich te registreren?",
                             "Nog niet geregistreerd", anchorPane, getClass(), "view/Registreren.fxml", "view/Inloggen.fxml");
                 }
             }
@@ -121,7 +121,7 @@ public class ControllerLogin {
     //acties die moeten gebeuren bij het laden van het hoofdscherm
     public void actionsOnLoadHoofdscherm(FXMLLoader loader) {
         ControllerHoofdscherm controller = loader.getController();
-        controller.setUser(user);
+        LoginMethods.userLoggedIn = user; // ingelogde gebruiker opslaan voor overige schermen
         controller.setButtons();
     }
 }

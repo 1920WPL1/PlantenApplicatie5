@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import plantenApp.java.dao.Database;
 import plantenApp.java.dao.GebruikerDAO;
 import plantenApp.java.model.Gebruiker;
@@ -25,6 +26,7 @@ public class ControllerBeheerRegistraties {
     public Label lblNaam;
     public Label lblVoornaam;
     public Label lblEmail;
+    public AnchorPane anchorPane;
 
     private Connection connection;
     private ObservableList<Gebruiker> aanvragenFound;
@@ -105,7 +107,7 @@ public class ControllerBeheerRegistraties {
             String rolSelected = (String) cmbGebruikerRol.getSelectionModel().getSelectedItem();
             // aanvraag_status 2 = goedgekeurd
             int iGeslaagd = new GebruikerDAO(connection).setGebruikerAanvraagStatusEnRol(
-                    aanvraagSelected.getId(), 2, rolSelected);
+                    aanvraagSelected.getGebruiker_id(), 2, rolSelected);
 
             // instellen label message
             String sMessage = (iGeslaagd == 1) ? "Aanvraag goedgekeurd" : "Aanvraag niet goedgekeurd";
@@ -119,7 +121,7 @@ public class ControllerBeheerRegistraties {
         if(aanvraagSelected == null){
             lblMessage.setText("Gelieve een aanvraag te selecteren");
         } else{
-            int iGeslaagd = new GebruikerDAO(connection).deleteGebruikerById(aanvraagSelected.getId());
+            int iGeslaagd = new GebruikerDAO(connection).deleteGebruikerById(aanvraagSelected.getGebruiker_id());
             String sResult = (iGeslaagd == 1) ? "Aanvraag verwijderd" : "Aanvraag niet verwijderd";
             lblMessage.setText(sResult);
 
@@ -130,6 +132,6 @@ public class ControllerBeheerRegistraties {
     }
 
     public void clicked_NaarHoofdscherm(MouseEvent mouseEvent) {
-        LoginMethods.loadScreen(mouseEvent, getClass(),"view/Hoofdscherm.fxml");
+        LoginMethods.loadScreen(anchorPane, getClass(),"view/Hoofdscherm.fxml");
     }
 }

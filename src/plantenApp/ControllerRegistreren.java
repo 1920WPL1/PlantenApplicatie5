@@ -39,6 +39,7 @@ public class ControllerRegistreren {
     public void initialize() throws SQLException {
         dbConnection = Database.getInstance().getConnection();
         gebruikerDAO = new GebruikerDAO(dbConnection);
+        user = LoginMethods.userLoggedIn; // ingelogde gebruiker ophalen
 
         txtEmail.focusedProperty().addListener((arg0, oldValue, newValue) -> {
             if (!newValue) { //when focus lost
@@ -57,7 +58,7 @@ public class ControllerRegistreren {
                     }
 
                     if (user == null) {
-                        LoginMethods.OptionDialiog("Het opgegeven emailadres is niet gekend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
+                        LoginMethods.OptionDialog("Het opgegeven emailadres is niet gekend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
                                 "Emailadres niet gekend", anchorPane, getClass(), "view/AanvraagToegang.fxml", "view/Inloggen.fxml");
                     } else {
                         if(user.isGeregistreerd() == 1) {
@@ -115,7 +116,7 @@ public class ControllerRegistreren {
      */
     // hiermee worden ze terug gestuurd naar het inlogscherm
     public void clicked_Annuleren(MouseEvent mouseEvent) {
-        LoginMethods.OptionDialiog("Bent u zeker dat u de registratie wilt annuleren?",
+        LoginMethods.OptionDialog("Bent u zeker dat u de registratie wilt annuleren?",
                 "Annuleren", anchorPane, getClass(), "view/Inloggen.fxml", "view/Registreren.fxml");
     }
 

@@ -91,13 +91,6 @@ public class ControllerBeheerGebruikers {
         );
     }
     /* @Author Jasper */
-    private void refreshGebruikersFound() throws SQLException {
-        List<Gebruiker> listGebruikersFound =
-                new GebruikerDAO(connection).getGebruikersByFullName(txtZoekFGebruiker.getText());
-        // gebruikers is een ObservableList en listGebruikersFound wordt gebruikt om hem te vullen
-        gebruikersFound = FXCollections.observableList(listGebruikersFound);
-        lstGebruikersLijst.setItems(gebruikersFound);
-    }
 
     public void refreshGebruikersFound() throws SQLException {
         List<Gebruiker> listGebruikersFound =
