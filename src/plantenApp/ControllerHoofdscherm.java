@@ -3,7 +3,6 @@ package plantenApp;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import plantenApp.java.model.Gebruiker;
 import plantenApp.java.model.LoginMethods;
 
 import java.sql.SQLException;
@@ -22,8 +21,6 @@ public class ControllerHoofdscherm {
     public Button btnPlantenAanvraag;
     public AnchorPane anchorPane;
 
-    private Gebruiker user;
-
     public void initialize() throws SQLException {
 
     }
@@ -35,6 +32,7 @@ public class ControllerHoofdscherm {
 
     public void click_ProfielBeheren(MouseEvent mouseEvent) {
 
+        LoginMethods.loadScreen(anchorPane, getClass(), "view/BeheerGebruikers.fxml");
     }
 
     public void click_RegistratiesBeheren(MouseEvent mouseEvent) {
@@ -55,16 +53,26 @@ public class ControllerHoofdscherm {
     }
 
     public void click_PlantAanvraagBeheren(MouseEvent mouseEvent) {
+        LoginMethods.loadScreen(anchorPane, getClass(),"view/BeheeBehandelingPlant.fxml");
     }
 
     //methodes
-    public void setUser(Gebruiker user) {
-        this.user = user;
-    }
 
     public void setButtons() {
-        if (user.getRol().equals("admin")) {
+        if (LoginMethods.userLoggedIn.getRol().equals("admin")) {
             btnZoekScherm.setVisible(false);
+        }
+
+        if (LoginMethods.userLoggedIn.getRol().equals("docent")) {
+            btnZoekScherm.setVisible(false);
+        }
+
+        if (LoginMethods.userLoggedIn.getRol().equals("student")) {
+            btnZoekScherm.setVisible(false);
+        }
+
+        if (LoginMethods.userLoggedIn.getRol().equals("oud-student")) {
+            btnZoekScherm.setVisible(true);
         }
 
     }

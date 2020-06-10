@@ -83,7 +83,7 @@ public class ControllerAanvraagForm {
     }
 
     public void click_AnnuleerAanvraag(MouseEvent mouseEvent) {
-        LoginMethods.OptionDialiog("Bent u zeker dat u de aanvraag wilt annuleren?",
+        LoginMethods.OptionDialog("Bent u zeker dat u de aanvraag wilt annuleren?",
                 "Annuleren", anchorPane, getClass(), "view/Inloggen.fxml", "view/AanvraagToegang.fxml");
     }
 }
