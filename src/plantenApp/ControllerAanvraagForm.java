@@ -51,10 +51,16 @@ public class ControllerAanvraagForm {
                 JOptionPane.showMessageDialog(null, "Gelieve alle velden in te vullen", "Ongeldige ingave", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 //controleren of user bestaat
-                user = gebruikerDAO.getByEmail(txtEmail.getText());
+                user = gebruikerDAO.getByEmail(sEmail);
 
                 if (user == null) {
                     //hier aanvraag uitvoeren
+                    int iGelukt = gebruikerDAO.insertAanvraag(sEmail, sVoornaam, sAchternaam);
+                    if(iGelukt == 1) {
+                        JOptionPane.showMessageDialog(null, "Uw aanvraag werd succesvol verzonden", "Aanvraag succesvol verzonden.", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Er is een fout opgetreden bij het versturen van uw aanvraag. Gelieve opnieuw te proberen.", "Fout opgetreden!", JOptionPane.INFORMATION_MESSAGE);
+                    }
 
                 } else {
                     //controleren of er al een aanvraag gebeurd is

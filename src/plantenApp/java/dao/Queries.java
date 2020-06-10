@@ -231,9 +231,18 @@ public interface Queries {
      * de queries die gebruikt worden voor de gebruikerstabel
      */
     //region Gebruiker
+    //alle gebruikers ophalen
     String GETALLGEBRUIKERS = "SELECT * FROM gebruiker";
+    //gebruiker ophalen adhv e-mailadres
     String GETGEBRUIKERBYEMAILADRES = "SELECT * FROM gebruiker WHERE email = ?";
+    //aanvraag verstuurd --> dus in behandeling (0 = afgekeurd; 1 = in behandeling; 2 = goedgekeurd)
+    String INSERTAANVRAAG = "INSERT INTO gebruiker (email, voornaam, achternaam, aanvraag_status, rol) VALUES (?, ?, ?, 1, 'gast')";
+    /**
+     * @Author Jasper, Bart
+     * query SETWACHTWOORD_HASH
+     */
     String SETWACHTWOORDHASH = "UPDATE gebruiker SET wachtwoord_hash = ?, salt = ?, geregistreerd = 1 WHERE gebruiker_id = ?";
+
     /**
     * @Author Jasper
     */

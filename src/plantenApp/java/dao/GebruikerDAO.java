@@ -9,8 +9,11 @@ import java.util.logging.Logger;
 
 /**@author Bart Maes*/
 public class GebruikerDAO implements Queries {
+    private static final String GETGEBRUIKERBYID = "SELECT * FROM gebruiker WHERE gebruiker_id = ?";
     private Connection dbConnection;
     private PreparedStatement stmtSelectGebruikerByEmail;
+    private PreparedStatement stmtInsertAanvraag;
+    private PreparedStatement stmtSelectGebruikerById;
     /** @Author Jasper */
     private PreparedStatement stmtSelectGebruikersByFullName;
     private PreparedStatement stmtSetGebruikerById;
@@ -20,11 +23,14 @@ public class GebruikerDAO implements Queries {
 
     public GebruikerDAO(Connection dbConnection) throws SQLException {
         this.dbConnection = dbConnection;
+        stmtSelectGebruikerById = dbConnection.prepareStatement(GETGEBRUIKERBYID);
+
         stmtSelectGebruikerByEmail = dbConnection.prepareStatement(GETGEBRUIKERBYEMAILADRES);
         stmtSelectGebruikersByFullName = dbConnection.prepareStatement(GETGEBRUIKERSBYFULLNAME);
         stmtSetGebruikerById = dbConnection.prepareStatement(SETGEBRUIKERBYID);
         stmtSetWachtwoordHash = dbConnection.prepareStatement(SETWACHTWOORDHASH);
         stmtDeleteGebruikerById = dbConnection.prepareStatement(DELETEGEBRUIKERBYID);
+        stmtInsertAanvraag = dbConnection.prepareStatement(INSERTAANVRAAG);
         stmtSetGebruikerAanvraagStatusEnRol = dbConnection.prepareStatement(SETGEBRUIKERAANVRAAGSTATUSANDROL);
     }
 
@@ -83,6 +89,28 @@ public class GebruikerDAO implements Queries {
         return user;
     }
 
+    /**@author Matthias Vancoillie
+     * @param gebruiker_id
+     * @return gebruiker_id, voornaam, achternaam, email
+     */
+    public Gebruiker getById(int gebruiker_id) throws SQLException {
+        Gebruiker user = null;
+        stmtSelectGebruikerById.setInt(1,gebruiker_id);
+        ResultSet rs = stmtSelectGebruikerById.executeQuery();
+
+        if (rs.next()) {
+            user = new Gebruiker(
+                    rs.getInt("gebruiker_id"),
+                    rs.getString("voornaam"),
+                    rs.getString("achternaam"),
+                    rs.getString("email")
+            );
+        }
+        return user;
+    }
+
+
+
 
     /**@Author Jasper
      * @param search De zoekterm om te zoeken op voornaam of achternaam
@@ -118,15 +146,14 @@ public class GebruikerDAO implements Queries {
     /**@author Jasper, Bart
      * @param id : id van gebruiker om nieuwe wachtwoord_hash in te stellen
      * @param hash : nieuwe wachtwoord_hash
-     * @return 1 bij gewijzigd wachtwoord, 0 bij fout
      * @throws SQLException
      */
-    public int setWachtWoordHash(int id, byte[] hash, byte[] salt) throws SQLException {
+    public void setWachtWoordHash(int id, byte[] hash, byte[] salt) throws SQLException {
         stmtSetWachtwoordHash.setBytes(1, hash);
         stmtSetWachtwoordHash.setBytes(2, salt);
         stmtSetWachtwoordHash.setInt(3, id);
         //aanpassing Bart Maes:
-        return stmtSetWachtwoordHash.executeUpdate();
+         stmtSetWachtwoordHash.executeUpdate();
     }
 
     /**
@@ -155,6 +182,20 @@ public class GebruikerDAO implements Queries {
     public int deleteGebruikerById(int gebruiker_id) throws SQLException {
         stmtDeleteGebruikerById.setInt(1, gebruiker_id);
         return stmtDeleteGebruikerById.executeUpdate();
+    }
+
+    /**@author Bart
+     * @param email : email van gebruiker om aanvraag te inserten
+     * @param voornaam : voornaam van gebruiker om aanvraag te inserten
+     * @param achternaam : achternaam van gebruiker om aanvraag te inserten
+     * @return 1 bij gewijzigde status, 0 bij fout
+     * @throws SQLException
+     */
+    public int insertAanvraag(String email, String voornaam, String achternaam) throws SQLException {
+        stmtInsertAanvraag.setString(1, email);
+        stmtInsertAanvraag.setString(2, voornaam);
+        stmtInsertAanvraag.setString(3, achternaam);
+        return stmtInsertAanvraag.executeUpdate();
     }
 
     public List<Gebruiker> getAllGebruikersInAanvraag() throws SQLException {

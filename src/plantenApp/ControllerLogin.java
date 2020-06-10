@@ -11,6 +11,7 @@ import plantenApp.java.dao.Database;
 import plantenApp.java.dao.GebruikerDAO;
 import plantenApp.java.model.Gebruiker;
 import plantenApp.java.model.LoginMethods;
+import plantenApp.java.utils.JavaMailUtil;
 
 import javax.swing.*;
 import java.security.NoSuchAlgorithmException;
@@ -93,7 +94,8 @@ public class ControllerLogin {
     }
 
     public void click_WwVergeten(MouseEvent mouseEvent) throws Exception {
-        LoginMethods.loadScreen(anchorPane, getClass(), "view/WachtwoordVergeten.fxml");
+        //LoginMethods.loadScreen(anchorPane, getClass(), "view/WachtwoordVergeten.fxml");
+        JavaMailUtil.sendMail("bartms@hotmail.com");
     }
 
     // methodes
