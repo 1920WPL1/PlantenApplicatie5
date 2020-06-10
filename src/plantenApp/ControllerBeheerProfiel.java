@@ -1,11 +1,5 @@
 package plantenApp;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import plantenApp.java.dao.Database;
@@ -13,11 +7,7 @@ import plantenApp.java.dao.GebruikerDAO;
 import plantenApp.java.model.Gebruiker;
 import plantenApp.java.model.LoginMethods;
 
-
-import javax.swing.*;
 import java.awt.*;
-import java.awt.Button;
-import java.awt.Label;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -61,10 +51,10 @@ public class ControllerBeheerProfiel {
             Label lEmail = lblEmailProfiel;
              */
 
-            /* kan dit? lblVoornaamProfiel.setText("voornaam".toString()); */
+           /*  kan dit? lblVoornaamProfiel.setText("voornaam".toString());
             gebruikerDAO.getById(lblVoornaamProfiel.setText());
             gebruikerDAO.getById(lblAchternaamProfiel.setText());
-            gebruikerDAO.getById(lblEmailProfiel.setText());
+            gebruikerDAO.getById(lblEmailProfiel.setText());*/
 
     }
 
