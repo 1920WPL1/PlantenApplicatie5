@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 public class GebruikerDAO implements Queries {
     private Connection dbConnection;
     private PreparedStatement stmtSelectGebruikerByEmail;
+    private PreparedStatement stmtInsertAanvraag;
     /** @Author Jasper */
     private PreparedStatement stmtSelectGebruikersByFullName;
     private PreparedStatement stmtSetGebruikerById;
@@ -24,6 +25,7 @@ public class GebruikerDAO implements Queries {
         stmtSetGebruikerById = dbConnection.prepareStatement(SETGEBRUIKERBYID);
         stmtSetWachtwoordHash = dbConnection.prepareStatement(SETWACHTWOORDHASH);
         stmtDeleteGebruikerById = dbConnection.prepareStatement(DELETEGEBRUIKERBYID);
+        stmtInsertAanvraag = dbConnection.prepareStatement(INSERTAANVRAAG);
     }
 
     /**@author Bart Maes
@@ -124,7 +126,6 @@ public class GebruikerDAO implements Queries {
         stmtSetWachtwoordHash.setBytes(1, hash);
         stmtSetWachtwoordHash.setBytes(2, salt);
         stmtSetWachtwoordHash.setInt(3, id);
-        //aanpassing Bart Maes:
         stmtSetWachtwoordHash.executeUpdate();
     }
 
@@ -156,5 +157,19 @@ public class GebruikerDAO implements Queries {
     public int deleteGebruikerById(int id) throws SQLException {
         stmtDeleteGebruikerById.setInt(1, id);
         return stmtDeleteGebruikerById.executeUpdate();
+    }
+
+    /**@author Bart
+     * @param email : email van gebruiker om aanvraag te inserten
+     * @param voornaam : voornaam van gebruiker om aanvraag te inserten
+     * @param achternaam : achternaam van gebruiker om aanvraag te inserten
+     * @return 1 bij gewijzigde status, 0 bij fout
+     * @throws SQLException
+     */
+    public int insertAanvraag(String email, String voornaam, String achternaam) throws SQLException {
+        stmtInsertAanvraag.setString(1, email);
+        stmtInsertAanvraag.setString(2, voornaam);
+        stmtInsertAanvraag.setString(3, achternaam);
+        return stmtInsertAanvraag.executeUpdate();
     }
 }

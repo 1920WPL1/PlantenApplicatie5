@@ -114,8 +114,13 @@ public class LoginMethods {
             loadScreen(pane, className, screenNameYes);
         }
 
-        //indien ze op 'No' klikken
+        //indien ze op 'Nee' klikken
         if (dialogButton == JOptionPane.NO_OPTION) {
+            loadScreen(pane, className, screenNameNo);
+        }
+
+        //indien ze op kruisje klikken, zelfde actie als bij 'Nee'
+        if (dialogButton == JOptionPane.CLOSED_OPTION) {
             loadScreen(pane, className, screenNameNo);
         }
     }
