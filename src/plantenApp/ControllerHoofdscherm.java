@@ -20,6 +20,7 @@ public class ControllerHoofdscherm {
     public Button btnPlantZoekWijzig;
     public Button btnPlantenAanvraag;
     public AnchorPane anchorPane;
+    public Button btnImporterenStudenten;
 
     public void initialize() throws SQLException {
 
@@ -56,6 +57,10 @@ public class ControllerHoofdscherm {
         LoginMethods.loadScreen(anchorPane, getClass(),"view/BeheeBehandelingPlant.fxml");
     }
 
+    public void click_ImporterenStudenten(MouseEvent mouseEvent) {
+        LoginMethods.loadScreen(anchorPane, getClass(),"view/ImporterenStudenten.fxml");
+    }
+
     //methodes
 
     public void setButtons() {
@@ -69,10 +74,12 @@ public class ControllerHoofdscherm {
 
         if (LoginMethods.userLoggedIn.getRol().equals("student")) {
             btnZoekScherm.setVisible(false);
+            btnImporterenStudenten.setVisible(false);
         }
 
         if (LoginMethods.userLoggedIn.getRol().equals("oud-student")) {
             btnZoekScherm.setVisible(true);
+            btnImporterenStudenten.setVisible(false);
         }
 
     }

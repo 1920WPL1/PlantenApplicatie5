@@ -9,13 +9,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerHoofdscherm">
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerHoofdscherm">
    <children>
       <Button fx:id="btnZoekScherm" layoutX="110.0" layoutY="284.0" mnemonicParsing="false" onMouseClicked="#click_NaarZoekscherm" style="-fx-background-color: blue;" text="Zoekscherm Planten" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="btnProfielBeheren" layoutX="339.0" layoutY="203.0" mnemonicParsing="false" onMouseClicked="#click_ProfielBeheren" style="-fx-background-color: blue;" text="Profiel beheren" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnProfielBeheren" layoutX="239.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#click_ProfielBeheren" style="-fx-background-color: blue;" text="Profiel beheren" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -51,5 +51,10 @@
             <Image url="@img/Logo-VIVES.png" />
          </image>
       </ImageView>
+      <Button fx:id="btnImporterenStudenten" layoutX="474.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#click_ImporterenStudenten" style="-fx-background-color: blue;" text="Importeren studenten" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
