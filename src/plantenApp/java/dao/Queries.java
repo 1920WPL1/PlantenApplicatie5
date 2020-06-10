@@ -229,8 +229,6 @@ public interface Queries {
     /**
      * @Author Bart
      * de queries die gebruikt worden voor de gebruikerstabel
-     * @Author Jasper, Bart
-     * query SETWACHTWOORD_HASH
      */
     //region Gebruiker
     String GETALLGEBRUIKERS = "SELECT * FROM gebruiker";
@@ -242,5 +240,7 @@ public interface Queries {
     String GETGEBRUIKERSBYFULLNAME = "SELECT * FROM gebruiker WHERE voornaam LIKE ? OR achternaam LIKE ?";
     String SETGEBRUIKERBYID = "UPDATE gebruiker SET voornaam = ?, achternaam = ?, email = ?, rol = ? WHERE gebruiker_id = ?";
     String DELETEGEBRUIKERBYID = "DELETE FROM gebruiker WHERE gebruiker_id = ?";
+    String GETGEBRUIKERSINAANVRAAG = "SELECT * FROM gebruiker WHERE aanvraag_status = 1";
+    String SETGEBRUIKERAANVRAAGSTATUSANDROL = "UPDATE gebruiker SET aanvraag_status = ?, rol = ? WHERE gebruiker_id = ?";
     //endregion
 }
