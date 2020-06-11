@@ -31,6 +31,7 @@ public class ControllerImporterenStudenten {
     private GebruikerDAO gebruikerDAO;
 
     public void initialize() throws SQLException {
+        gebruikerDAO = new GebruikerDAO(connection);
         desktop = Desktop.getDesktop();
         chooser = new FileChooser();
         connection = Database.getInstance().getConnection();
