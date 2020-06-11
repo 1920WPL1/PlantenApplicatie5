@@ -19,6 +19,7 @@ public class GebruikerDAO implements Queries {
     private PreparedStatement stmtSetWachtwoordHash;
     private PreparedStatement stmtDeleteGebruikerById;
     private PreparedStatement stmtSetGebruikerAanvraagStatusEnRol;
+    private PreparedStatement stmtImportGebruikersByCsvFile;
 
     public GebruikerDAO(Connection dbConnection) throws SQLException {
         this.dbConnection = dbConnection;
@@ -29,6 +30,7 @@ public class GebruikerDAO implements Queries {
         stmtDeleteGebruikerById = dbConnection.prepareStatement(DELETEGEBRUIKERBYID);
         stmtInsertAanvraag = dbConnection.prepareStatement(INSERTAANVRAAG);
         stmtSetGebruikerAanvraagStatusEnRol = dbConnection.prepareStatement(SETGEBRUIKERAANVRAAGSTATUSANDROL);
+        stmtImportGebruikersByCsvFile = dbConnection.prepareStatement(IMPORTGEBRUIKERSBYCSVFILE);
     }
 
     /**@author Bart Maes
@@ -81,6 +83,26 @@ public class GebruikerDAO implements Queries {
                 rs.getInt("geregistreerd"),
                 rs.getBytes("wachtwoord_hash"),
                 rs.getBytes("salt")
+            );
+        }
+        return user;
+    }
+
+    /**@author Matthias Vancoillie
+     * @param gebruiker_id
+     * @return gebruiker_id, voornaam, achternaam, email
+     */
+    public Gebruiker getById(int gebruiker_id) throws SQLException {
+        Gebruiker user = null;
+        stmtSelectGebruikerById.setInt(1,gebruiker_id);
+        ResultSet rs = stmtSelectGebruikerById.executeQuery();
+
+        if (rs.next()) {
+            user = new Gebruiker(
+                    rs.getInt("gebruiker_id"),
+                    rs.getString("voornaam"),
+                    rs.getString("achternaam"),
+                    rs.getString("email")
             );
         }
         return user;
@@ -202,5 +224,10 @@ public class GebruikerDAO implements Queries {
         stmtSetGebruikerAanvraagStatusEnRol.setString(2, rol);
         stmtSetGebruikerAanvraagStatusEnRol.setInt(3,gebruiker_id);
         return stmtSetGebruikerAanvraagStatusEnRol.executeUpdate();
+    }
+
+    public void importGebruikersfromCsv(String path) throws SQLException {
+        stmtImportGebruikersByCsvFile.setString(1, path);
+        stmtImportGebruikersByCsvFile.executeUpdate();
     }
 }
