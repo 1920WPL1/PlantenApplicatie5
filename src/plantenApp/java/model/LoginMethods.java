@@ -4,16 +4,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import plantenApp.java.dao.GebruikerDAO;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 /**
@@ -65,33 +70,6 @@ public class LoginMethods {
         try {
             FXMLLoader loader = new FXMLLoader(classpath.getResource(screenName));
             Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-            Stage window = (Stage) pane.getScene().getWindow();
-            window.setScene(scene);
-            window.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * @author Bart Maes
-     * splitsen van bovenstaande methode in 3 methodes om nog specifieke bijkomende on load actions toe te voegen in controller
-     */
-
-    public static FXMLLoader getLoader(Class classpath, String screenName) {
-        FXMLLoader loader = new FXMLLoader(classpath.getResource(screenName));
-        return loader;
-    }
-
-    public static Parent getRoot(FXMLLoader loader) throws IOException {
-        Parent root = loader.load();
-        return root;
-    }
-
-    public static void getScreen(AnchorPane pane, Parent root) {
-        try {
             Scene scene = new Scene(root);
             Stage window = (Stage) pane.getScene().getWindow();
             window.setScene(scene);
@@ -168,7 +146,7 @@ public class LoginMethods {
      * @author Bart Maes
      * Wachtwoord valideren
      */
-    public static void checkPassword(TextField ww, Label result) {
+    public static void checkPassword(PasswordField ww, Label result) {
         ww.focusedProperty().addListener((arg0, oldValue, newValue) -> {
             if (!newValue) { //when focus lost
                 if(!validateWachtwoord(ww.getText())) {
@@ -223,4 +201,46 @@ public class LoginMethods {
         }
         return (hasNum && hasCap && hasLow);
     }
+
+    /**
+     * @author Bart Maes
+     * Wachtwoord aanmaken en opslaan (voor bij registratie, wachtwoord vergeten en wachtwoord wijzigen)
+     */
+    public static void createPassword(GebruikerDAO gebruikerDAO, Gebruiker user, String wachtwoord) throws Exception {
+        byte[] salt = getSalt();
+        byte[] hashPassword = LoginMethods.HashFromPassword(wachtwoord, salt);
+        //opslaan van hash en salt
+        gebruikerDAO.setWachtWoordHash(user.getGebruiker_id(), hashPassword, salt);
+    }
+
+    /**
+     * @author Jasper, Bart Maes
+     * random salt genereren
+     */
+    private static byte[] getSalt() {
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[16];
+        random.nextBytes(salt);
+        return salt;
+    }
+
+    /**
+     * @param wachtwoord Ingevoerd wachtwoord vergelijken met het opgeslagen wachtwoord uit de database
+     * @return true or false
+     * @author Bart Maes
+     */
+    public static boolean CheckPasswordCorrect(Gebruiker user, String wachtwoord) throws NoSuchAlgorithmException {
+        //ophalen salt uit database
+        byte[] saltDB = user.getSalt();
+
+        //ingegeven wachtwoord hashen met dezelfde salt (als bij registratie)
+        byte[] insertedPassword = LoginMethods.HashFromPassword(wachtwoord, saltDB);
+
+        //opgeslagen wachtwoord uit database halen
+        byte[] wwDB = user.getWachtwoord_hash();
+
+        //ingegeven wachtwoord vergelijken met opgeslagen wachtwoord uit database
+        return Arrays.equals(insertedPassword, wwDB);
+    }
+
 }

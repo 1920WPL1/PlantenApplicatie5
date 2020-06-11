@@ -112,10 +112,10 @@ public class ControllerBeheerGebruikers {
     }
 
     /**@Author Jasper
-     * @param mouseEvent
+     * @param actionEvent
      * @throws SQLException
      */
-    public void clicked_wijzigGebruiker(MouseEvent mouseEvent) throws SQLException {
+    public void clicked_wijzigGebruiker(ActionEvent actionEvent) throws SQLException {
         if(gebruikerSelected == null)
         {
             lblMessage.setText("Gelieve een gebruiker te selecteren");
@@ -128,10 +128,10 @@ public class ControllerBeheerGebruikers {
     }
 
     /**@Author Jasper
-     * @param mouseEvent
+     * @param actionEvent
      * @throws SQLException
      */
-    public void clicked_VerwijderenGebruiker(MouseEvent mouseEvent) throws SQLException {
+    public void clicked_VerwijderenGebruiker(ActionEvent actionEvent) throws SQLException {
         if(gebruikerSelected == null)
         {
             lblMessage.setText("Gelieve een gebruiker te selecteren");
@@ -145,7 +145,8 @@ public class ControllerBeheerGebruikers {
         }
     }
 
-    public void clicked_NaarHoofdscherm(MouseEvent mouseEvent) {
-        LoginMethods.loadScreen(anchorPane, getClass(),"view/Hoofdscherm.fxml");
+
+    public void click_home(MouseEvent mouseEvent) {
+        LoginMethods.loadScreen(anchorPane, getClass(), "view/HoofdScherm.fxml");
     }
 }

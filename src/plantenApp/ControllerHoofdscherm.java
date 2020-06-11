@@ -1,8 +1,9 @@
 package plantenApp;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import plantenApp.java.model.Gebruiker;
 import plantenApp.java.model.LoginMethods;
 
 import java.sql.SQLException;
@@ -21,60 +22,79 @@ public class ControllerHoofdscherm {
     public Button btnPlantenAanvraag;
     public AnchorPane anchorPane;
 
-    public void initialize() throws SQLException {
+    private Gebruiker user;
 
+    public void initialize() throws SQLException {
+        //ingelogde user ophalen
+        user = LoginMethods.userLoggedIn;
+        //buttons juist zetten volgens de rol van de ingelogde user
+        setButtons();
     }
 
-    public void click_NaarZoekscherm(MouseEvent mouseEvent) {
-        // waar alleen de oud-student kan gebruik van maken. hij kan alleen planten zoeken, meer niets.
+    //ga naar zoekscherm
+    public void click_NaarZoekscherm(ActionEvent actionEvent) {
         LoginMethods.loadScreen(anchorPane, getClass(), "view/Zoekscherm.fxml");
     }
 
-    public void click_ProfielBeheren(MouseEvent mouseEvent) {
-
-        LoginMethods.loadScreen(anchorPane, getClass(), "view/BeheerGebruikers.fxml");
+    //ga naar scherm voor het beheren van het profiel, waar een gebruikere eventueel ook zijn/haar wachtwoord kan resetten
+    public void click_ProfielBeheren(ActionEvent actionEvent) {
+        LoginMethods.loadScreen(anchorPane, getClass(), "view/BeheerProfiel.fxml");
     }
 
-    public void click_RegistratiesBeheren(MouseEvent mouseEvent) {
+    //ga naar scherm voor het beheren van de aanvragen
+    public void click_RegistratiesBeheren(ActionEvent actionEvent) {
         LoginMethods.loadScreen(anchorPane, getClass(), "view/BeheerRegistraties.fxml");
     }
 
-    public void click_GebruikersBeheren(MouseEvent mouseEvent) {
+    //ga naar het scherm voor het beheren van de gebruikers
+    public void click_GebruikersBeheren(ActionEvent actionEvent) {
         LoginMethods.loadScreen(anchorPane, getClass(), "view/BeheerGebruikers.fxml");
     }
 
-    public void clicked_ToevoegenPlant(MouseEvent mouseEvent) {
+    //ga naar het scherm voor het toevoegen van een plant
+    public void clicked_ToevoegenPlant(ActionEvent actionEvent) {
         LoginMethods.loadScreen(anchorPane, getClass(), "view/PlantToevoegen.fxml");
     }
 
-    public void click_PlantZoekWijzig(MouseEvent mouseEvent) {
-        // waar student / docent meer bevoegdheden hebben op het zoekscherm.
-        LoginMethods.loadScreen(anchorPane, getClass(), "view/Zoekscherm");
+    //ga naar het zoekscherm
+    public void click_PlantZoekWijzig(ActionEvent actionEvent) {
+        LoginMethods.loadScreen(anchorPane, getClass(), "view/Zoekscherm.fxml");
     }
 
-    public void click_PlantAanvraagBeheren(MouseEvent mouseEvent) {
+    //ga naar het scherm voor het beheren van plantaanvragen
+    public void click_PlantAanvraagBeheren(ActionEvent actionEvent) {
         LoginMethods.loadScreen(anchorPane, getClass(),"view/BeheeBehandelingPlant.fxml");
     }
 
     //methodes
 
-    public void setButtons() {
-        if (LoginMethods.userLoggedIn.getRol().equals("admin")) {
-            btnZoekScherm.setVisible(false);
+    //hier wordt op basis van de rol van de ingelogde user alle buttons goed gezet: hiden en eventueel wat herschikken van de buttons
+    private void setButtons() {
+        if (user.getRol().equals("docent")) {
+            btnRegistratiesBeheren.setVisible(false);
+            btnGebruikersBeheren.setVisible(false);
         }
 
-        if (LoginMethods.userLoggedIn.getRol().equals("docent")) {
-            btnZoekScherm.setVisible(false);
+        if (user.getRol().equals("student")) {
+            disableBeheerButtons();
+            btnToevoegenPlant.setLayoutY(321);
+            btnToevoegenPlant.setLayoutX(188.5);
         }
 
-        if (LoginMethods.userLoggedIn.getRol().equals("student")) {
-            btnZoekScherm.setVisible(false);
+        if (user.getRol().equals("gast")) {
+            disableBeheerButtons();
+            btnPlantZoekWijzig.setVisible(false);
+            btnToevoegenPlant.setVisible(false);
+            btnZoekScherm.setLayoutY(250);
+            btnZoekScherm.setLayoutX(188.5);
         }
+    }
 
-        if (LoginMethods.userLoggedIn.getRol().equals("oud-student")) {
-            btnZoekScherm.setVisible(true);
-        }
-
+    //de buttons ivm beheer nog eens apart gestoken, omdat dit al voor 2 rollen verborgen moet zijn
+    private void disableBeheerButtons() {
+        btnPlantenAanvraag.setVisible(false);
+        btnRegistratiesBeheren.setVisible(false);
+        btnGebruikersBeheren.setVisible(false);
     }
 
 }

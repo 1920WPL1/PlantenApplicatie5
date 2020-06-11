@@ -9,11 +9,10 @@ import java.util.logging.Logger;
 
 /**@author Bart Maes*/
 public class GebruikerDAO implements Queries {
-    private static final String GETGEBRUIKERBYID = "SELECT * FROM gebruiker WHERE gebruiker_id = ?";
     private Connection dbConnection;
     private PreparedStatement stmtSelectGebruikerByEmail;
     private PreparedStatement stmtInsertAanvraag;
-    private PreparedStatement stmtSelectGebruikerById;
+
     /** @Author Jasper */
     private PreparedStatement stmtSelectGebruikersByFullName;
     private PreparedStatement stmtSetGebruikerById;
@@ -23,8 +22,6 @@ public class GebruikerDAO implements Queries {
 
     public GebruikerDAO(Connection dbConnection) throws SQLException {
         this.dbConnection = dbConnection;
-        stmtSelectGebruikerById = dbConnection.prepareStatement(GETGEBRUIKERBYID);
-
         stmtSelectGebruikerByEmail = dbConnection.prepareStatement(GETGEBRUIKERBYEMAILADRES);
         stmtSelectGebruikersByFullName = dbConnection.prepareStatement(GETGEBRUIKERSBYFULLNAME);
         stmtSetGebruikerById = dbConnection.prepareStatement(SETGEBRUIKERBYID);
@@ -89,29 +86,6 @@ public class GebruikerDAO implements Queries {
         return user;
     }
 
-    /**@author Matthias Vancoillie
-     * @param gebruiker_id
-     * @return gebruiker_id, voornaam, achternaam, email
-     */
-    public Gebruiker getById(int gebruiker_id) throws SQLException {
-        Gebruiker user = null;
-        stmtSelectGebruikerById.setInt(1,gebruiker_id);
-        ResultSet rs = stmtSelectGebruikerById.executeQuery();
-
-        if (rs.next()) {
-            user = new Gebruiker(
-                    rs.getInt("gebruiker_id"),
-                    rs.getString("voornaam"),
-                    rs.getString("achternaam"),
-                    rs.getString("email")
-            );
-        }
-        return user;
-    }
-
-
-
-
     /**@Author Jasper
      * @param search De zoekterm om te zoeken op voornaam of achternaam
      * @return List met gevonden gebruikers
@@ -152,8 +126,7 @@ public class GebruikerDAO implements Queries {
         stmtSetWachtwoordHash.setBytes(1, hash);
         stmtSetWachtwoordHash.setBytes(2, salt);
         stmtSetWachtwoordHash.setInt(3, id);
-        //aanpassing Bart Maes:
-         stmtSetWachtwoordHash.executeUpdate();
+        stmtSetWachtwoordHash.executeUpdate();
     }
 
     /**

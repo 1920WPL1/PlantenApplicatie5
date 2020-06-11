@@ -4,6 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -11,6 +12,7 @@ import plantenApp.java.dao.Database;
 import plantenApp.java.dao.GebruikerDAO;
 import plantenApp.java.model.Gebruiker;
 import plantenApp.java.model.LoginMethods;
+import plantenApp.java.utils.JavaMailUtil;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -100,7 +102,7 @@ public class ControllerBeheerRegistraties {
     }
 
     /* @Author Jasper */
-    public void clicked_Goedkeuren(MouseEvent mouseEvent) throws SQLException {
+    public void clicked_Goedkeuren(ActionEvent actionEvent) throws Exception {
         if(aanvraagSelected == null){
             lblMessage.setText("Gelieve een aanvraag te selecteren");
         } else{
@@ -109,6 +111,17 @@ public class ControllerBeheerRegistraties {
             int iGeslaagd = new GebruikerDAO(connection).setGebruikerAanvraagStatusEnRol(
                     aanvraagSelected.getGebruiker_id(), 2, rolSelected);
 
+            //@author Bart Maes
+            //bevestiginsmail dat de gebruiker zijn aanvraag is goedgekeurd, anders weet de gebruiker niet wanneer hij/zij zich kan registreren
+            if(iGeslaagd == 1) {
+                JavaMailUtil.sendMail(aanvraagSelected.getEmail(), "Uw aanvraag is goedgekeurd", "Beste " + aanvraagSelected.getVoornaam() + ", \r\n\nUw aanvraag voor toegang tot de Plantenapplicatie van VIVES is goedgekeurd. \n" +
+                        "\nU kan zich registreren de volgende keer dat u de applicatie opent. \n" +
+                        "\n" +
+                        "Met vriendelijke groeten, \n" +
+                        "\n" +
+                        "Het VIVES-plantenteam");
+            }
+
             // instellen label message
             String sMessage = (iGeslaagd == 1) ? "Aanvraag goedgekeurd" : "Aanvraag niet goedgekeurd";
             lblMessage.setText(sMessage);
@@ -116,12 +129,22 @@ public class ControllerBeheerRegistraties {
     }
 
     /* @Author Jasper */
-    public void clicked_Afwijzen(MouseEvent mouseEvent) throws SQLException {
+    public void clicked_Afwijzen(ActionEvent actionEvent) throws Exception {
         // gebruiker wordt verwijderd uit database
         if(aanvraagSelected == null){
             lblMessage.setText("Gelieve een aanvraag te selecteren");
         } else{
             int iGeslaagd = new GebruikerDAO(connection).deleteGebruikerById(aanvraagSelected.getGebruiker_id());
+
+            //@author Bart Maes
+            //bevestiginsmail dat de gebruiker zijn aanvraag is afgekeurd
+            if(iGeslaagd == 1) {
+                JavaMailUtil.sendMail(aanvraagSelected.getEmail(), "Uw aanvraag is afgekeurd", "Beste " + aanvraagSelected.getVoornaam() + ", \r\n\nUw aanvraag voor toegang tot de Plantenapplicatie van VIVES is helaas afgekeurd. \n" +
+                        "\nMet vriendelijke groeten, \n" +
+                        "\n" +
+                        "Het VIVES-plantenteam");
+            }
+
             String sResult = (iGeslaagd == 1) ? "Aanvraag verwijderd" : "Aanvraag niet verwijderd";
             lblMessage.setText(sResult);
 
@@ -131,7 +154,7 @@ public class ControllerBeheerRegistraties {
         }
     }
 
-    public void clicked_NaarHoofdscherm(MouseEvent mouseEvent) {
-        LoginMethods.loadScreen(anchorPane, getClass(),"view/Hoofdscherm.fxml");
+    public void click_home(MouseEvent mouseEvent) {
+        LoginMethods.loadScreen(anchorPane, getClass(), "view/HoofdScherm.fxml");
     }
 }

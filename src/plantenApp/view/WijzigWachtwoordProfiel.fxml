@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="523.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerWachtwoordProfiel">
+   <children>
+      <Button fx:id="btnVeranderWachtwoord" alignment="CENTER" layoutX="184.0" layoutY="382.0" mnemonicParsing="false" onAction="#Click_wijzigWachtwoord" prefHeight="30.0" prefWidth="162.0" style="-fx-background-color: blue;" text="Wijzig wachtwoord" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Text layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wachtwoord wijzigen" textAlignment="CENTER" wrappingWidth="523.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <VBox alignment="CENTER" focusTraversable="true" layoutX="99.0" layoutY="131.0" prefHeight="232.0" prefWidth="333.0">
+         <children>
+            <PasswordField fx:id="pfOldPassword" alignment="CENTER" promptText="Geef je wachtwoord op">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="btnBevestigWw" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Click_bevestigWachtwoord" prefHeight="30.0" prefWidth="162.0" style="-fx-background-color: blue;" text="Bevestig wachtwoord" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <VBox focusTraversable="true" prefHeight="114.0" prefWidth="162.0">
+               <children>
+                  <PasswordField fx:id="pfWachtwoord" alignment="CENTER" prefHeight="30.0" promptText="Nieuw wachtwoord">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </PasswordField>
+                  <Label fx:id="lblCheckNewPassword" prefHeight="17.0" prefWidth="351.0">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <PasswordField fx:id="pfWwHerhalen" alignment="CENTER" prefHeight="30.0" promptText="Bevestig nieuw wachtwoord">
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </PasswordField>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <Text layoutX="-1.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Als je wilt doorgaan, moet je eerst bevestigen dat jij het bent:" textAlignment="CENTER" wrappingWidth="531.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="58.0" fitWidth="66.0" layoutX="444.0" layoutY="15.0" onMouseClicked="#click_home" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/home.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>

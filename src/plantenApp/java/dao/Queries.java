@@ -236,7 +236,8 @@ public interface Queries {
     //gebruiker ophalen adhv e-mailadres
     String GETGEBRUIKERBYEMAILADRES = "SELECT * FROM gebruiker WHERE email = ?";
     //aanvraag verstuurd --> dus in behandeling (0 = afgekeurd; 1 = in behandeling; 2 = goedgekeurd)
-    String INSERTAANVRAAG = "INSERT INTO gebruiker (email, voornaam, achternaam, aanvraag_status, rol) VALUES (?, ?, ?, 1, 'gast')";
+    String INSERTAANVRAAG = "INSERT INTO gebruiker (email, voornaam, achternaam, aanvraagdatum, aanvraag_status, rol) VALUES (?, ?, ?, getdate(), 1, 'gast')";
+
     /**
      * @Author Jasper, Bart
      * query SETWACHTWOORD_HASH

@@ -1,10 +1,10 @@
 package plantenApp;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import plantenApp.java.dao.Database;
@@ -13,14 +13,11 @@ import plantenApp.java.model.Gebruiker;
 import plantenApp.java.model.LoginMethods;
 
 import javax.swing.*;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class ControllerRegistreren {
     private GebruikerDAO gebruikerDAO;
-    private Connection dbConnection;
     private Gebruiker user;
 
     public Button btnRegistreren;
@@ -34,20 +31,23 @@ public class ControllerRegistreren {
 
     /**
      * @author Bart Maes
-     * bij opstarten connectie en gebruikerDao aanroepen
+     * bij laden connectie en gebruikerDao aanroepen
      */
     public void initialize() throws SQLException {
-        dbConnection = Database.getInstance().getConnection();
+        Connection dbConnection = Database.getInstance().getConnection();
         gebruikerDAO = new GebruikerDAO(dbConnection);
         user = LoginMethods.userLoggedIn; // ingelogde gebruiker ophalen
 
+        //alle checks op e-mail in 1 listener
         txtEmail.focusedProperty().addListener((arg0, oldValue, newValue) -> {
-            if (!newValue) { //when focus lost
+            if (!newValue) { //als de focus op het veld weg is, wordt de controle uitgevoerd
+                //als het geen geldig e-mailadres is, wordt dit in de label eronder weergegeven
                 if (!LoginMethods.isValid(txtEmail.getText())) {
                     lblValidateEmail.setText("Geen geldig emailadres");
                     txtEmail.setStyle("-fx-border-color: red;");
                     lblValidateEmail.setTextFill(Color.RED);
                 } else {
+                    //als het e-mailadres wel geldig is, clear bovenstaande settings
                     lblValidateEmail.setText("");
                     txtEmail.setStyle("-fx-border-color: none;");
                     //controleer of gebruiker in systeem zit
@@ -57,15 +57,25 @@ public class ControllerRegistreren {
                         e.printStackTrace();
                     }
 
+                    //hier ook al realtime controleren op een aantal basis checks
+                    //indien gebruiker niet bestaat, direct doorverwijzen naar aanvraagformulier (geen nut van nog wachtwoord in te vullen)
                     if (user == null) {
                         LoginMethods.OptionDialog("Het opgegeven emailadres is niet gekend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
                                 "Emailadres niet gekend", anchorPane, getClass(), "view/AanvraagToegang.fxml", "view/Inloggen.fxml");
                     } else {
-                        if(user.isGeregistreerd() == 1) {
+                        //indien gebruiker wel al bestaat, eerst controleren of deze nog niet geregistreerd is (indien geregistreerd, is dit scherm niet nuttig)
+                        if (user.isGeregistreerd() == 1) {
                             JOptionPane.showMessageDialog(null, "U bent reeds geregistreerd. U kan onmiddellijk inloggen.", "Reeds geregistreerd", JOptionPane.INFORMATION_MESSAGE);
                             LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
                         }
-                        //hier nog checks op basis van aanvraag goedkeuring
+                        //indien gebruiker al bestaat en al een aanvraag heeft gedaan
+                        else {
+                            //controleren of er al een aanvraag gebeurd is. Zo ja, terugsturen naar inlogscherm.
+                            if (user.isAanvraag_status() == 1) {
+                                JOptionPane.showMessageDialog(null, "U heeft reeds een aanvraag ingediend, maar deze is nog in behandeling.", "Aanvraag in behandeling.", JOptionPane.INFORMATION_MESSAGE);
+                                LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
+                            }
+                        }
                     }
                 }
             }
@@ -79,7 +89,7 @@ public class ControllerRegistreren {
      * @author Bart Maes, Matthias Vancoillie
      * registreren van een gebruiker
      */
-    public void clicked_Registreren(MouseEvent mouseEvent) throws SQLException, NoSuchAlgorithmException {
+    public void clicked_Registreren(ActionEvent actionEvent) throws Exception {
         String sEmail = txtEmail.getText();
         String sWw = pfWachtwoord.getText();
         String sWw_herhaling = pfWachtwoordHerhalen.getText();
@@ -98,12 +108,8 @@ public class ControllerRegistreren {
                 } else {
                     //indien alles ok, mag de registratie gebeuren
                     //@author Bart Maes
-                    byte[] salt = getSalt();
-                    byte[] hashPassword = LoginMethods.HashFromPassword(sWw, salt);
-                    //opslaan van hash en salt
-                    gebruikerDAO.setWachtWoordHash(user.getGebruiker_id(), hashPassword, salt);
-
-                    JOptionPane.showMessageDialog(null, "U bent succesvol geregistreerd","Registratie succesvol!", JOptionPane.INFORMATION_MESSAGE);
+                    LoginMethods.createPassword(gebruikerDAO, user, sWw);
+                    JOptionPane.showMessageDialog(null, "U bent succesvol geregistreerd", "Registratie succesvol!", JOptionPane.INFORMATION_MESSAGE);
                     LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
                 }
             }
@@ -115,21 +121,8 @@ public class ControllerRegistreren {
      * Annuleren van registratie
      */
     // hiermee worden ze terug gestuurd naar het inlogscherm
-    public void clicked_Annuleren(MouseEvent mouseEvent) {
+    public void clicked_Annuleren(ActionEvent actionEvent) {
         LoginMethods.OptionDialog("Bent u zeker dat u de registratie wilt annuleren?",
                 "Annuleren", anchorPane, getClass(), "view/Inloggen.fxml", "view/Registreren.fxml");
-    }
-
-    //methodes
-
-    /**
-     * @author Jasper, Bart Maes
-     * random salt genereren
-     */
-    private static byte[] getSalt() {
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-        return salt;
     }
 }
