@@ -67,7 +67,7 @@ public class ControllerHoofdscherm {
         LoginMethods.loadScreen(anchorPane, getClass(),"view/BeheeBehandelingPlant.fxml");
     }
 
-    public void click_ImporterenStudenten(MouseEvent mouseEvent) {
+    public void click_ImporterenStudenten(ActionEvent actionEvent) {
         LoginMethods.loadScreen(anchorPane, getClass(),"view/ImporterenStudenten.fxml");
     }
 
@@ -83,7 +83,7 @@ public class ControllerHoofdscherm {
         if (user.getRol().equals("student")) {
             disableBeheerButtons();
             btnToevoegenPlant.setLayoutY(321);
-            btnToevoegenPlant.setLayoutX(188.5);
+            btnToevoegenPlant.setLayoutX(175);
         }
 
         if (user.getRol().equals("gast")) {
@@ -91,12 +91,13 @@ public class ControllerHoofdscherm {
             btnPlantZoekWijzig.setVisible(false);
             btnToevoegenPlant.setVisible(false);
             btnZoekScherm.setLayoutY(250);
-            btnZoekScherm.setLayoutX(188.5);
+            btnZoekScherm.setLayoutX(175);
         }
     }
 
     //de buttons ivm beheer nog eens apart gestoken, omdat dit al voor 2 rollen verborgen moet zijn
     private void disableBeheerButtons() {
+        btnImporterenStudenten.setVisible(false);
         btnPlantenAanvraag.setVisible(false);
         btnRegistratiesBeheren.setVisible(false);
         btnGebruikersBeheren.setVisible(false);

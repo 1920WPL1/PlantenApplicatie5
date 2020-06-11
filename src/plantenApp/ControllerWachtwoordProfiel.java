@@ -104,6 +104,6 @@ public class ControllerWachtwoordProfiel {
 
     //ga terug naar inlogscherm
     public void click_home(MouseEvent mouseEvent) {
-        LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
+        LoginMethods.loadScreen(anchorPane, getClass(), "view/HoofdScherm.fxml");
     }
 }
