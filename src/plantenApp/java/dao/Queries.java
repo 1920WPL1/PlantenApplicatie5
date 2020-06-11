@@ -251,5 +251,6 @@ public interface Queries {
     String DELETEGEBRUIKERBYID = "DELETE FROM gebruiker WHERE gebruiker_id = ?";
     String GETGEBRUIKERSINAANVRAAG = "SELECT * FROM gebruiker WHERE aanvraag_status = 1";
     String SETGEBRUIKERAANVRAAGSTATUSANDROL = "UPDATE gebruiker SET aanvraag_status = ?, rol = ? WHERE gebruiker_id = ?";
+    String IMPORTGEBRUIKERSBYCSVFILE = "EXECUTE sp_GebruikerImport ?"; // ? bevat path naar csv file, rol gebruikers ingesteld op student
     //endregion
 }

@@ -20,6 +20,7 @@ public class GebruikerDAO implements Queries {
     private PreparedStatement stmtSetWachtwoordHash;
     private PreparedStatement stmtDeleteGebruikerById;
     private PreparedStatement stmtSetGebruikerAanvraagStatusEnRol;
+    private PreparedStatement stmtImportGebruikersByCsvFile;
 
     public GebruikerDAO(Connection dbConnection) throws SQLException {
         this.dbConnection = dbConnection;
@@ -32,6 +33,7 @@ public class GebruikerDAO implements Queries {
         stmtDeleteGebruikerById = dbConnection.prepareStatement(DELETEGEBRUIKERBYID);
         stmtInsertAanvraag = dbConnection.prepareStatement(INSERTAANVRAAG);
         stmtSetGebruikerAanvraagStatusEnRol = dbConnection.prepareStatement(SETGEBRUIKERAANVRAAGSTATUSANDROL);
+        stmtImportGebruikersByCsvFile = dbConnection.prepareStatement(IMPORTGEBRUIKERSBYCSVFILE);
     }
 
     /**@author Bart Maes
@@ -108,9 +110,6 @@ public class GebruikerDAO implements Queries {
         }
         return user;
     }
-
-
-
 
     /**@Author Jasper
      * @param search De zoekterm om te zoeken op voornaam of achternaam
@@ -229,5 +228,10 @@ public class GebruikerDAO implements Queries {
         stmtSetGebruikerAanvraagStatusEnRol.setString(2, rol);
         stmtSetGebruikerAanvraagStatusEnRol.setInt(3,gebruiker_id);
         return stmtSetGebruikerAanvraagStatusEnRol.executeUpdate();
+    }
+
+    public void importGebruikersfromCsv(String path) throws SQLException {
+        stmtImportGebruikersByCsvFile.setString(1, path);
+        stmtImportGebruikersByCsvFile.executeUpdate();
     }
 }

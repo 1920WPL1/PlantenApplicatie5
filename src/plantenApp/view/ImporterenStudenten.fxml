@@ -27,7 +27,7 @@
                                     <Insets left="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Label fx:id="lblFileSelected" text="Geen Excel bestand geselecteerd">
+                              <Label fx:id="lblFileSelected" text="Geen CSV bestand geselecteerd">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" top="10.0" />
                                  </VBox.margin>
