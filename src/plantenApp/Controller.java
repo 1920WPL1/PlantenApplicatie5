@@ -8,12 +8,20 @@ import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import plantenApp.java.dao.AbiotischeFactorenDAO;
+
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import plantenApp.java.dao.Database;
 import plantenApp.java.dao.InfoTablesDAO;
 import plantenApp.java.dao.PlantDAO;
 import plantenApp.java.model.InfoTables;
 import plantenApp.java.model.LoginMethods;
 import plantenApp.java.model.Plant;
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 

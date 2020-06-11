@@ -78,5 +78,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button fx:id="btnImporterenStudenten" layoutX="474.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#click_ImporterenStudenten" style="-fx-background-color: blue;" text="Importeren studenten" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
