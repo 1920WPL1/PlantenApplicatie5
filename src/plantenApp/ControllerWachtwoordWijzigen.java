@@ -55,9 +55,13 @@ public class ControllerWachtwoordWijzigen {
             } else {
                 //indien alles ok, mag de wijziging gebeuren
                 //@author Bart Maes
-                LoginMethods.createPassword(gebruikerDAO, user, sWw);
-                JOptionPane.showMessageDialog(null, "Uw wachtwoord is succesvol gewijzigd","Wachtwoord gewijzigd", JOptionPane.INFORMATION_MESSAGE);
-                LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
+                try{
+                    LoginMethods.createPassword(gebruikerDAO, user, sWw);
+                    JOptionPane.showMessageDialog(null, "Uw wachtwoord is succesvol gewijzigd","Wachtwoord gewijzigd", JOptionPane.INFORMATION_MESSAGE);
+                    LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
+                } catch (SQLException e){
+                    JOptionPane.showMessageDialog(null, "Er kon geen mail verstuurd worden","Fout", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
     }

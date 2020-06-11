@@ -51,34 +51,41 @@ public class ControllerWachtWoordVergeten {
     }
 
     //bij het bevestigen van e-mailadres
-    public void clicked_MailVersturen(ActionEvent actionEvent) throws Exception {
-        //de gebruiker zoeken adhv ingegeven e-mailadres
-        user = gebruikerDAO.getByEmail(txtEmail.getText());
+    public void clicked_MailVersturen(ActionEvent actionEvent) {
+        try{
+            //de gebruiker zoeken adhv ingegeven e-mailadres
+            user = gebruikerDAO.getByEmail(txtEmail.getText());
 
-        //controle of de realtime check op e-mail nog een foutmelding geeft of niet
-        if (!lblValideerEmail.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Gelieve eerst een geldig e-mailadres in te geven", "Ongeldige e-mailadres", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            //als gebruiker niet bestaat of nog niet geregistreerd is, mag hij/zij niet op "wachtwoord vergeten" klikken, want er bestaat dan nog geen wachtwoord --> eerst registreren/aanvraag
-            if (user == null || user.isGeregistreerd() != 1) {
-                JOptionPane.showMessageDialog(null, "Het opgegeven emailadres is niet geregistreed en kan geen wachtwoord wijzigen. Gelieve eerst te registreren.", "Emailadres niet geregistreerd", JOptionPane.INFORMATION_MESSAGE);
-                LoginMethods.loadScreen(anchorPane, getClass(), "view/Registreren.fxml");
+            //controle of de realtime check op e-mail nog een foutmelding geeft of niet
+            if (!lblValideerEmail.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Gelieve eerst een geldig e-mailadres in te geven", "Ongeldige e-mailadres", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                //indien het gaat om een geregistreerde gebruiker, heeft deze het recht om via "wachtwoord vergeten" het wachtwoord te wijzigen
-                //dan wordt een random code opgehaald
-                getRandomVerificationCode();
-                //de code wordt via mail verstuurd
-                JavaMailUtil.sendMail(user.getEmail(), "Uw verificatiecode voor het wijzigen van uw wachtwoord", "Beste " + user.getVoornaam() + ", \r\n\nDit is uw persoonlijke verificatiecode: " + randomCode +
-                        ". \r\n\nGelieve dit in te geven in de applicatie om uw wachtwoord te kunnen wijzigen.\r\n\nMet vriendelijke groeten, \r\n\nHet VIVES-plantenteam");
-                //bevestiging dat er een mail is verstuurd, zodat de gebruiker zijn mails kan controleren
-                JOptionPane.showMessageDialog(null, "Verificatiecode is naar uw e-mailadres verstuurd", "Verificatiecode verstuurd", JOptionPane.INFORMATION_MESSAGE);
-                //verify controls zichtbaar maken
-                setVerifyControls(true);
-                //de bovenstaande controls disablen / hiden
-                btnVerstuurEmail.setVisible(false);
-                txtEmail.setDisable(true);
-                lblEmail.setVisible(false);
+                //als gebruiker niet bestaat of nog niet geregistreerd is, mag hij/zij niet op "wachtwoord vergeten" klikken, want er bestaat dan nog geen wachtwoord --> eerst registreren/aanvraag
+                if (user == null || user.isGeregistreerd() != 1) {
+                    JOptionPane.showMessageDialog(null, "Het opgegeven emailadres is niet geregistreed en kan geen wachtwoord wijzigen. Gelieve eerst te registreren.", "Emailadres niet geregistreerd", JOptionPane.INFORMATION_MESSAGE);
+                    LoginMethods.loadScreen(anchorPane, getClass(), "view/Registreren.fxml");
+                } else {
+                    //indien het gaat om een geregistreerde gebruiker, heeft deze het recht om via "wachtwoord vergeten" het wachtwoord te wijzigen
+                    //dan wordt een random code opgehaald
+                    getRandomVerificationCode();
+                    //de code wordt via mail verstuurd
+                    JavaMailUtil.sendMail(user.getEmail(), "Uw verificatiecode voor het wijzigen van uw wachtwoord", "Beste " + user.getVoornaam() + ", \r\n\nDit is uw persoonlijke verificatiecode: " + randomCode +
+                            ". \r\n\nGelieve dit in te geven in de applicatie om uw wachtwoord te kunnen wijzigen.\r\n\nMet vriendelijke groeten, \r\n\nHet VIVES-plantenteam");
+                    //bevestiging dat er een mail is verstuurd, zodat de gebruiker zijn mails kan controleren
+                    JOptionPane.showMessageDialog(null, "Verificatiecode is naar uw e-mailadres verstuurd", "Verificatiecode verstuurd", JOptionPane.INFORMATION_MESSAGE);
+                    //verify controls zichtbaar maken
+                    setVerifyControls(true);
+                    //de bovenstaande controls disablen / hiden
+                    btnVerstuurEmail.setVisible(false);
+                    txtEmail.setDisable(true);
+                    lblEmail.setVisible(false);
+                }
             }
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Er kon geen mail verstuurd worden","Fout", JOptionPane.ERROR_MESSAGE);
         }
     }
 

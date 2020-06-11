@@ -36,12 +36,11 @@ public class LoginMethods {
      * @param wachtwoord Wachtwoord om te hashen
      * @param salt       salt meegeven
      * @return hash van het wachtwoord : array van 80 bytes
-     * @throws NoSuchAlgorithmException
      * @author Jasper, Bart Maes
      * @apiNote Versleuteling van het wachtwoord tot een hash met hash algoritme SHA-512 (= sterkste beschikbaar in Java)
      */
 
-    public static byte[] HashFromPassword(String wachtwoord, byte[] salt) throws NoSuchAlgorithmException {
+    public static byte[] HashFromPassword(String wachtwoord, byte[] salt) {
         // Salt = 16 willekeurige bytes
         // Bij elke nieuw wachtwoord wordt een salt aangemaakt
         // Hash = salt + resultaat hashfunctie(salt + password)
@@ -206,7 +205,7 @@ public class LoginMethods {
      * @author Bart Maes
      * Wachtwoord aanmaken en opslaan (voor bij registratie, wachtwoord vergeten en wachtwoord wijzigen)
      */
-    public static void createPassword(GebruikerDAO gebruikerDAO, Gebruiker user, String wachtwoord) throws Exception {
+    public static void createPassword(GebruikerDAO gebruikerDAO, Gebruiker user, String wachtwoord) throws SQLException {
         byte[] salt = getSalt();
         byte[] hashPassword = LoginMethods.HashFromPassword(wachtwoord, salt);
         //opslaan van hash en salt

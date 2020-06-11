@@ -13,6 +13,7 @@ import plantenApp.java.dao.GebruikerDAO;
 import plantenApp.java.model.Gebruiker;
 import plantenApp.java.model.LoginMethods;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -33,6 +34,7 @@ public class ControllerBeheerGebruikers {
     public AnchorPane anchorPane;
 
     private Connection connection;
+    private GebruikerDAO gebruikerDAO;
     private ObservableList<Gebruiker> gebruikersFound;
     private Gebruiker gebruikerSelected = null;
 
@@ -41,6 +43,7 @@ public class ControllerBeheerGebruikers {
     /* @Author Jasper */
     public void initialize() throws SQLException {
         this.connection = Database.getInstance().getConnection();
+        gebruikerDAO = new GebruikerDAO(connection);
 
         // Tonen van naam gebruikers ipv 'gebruiker' object
         // door CellFactory van ListView aan te passen zodat hij ListCells aanmaakt met eigen invulling voor updateItem( item, bool)
@@ -92,12 +95,16 @@ public class ControllerBeheerGebruikers {
     }
     /* @Author Jasper */
 
-    public void refreshGebruikersFound() throws SQLException {
-        List<Gebruiker> listGebruikersFound =
-                new GebruikerDAO(connection).getGebruikersByFullName(txtZoekFGebruiker.getText());
-        // gebruikers is een ObservableList en listGebruikersFound wordt gebruikt om hem te vullen
-        gebruikersFound = FXCollections.observableList(listGebruikersFound);
-        lstGebruikersLijst.setItems(gebruikersFound);
+    public void refreshGebruikersFound(){
+        try{
+            List<Gebruiker> listGebruikersFound =
+                    gebruikerDAO.getGebruikersByFullName(txtZoekFGebruiker.getText());
+            // gebruikers is een ObservableList en listGebruikersFound wordt gebruikt om hem te vullen
+            gebruikersFound = FXCollections.observableList(listGebruikersFound);
+            lstGebruikersLijst.setItems(gebruikersFound);
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**@Author Jasper
@@ -113,34 +120,40 @@ public class ControllerBeheerGebruikers {
 
     /**@Author Jasper
      * @param actionEvent
-     * @throws SQLException
      */
-    public void clicked_wijzigGebruiker(ActionEvent actionEvent) throws SQLException {
+    public void clicked_wijzigGebruiker(ActionEvent actionEvent){
         if(gebruikerSelected == null)
         {
             lblMessage.setText("Gelieve een gebruiker te selecteren");
         } else{
-            int iGeslaagd = new GebruikerDAO(connection).setGebruikerById(
-                    gebruikerSelected.getGebruiker_id(), txtVoornaam.getText(), txtNaam.getText(), txtEmail.getText(), cmbGebruikerRol.getSelectionModel().getSelectedItem());
-            String sResult = (iGeslaagd == 1) ? "Wijziging uitgevoerd" : "Wijziging niet uitgevoerd";
-            lblMessage.setText(sResult);
+            try{
+                int iGeslaagd = gebruikerDAO.setGebruikerById(
+                        gebruikerSelected.getGebruiker_id(), txtVoornaam.getText(), txtNaam.getText(), txtEmail.getText(), cmbGebruikerRol.getSelectionModel().getSelectedItem());
+                String sResult = (iGeslaagd == 1) ? "Wijziging uitgevoerd" : "Wijziging niet uitgevoerd";
+                lblMessage.setText(sResult);
+            } catch (SQLException e){
+                JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
     /**@Author Jasper
      * @param actionEvent
-     * @throws SQLException
      */
-    public void clicked_VerwijderenGebruiker(ActionEvent actionEvent) throws SQLException {
+    public void clicked_VerwijderenGebruiker(ActionEvent actionEvent){
         if(gebruikerSelected == null)
         {
             lblMessage.setText("Gelieve een gebruiker te selecteren");
         } else{
-            int iGeslaagd = new GebruikerDAO(connection).deleteGebruikerById(gebruikerSelected.getGebruiker_id());
-            String sResult = (iGeslaagd == 1) ? "Gebruiker verwijderd" : "Gebruiker niet verwijderd";
-            lblMessage.setText(sResult);
-            if(iGeslaagd == 1){
-                refreshGebruikersFound(); // gezochte gebruikers opnieuw ophalen => verwijderde gebruiker wordt niet meer getoond in lijst
+            try{
+                int iGeslaagd = gebruikerDAO.deleteGebruikerById(gebruikerSelected.getGebruiker_id());
+                String sResult = (iGeslaagd == 1) ? "Gebruiker verwijderd" : "Gebruiker niet verwijderd";
+                lblMessage.setText(sResult);
+                if(iGeslaagd == 1){
+                    refreshGebruikersFound(); // gezochte gebruikers opnieuw ophalen => verwijderde gebruiker wordt niet meer getoond in lijst
+                }
+            } catch (SQLException e){
+                JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

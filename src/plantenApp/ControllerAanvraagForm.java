@@ -43,7 +43,7 @@ public class ControllerAanvraagForm {
      * controles bij versturen van aanvraag + wegschrijven in database
      */
 
-    public void click_VerzendAanvraag(ActionEvent actionEvent) throws SQLException {
+    public void click_VerzendAanvraag(ActionEvent actionEvent){
         String sVoornaam = txtVoornaam.getText();
         String sAchternaam = txtAchternaam.getText();
         String sEmail = txtEmail.getText();
@@ -56,25 +56,29 @@ public class ControllerAanvraagForm {
             if (sVoornaam.trim().isEmpty() || sAchternaam.trim().isEmpty() || sEmail.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Gelieve alle velden in te vullen", "Ongeldige ingave", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                //controleren of user bestaat
-                user = gebruikerDAO.getByEmail(sEmail);
+                try {
+                    //controleren of user bestaat
+                    user = gebruikerDAO.getByEmail(sEmail);
 
-                //enkel de aanvraag uitvoeren als de persoon nog niet in database zit
-                //als de gebruiker wel al in de database zit (ook al is aanvraag in behandeling) is een aanvraag niet nuttig
-                if (user == null) {
-                    //hier aanvraag uitvoeren
-                    int iGelukt = gebruikerDAO.insertAanvraag(sEmail, sVoornaam, sAchternaam);
-                    //pop-up als de aanvraag goed is verzonden
-                    if (iGelukt == 1) {
-                        JOptionPane.showMessageDialog(null, "Uw aanvraag werd succesvol verzonden. Wij houden u verder op de hoogte via mail.", "Aanvraag succesvol verzonden.", JOptionPane.INFORMATION_MESSAGE);
-                        LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
+                    //enkel de aanvraag uitvoeren als de persoon nog niet in database zit
+                    //als de gebruiker wel al in de database zit (ook al is aanvraag in behandeling) is een aanvraag niet nuttig
+                    if (user == null) {
+                        //hier aanvraag uitvoeren
+                        int iGelukt = gebruikerDAO.insertAanvraag(sEmail, sVoornaam, sAchternaam);
+                        //pop-up als de aanvraag goed is verzonden
+                        if (iGelukt == 1) {
+                            JOptionPane.showMessageDialog(null, "Uw aanvraag werd succesvol verzonden. Wij houden u verder op de hoogte via mail.", "Aanvraag succesvol verzonden.", JOptionPane.INFORMATION_MESSAGE);
+                            LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Er is een fout opgetreden bij het versturen van uw aanvraag. Gelieve opnieuw te proberen.", "Fout opgetreden!", JOptionPane.INFORMATION_MESSAGE);
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Er is een fout opgetreden bij het versturen van uw aanvraag. Gelieve opnieuw te proberen.", "Fout opgetreden!", JOptionPane.INFORMATION_MESSAGE);
+                        //voor het geval er toch een ander e-mailadres ingegeven wordt (dan waarop gecheckt werd vooraleer naar dit scherm door te sturen) die wel al bestaat in de database
+                        JOptionPane.showMessageDialog(null, "Uw bent reeds gekend in ons systeem. U hoeft geen aanvraag in te dienen.", "Aanvraag overbodig.", JOptionPane.INFORMATION_MESSAGE);
+                        LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
                     }
-                } else {
-                    //voor het geval er toch een ander e-mailadres ingegeven wordt (dan waarop gecheckt werd vooraleer naar dit scherm door te sturen) die wel al bestaat in de database
-                    JOptionPane.showMessageDialog(null, "Uw bent reeds gekend in ons systeem. U hoeft geen aanvraag in te dienen.", "Aanvraag overbodig.", JOptionPane.INFORMATION_MESSAGE);
-                    LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
+                } catch (SQLException e){
+                    JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }

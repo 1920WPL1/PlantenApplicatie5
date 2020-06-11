@@ -14,6 +14,7 @@ import plantenApp.java.model.Gebruiker;
 import plantenApp.java.model.LoginMethods;
 import plantenApp.java.utils.JavaMailUtil;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -31,6 +32,7 @@ public class ControllerBeheerRegistraties {
     public AnchorPane anchorPane;
 
     private Connection connection;
+    private GebruikerDAO gebruikerDAO;
     private ObservableList<Gebruiker> aanvragenFound;
     private Gebruiker aanvraagSelected = null;
 
@@ -44,7 +46,7 @@ public class ControllerBeheerRegistraties {
      */
     public void initialize() throws SQLException {
         this.connection = Database.getInstance().getConnection();
-
+        gebruikerDAO = new GebruikerDAO(connection);
         // Gebruikers in aanvraag ophalen en tonen
         refreshAanvragenFound();
 
@@ -94,37 +96,46 @@ public class ControllerBeheerRegistraties {
     }
     /* @Author Jasper */
     private void refreshAanvragenFound() throws SQLException {
-        List<Gebruiker> listAanvragenFound =
-                new GebruikerDAO(connection).getAllGebruikersInAanvraag();
-        // aanvragenFound is een ObservableList en listAanvragenFound wordt gebruikt om hem te vullen
-        aanvragenFound = FXCollections.observableList(listAanvragenFound);
-        lstAanvraagRegistraties.setItems(aanvragenFound);
+        try{
+            List<Gebruiker> listAanvragenFound = gebruikerDAO.getAllGebruikersInAanvraag();
+            // aanvragenFound is een ObservableList en listAanvragenFound wordt gebruikt om hem te vullen
+            aanvragenFound = FXCollections.observableList(listAanvragenFound);
+            lstAanvraagRegistraties.setItems(aanvragenFound);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /* @Author Jasper */
-    public void clicked_Goedkeuren(ActionEvent actionEvent) throws Exception {
+    public void clicked_Goedkeuren(ActionEvent actionEvent){
         if(aanvraagSelected == null){
             lblMessage.setText("Gelieve een aanvraag te selecteren");
         } else{
-            String rolSelected = (String) cmbGebruikerRol.getSelectionModel().getSelectedItem();
-            // aanvraag_status 2 = goedgekeurd
-            int iGeslaagd = new GebruikerDAO(connection).setGebruikerAanvraagStatusEnRol(
-                    aanvraagSelected.getGebruiker_id(), 2, rolSelected);
+            try{
+                String rolSelected = (String) cmbGebruikerRol.getSelectionModel().getSelectedItem();
+                // aanvraag_status 2 = goedgekeurd
+                int iGeslaagd = gebruikerDAO.setGebruikerAanvraagStatusEnRol(aanvraagSelected.getGebruiker_id(), 2, rolSelected);
 
-            //@author Bart Maes
-            //bevestiginsmail dat de gebruiker zijn aanvraag is goedgekeurd, anders weet de gebruiker niet wanneer hij/zij zich kan registreren
-            if(iGeslaagd == 1) {
-                JavaMailUtil.sendMail(aanvraagSelected.getEmail(), "Uw aanvraag is goedgekeurd", "Beste " + aanvraagSelected.getVoornaam() + ", \r\n\nUw aanvraag voor toegang tot de Plantenapplicatie van VIVES is goedgekeurd. \n" +
-                        "\nU kan zich registreren de volgende keer dat u de applicatie opent. \n" +
-                        "\n" +
-                        "Met vriendelijke groeten, \n" +
-                        "\n" +
-                        "Het VIVES-plantenteam");
+                //@author Bart Maes
+                //bevestiginsmail dat de gebruiker zijn aanvraag is goedgekeurd, anders weet de gebruiker niet wanneer hij/zij zich kan registreren
+                if(iGeslaagd == 1) {
+                    JavaMailUtil.sendMail(aanvraagSelected.getEmail(), "Uw aanvraag is goedgekeurd", "Beste " + aanvraagSelected.getVoornaam() + ", \r\n\nUw aanvraag voor toegang tot de Plantenapplicatie van VIVES is goedgekeurd. \n" +
+                            "\nU kan zich registreren de volgende keer dat u de applicatie opent. \n" +
+                            "\n" +
+                            "Met vriendelijke groeten, \n" +
+                            "\n" +
+                            "Het VIVES-plantenteam");
+                }
+
+                // instellen label message
+                String sMessage = (iGeslaagd == 1) ? "Aanvraag goedgekeurd" : "Aanvraag niet goedgekeurd";
+                lblMessage.setText(sMessage);
+            } catch (SQLException e){
+                JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Er kon geen mail verstuurd worden","Fout", JOptionPane.ERROR_MESSAGE);
             }
-
-            // instellen label message
-            String sMessage = (iGeslaagd == 1) ? "Aanvraag goedgekeurd" : "Aanvraag niet goedgekeurd";
-            lblMessage.setText(sMessage);
         }
     }
 
@@ -134,22 +145,26 @@ public class ControllerBeheerRegistraties {
         if(aanvraagSelected == null){
             lblMessage.setText("Gelieve een aanvraag te selecteren");
         } else{
-            int iGeslaagd = new GebruikerDAO(connection).deleteGebruikerById(aanvraagSelected.getGebruiker_id());
+            try{
+                int iGeslaagd = gebruikerDAO.deleteGebruikerById(aanvraagSelected.getGebruiker_id());
 
-            //@author Bart Maes
-            //bevestiginsmail dat de gebruiker zijn aanvraag is afgekeurd
-            if(iGeslaagd == 1) {
-                JavaMailUtil.sendMail(aanvraagSelected.getEmail(), "Uw aanvraag is afgekeurd", "Beste " + aanvraagSelected.getVoornaam() + ", \r\n\nUw aanvraag voor toegang tot de Plantenapplicatie van VIVES is helaas afgekeurd. \n" +
-                        "\nMet vriendelijke groeten, \n" +
-                        "\n" +
-                        "Het VIVES-plantenteam");
-            }
+                //@author Bart Maes
+                //bevestiginsmail dat de gebruiker zijn aanvraag is afgekeurd
+                if(iGeslaagd == 1) {
+                    JavaMailUtil.sendMail(aanvraagSelected.getEmail(), "Uw aanvraag is afgekeurd", "Beste " + aanvraagSelected.getVoornaam() + ", \r\n\nUw aanvraag voor toegang tot de Plantenapplicatie van VIVES is helaas afgekeurd. \n" +
+                            "\nMet vriendelijke groeten, \n" +
+                            "\n" +
+                            "Het VIVES-plantenteam");
+                }
 
-            String sResult = (iGeslaagd == 1) ? "Aanvraag verwijderd" : "Aanvraag niet verwijderd";
-            lblMessage.setText(sResult);
+                String sResult = (iGeslaagd == 1) ? "Aanvraag verwijderd" : "Aanvraag niet verwijderd";
+                lblMessage.setText(sResult);
 
-            if(iGeslaagd == 1){
-                refreshAanvragenFound(); // gezochte aanvragen opnieuw ophalen => verwijderde aanvraag wordt niet meer getoond in lijst
+                if(iGeslaagd == 1){
+                    refreshAanvragenFound(); // gezochte aanvragen opnieuw ophalen => verwijderde aanvraag wordt niet meer getoond in lijst
+                }
+            } catch (SQLException e){
+                JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

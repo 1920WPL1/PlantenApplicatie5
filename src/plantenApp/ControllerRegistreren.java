@@ -53,29 +53,28 @@ public class ControllerRegistreren {
                     //controleer of gebruiker in systeem zit
                     try {
                         user = gebruikerDAO.getByEmail(txtEmail.getText());
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-
-                    //hier ook al realtime controleren op een aantal basis checks
-                    //indien gebruiker niet bestaat, direct doorverwijzen naar aanvraagformulier (geen nut van nog wachtwoord in te vullen)
-                    if (user == null) {
-                        LoginMethods.OptionDialog("Het opgegeven emailadres is niet gekend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
-                                "Emailadres niet gekend", anchorPane, getClass(), "view/AanvraagToegang.fxml", "view/Inloggen.fxml");
-                    } else {
-                        //indien gebruiker wel al bestaat, eerst controleren of deze nog niet geregistreerd is (indien geregistreerd, is dit scherm niet nuttig)
-                        if (user.isGeregistreerd() == 1) {
-                            JOptionPane.showMessageDialog(null, "U bent reeds geregistreerd. U kan onmiddellijk inloggen.", "Reeds geregistreerd", JOptionPane.INFORMATION_MESSAGE);
-                            LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
-                        }
-                        //indien gebruiker al bestaat en al een aanvraag heeft gedaan
-                        else {
-                            //controleren of er al een aanvraag gebeurd is. Zo ja, terugsturen naar inlogscherm.
-                            if (user.isAanvraag_status() == 1) {
-                                JOptionPane.showMessageDialog(null, "U heeft reeds een aanvraag ingediend, maar deze is nog in behandeling.", "Aanvraag in behandeling.", JOptionPane.INFORMATION_MESSAGE);
+                        //hier ook al realtime controleren op een aantal basis checks
+                        //indien gebruiker niet bestaat, direct doorverwijzen naar aanvraagformulier (geen nut van nog wachtwoord in te vullen)
+                        if (user == null) {
+                            LoginMethods.OptionDialog("Het opgegeven emailadres is niet gekend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
+                                    "Emailadres niet gekend", anchorPane, getClass(), "view/AanvraagToegang.fxml", "view/Inloggen.fxml");
+                        } else {
+                            //indien gebruiker wel al bestaat, eerst controleren of deze nog niet geregistreerd is (indien geregistreerd, is dit scherm niet nuttig)
+                            if (user.isGeregistreerd() == 1) {
+                                JOptionPane.showMessageDialog(null, "U bent reeds geregistreerd. U kan onmiddellijk inloggen.", "Reeds geregistreerd", JOptionPane.INFORMATION_MESSAGE);
                                 LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
                             }
+                            //indien gebruiker al bestaat en al een aanvraag heeft gedaan
+                            else {
+                                //controleren of er al een aanvraag gebeurd is. Zo ja, terugsturen naar inlogscherm.
+                                if (user.isAanvraag_status() == 1) {
+                                    JOptionPane.showMessageDialog(null, "U heeft reeds een aanvraag ingediend, maar deze is nog in behandeling.", "Aanvraag in behandeling.", JOptionPane.INFORMATION_MESSAGE);
+                                    LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
+                                }
+                            }
                         }
+                    } catch (SQLException e) {
+                        JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
                     }
                 }
             }
@@ -108,9 +107,13 @@ public class ControllerRegistreren {
                 } else {
                     //indien alles ok, mag de registratie gebeuren
                     //@author Bart Maes
-                    LoginMethods.createPassword(gebruikerDAO, user, sWw);
-                    JOptionPane.showMessageDialog(null, "U bent succesvol geregistreerd", "Registratie succesvol!", JOptionPane.INFORMATION_MESSAGE);
-                    LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
+                    try{
+                        LoginMethods.createPassword(gebruikerDAO, user, sWw);
+                        JOptionPane.showMessageDialog(null, "U bent succesvol geregistreerd", "Registratie succesvol!", JOptionPane.INFORMATION_MESSAGE);
+                        LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
+                    } catch (SQLException e){
+                        JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         }

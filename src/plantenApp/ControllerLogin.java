@@ -54,31 +54,36 @@ public class ControllerLogin {
             JOptionPane.showMessageDialog(null, "Gelieve alle velden in te vullen",
                     "Ongeldige ingave", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            //controleer of gebruiker in systeem zit
-            user = gebruikerDAO.getByEmail(txtEmail.getText());
+            try {
+                //controleer of gebruiker in systeem zit
+                user = gebruikerDAO.getByEmail(txtEmail.getText());
 
-            //voor als iemand zich probeert in te loggen, ook al is hij/zij nog niet geregistreerd
-            //user bestaat niet in database
-            if (user == null) {
-                LoginMethods.OptionDialog("Het opgegeven emailadres is niet gekend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
-                        "Emailadres niet gekend", anchorPane, getClass(), "view/AanvraagToegang.fxml", "view/Inloggen.fxml");
-            } else {
-                //eerst controleren of de gebruiker al geregistreerd is (ze moeten eerst wachtwoord aanmaken)
-                if (user.isGeregistreerd() == 1) {
-                    //indien geregistreerd, dan controleren of het wachtwoord klopt
-                    if (!LoginMethods.CheckPasswordCorrect(user, sWachtwoord)) {
-                        JOptionPane.showMessageDialog(null, "Het opgegeven wachtwoord klopt niet.",
-                                "Ongeldig wachtwoord", JOptionPane.INFORMATION_MESSAGE);
-                    } else {
-                        //indien wachtwoord klopt, user gaan opslaan in LoginMethods en daarna hoofdscherm laden
-                        LoginMethods.userLoggedIn = user;
-                        LoginMethods.loadScreen(anchorPane, getClass(), "view/HoofdScherm.fxml");
-                    }
+                //voor als iemand zich probeert in te loggen, ook al is hij/zij nog niet geregistreerd
+                //user bestaat niet in database
+                if (user == null) {
+                    LoginMethods.OptionDialog("Het opgegeven emailadres is niet gekend in ons systeem. Wenst u een aanvraag te doen om toegang te krijgen tot de applicatie?",
+                            "Emailadres niet gekend", anchorPane, getClass(), "view/AanvraagToegang.fxml", "view/Inloggen.fxml");
                 } else {
-                    //indien niet geregistreerd, gepaste melding geven
-                    LoginMethods.OptionDialog("U bent nog niet geregistreerd. Wenst u zich te registreren?",
-                            "Nog niet geregistreerd", anchorPane, getClass(), "view/Registreren.fxml", "view/Inloggen.fxml");
+                    //eerst controleren of de gebruiker al geregistreerd is (ze moeten eerst wachtwoord aanmaken)
+                    if (user.isGeregistreerd() == 1) {
+                        //indien geregistreerd, dan controleren of het wachtwoord klopt
+                        if (!LoginMethods.CheckPasswordCorrect(user, sWachtwoord)) {
+                            JOptionPane.showMessageDialog(null, "Het opgegeven wachtwoord klopt niet.",
+                                    "Ongeldig wachtwoord", JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            //indien wachtwoord klopt, user gaan opslaan in LoginMethods en daarna hoofdscherm laden
+                            LoginMethods.userLoggedIn = user;
+                            LoginMethods.loadScreen(anchorPane, getClass(), "view/HoofdScherm.fxml");
+                        }
+                    } else {
+                        //indien niet geregistreerd, gepaste melding geven
+                        LoginMethods.OptionDialog("U bent nog niet geregistreerd. Wenst u zich te registreren?",
+                                "Nog niet geregistreerd", anchorPane, getClass(), "view/Registreren.fxml", "view/Inloggen.fxml");
+                    }
                 }
+            } catch (SQLException e)
+            {
+                JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

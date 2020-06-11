@@ -28,6 +28,7 @@ public class ControllerImporterenStudenten {
     private File fileSelected; // gekozen file
     private Desktop desktop; // bevat methode voor openen gekozen file
     private Connection connection;
+    private GebruikerDAO gebruikerDAO;
 
     public void initialize() throws SQLException {
         desktop = Desktop.getDesktop();
@@ -58,12 +59,16 @@ public class ControllerImporterenStudenten {
     }
 
     public void clicked_Importeren(MouseEvent mouseEvent) throws SQLException {
-        if(fileSelected != null){
-            new GebruikerDAO(connection).importGebruikersfromCsv(fileSelected.getPath());
-            JOptionPane.showMessageDialog(null,"Importeren succesvol", "Importeren studenten", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Gelieve een CSV bestand te selecteren", "Importeren studenten", JOptionPane.WARNING_MESSAGE);
+        try{
+            if(fileSelected != null){
+                gebruikerDAO.importGebruikersfromCsv(fileSelected.getPath());
+                JOptionPane.showMessageDialog(null,"Importeren succesvol", "Importeren studenten", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Gelieve een CSV bestand te selecteren", "Importeren studenten", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
         }
     }
 

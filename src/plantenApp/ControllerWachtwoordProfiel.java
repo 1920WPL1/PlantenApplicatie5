@@ -86,9 +86,13 @@ public class ControllerWachtwoordProfiel {
                 } else {
                     //indien alles ok, mag de registratie gebeuren
                     //@author Bart Maes
-                    LoginMethods.createPassword(gebruikerDAO, user, sWw);
-                    JOptionPane.showMessageDialog(null, "Uw wachtwoord is succesvol gewijzigd","Wachtwoord gewijzigd", JOptionPane.INFORMATION_MESSAGE);
-                    LoginMethods.loadScreen(anchorPane, getClass(), "view/HoofdScherm.fxml");
+                    try{
+                        LoginMethods.createPassword(gebruikerDAO, user, sWw);
+                        JOptionPane.showMessageDialog(null, "Uw wachtwoord is succesvol gewijzigd","Wachtwoord gewijzigd", JOptionPane.INFORMATION_MESSAGE);
+                        LoginMethods.loadScreen(anchorPane, getClass(), "view/HoofdScherm.fxml");
+                    } catch (SQLException e){
+                        JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         }
