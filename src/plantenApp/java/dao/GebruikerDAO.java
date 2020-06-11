@@ -11,11 +11,14 @@ import java.util.logging.Logger;
 public class GebruikerDAO implements Queries {
     private Connection dbConnection;
     private PreparedStatement stmtSelectGebruikerByEmail;
+    private PreparedStatement stmtInsertAanvraag;
+
     /** @Author Jasper */
     private PreparedStatement stmtSelectGebruikersByFullName;
     private PreparedStatement stmtSetGebruikerById;
     private PreparedStatement stmtSetWachtwoordHash;
     private PreparedStatement stmtDeleteGebruikerById;
+    private PreparedStatement stmtSetGebruikerAanvraagStatusEnRol;
 
     public GebruikerDAO(Connection dbConnection) throws SQLException {
         this.dbConnection = dbConnection;
@@ -24,6 +27,8 @@ public class GebruikerDAO implements Queries {
         stmtSetGebruikerById = dbConnection.prepareStatement(SETGEBRUIKERBYID);
         stmtSetWachtwoordHash = dbConnection.prepareStatement(SETWACHTWOORDHASH);
         stmtDeleteGebruikerById = dbConnection.prepareStatement(DELETEGEBRUIKERBYID);
+        stmtInsertAanvraag = dbConnection.prepareStatement(INSERTAANVRAAG);
+        stmtSetGebruikerAanvraagStatusEnRol = dbConnection.prepareStatement(SETGEBRUIKERAANVRAAGSTATUSANDROL);
     }
 
     /**@author Bart Maes
@@ -37,16 +42,16 @@ public class GebruikerDAO implements Queries {
             while (rs.next()) {
                 Gebruiker gebruiker =
                         new Gebruiker(
-                                rs.getInt("gebruiker_id"),
-                                rs.getString("voornaam"),
-                                rs.getString("achternaam"),
-                                rs.getString("email"),
-                                rs.getString("rol"),
-                                rs.getDate("aanvraag_datum"),
-                                rs.getInt("aanvraag_status"),
-                                rs.getInt("geregistreerd"),
-                                rs.getBytes("wachtwoord_hash"),
-                                rs.getBytes("salt")
+                            rs.getInt("gebruiker_id"),
+                            rs.getString("voornaam"),
+                            rs.getString("achternaam"),
+                            rs.getString("email"),
+                            rs.getString("rol"),
+                            rs.getDate("aanvraagdatum"),
+                            rs.getInt("aanvraag_status"),
+                            rs.getInt("geregistreerd"),
+                            rs.getBytes("wachtwoord_hash"),
+                            rs.getBytes("salt")
                         );
                 gebruikersList.add(gebruiker);
             }
@@ -66,21 +71,20 @@ public class GebruikerDAO implements Queries {
         ResultSet rs = stmtSelectGebruikerByEmail.executeQuery();
         if (rs.next()) {
             user = new Gebruiker(
-                    rs.getInt("gebruiker_id"),
-                    rs.getString("voornaam"),
-                    rs.getString("achternaam"),
-                    rs.getString("email"),
-                    rs.getString("rol"),
-                    rs.getDate("aanvraag_datum"),
-                    rs.getInt("aanvraag_status"),
-                    rs.getInt("geregistreerd"),
-                    rs.getBytes("wachtwoord_hash"),
-                    rs.getBytes("salt")
+                rs.getInt("gebruiker_id"),
+                rs.getString("voornaam"),
+                rs.getString("achternaam"),
+                rs.getString("email"),
+                rs.getString("rol"),
+                rs.getDate("aanvraagdatum"),
+                rs.getInt("aanvraag_status"),
+                rs.getInt("geregistreerd"),
+                rs.getBytes("wachtwoord_hash"),
+                rs.getBytes("salt")
             );
         }
         return user;
     }
-
 
     /**@Author Jasper
      * @param search De zoekterm om te zoeken op voornaam of achternaam
@@ -93,19 +97,18 @@ public class GebruikerDAO implements Queries {
             stmtSelectGebruikersByFullName.setString(2, "%"+search+"%");
             ResultSet rs = stmtSelectGebruikersByFullName.executeQuery();
             while (rs.next()) {
-                Gebruiker gebruiker =
-                        new Gebruiker(
-                                rs.getInt("gebruiker_id"),
-                                rs.getString("voornaam"),
-                                rs.getString("achternaam"),
-                                rs.getString("email"),
-                                rs.getString("rol"),
-                                rs.getDate("aanvraag_datum"),
-                                rs.getInt("aanvraag_status"),
-                                rs.getInt("geregistreerd"),
-                                rs.getBytes("wachtwoord_hash"),
-                                rs.getBytes("salt")
-                        );
+                Gebruiker gebruiker = new Gebruiker(
+                    rs.getInt("gebruiker_id"),
+                    rs.getString("voornaam"),
+                    rs.getString("achternaam"),
+                    rs.getString("email"),
+                    rs.getString("rol"),
+                    rs.getDate("aanvraagdatum"),
+                    rs.getInt("aanvraag_status"),
+                    rs.getInt("geregistreerd"),
+                    rs.getBytes("wachtwoord_hash"),
+                    rs.getBytes("salt")
+                );
                 gebruikersList.add(gebruiker);
             }
         } catch (SQLException ex) {
@@ -117,14 +120,12 @@ public class GebruikerDAO implements Queries {
     /**@author Jasper, Bart
      * @param id : id van gebruiker om nieuwe wachtwoord_hash in te stellen
      * @param hash : nieuwe wachtwoord_hash
-     * @return 1 bij gewijzigd wachtwoord, 0 bij fout
      * @throws SQLException
      */
     public void setWachtWoordHash(int id, byte[] hash, byte[] salt) throws SQLException {
         stmtSetWachtwoordHash.setBytes(1, hash);
         stmtSetWachtwoordHash.setBytes(2, salt);
         stmtSetWachtwoordHash.setInt(3, id);
-        //aanpassing Bart Maes:
         stmtSetWachtwoordHash.executeUpdate();
     }
 
@@ -143,18 +144,63 @@ public class GebruikerDAO implements Queries {
         stmtSetGebruikerById.setString(3, email);
         stmtSetGebruikerById.setString(4, rol);
         stmtSetGebruikerById.setInt(5, id);
-        //return stmtSetWachtwoordHash.executeUpdate();
-        //aanpassing Bart Maes (verkeerde statement hierboven?):
         return stmtSetGebruikerById.executeUpdate();
     }
 
     /**@Author Jasper
-     * @param id gebruiker om te verwijderen
+     * @param gebruiker_id gebruiker om te verwijderen
      * @return 1 => verwijdering, 0 = geen verwijdering uitgevoerd
      * @throws SQLException
      */
-    public int deleteGebruikerById(int id) throws SQLException {
-        stmtDeleteGebruikerById.setInt(1, id);
+    public int deleteGebruikerById(int gebruiker_id) throws SQLException {
+        stmtDeleteGebruikerById.setInt(1, gebruiker_id);
         return stmtDeleteGebruikerById.executeUpdate();
+    }
+
+    /**@author Bart
+     * @param email : email van gebruiker om aanvraag te inserten
+     * @param voornaam : voornaam van gebruiker om aanvraag te inserten
+     * @param achternaam : achternaam van gebruiker om aanvraag te inserten
+     * @return 1 bij gewijzigde status, 0 bij fout
+     * @throws SQLException
+     */
+    public int insertAanvraag(String email, String voornaam, String achternaam) throws SQLException {
+        stmtInsertAanvraag.setString(1, email);
+        stmtInsertAanvraag.setString(2, voornaam);
+        stmtInsertAanvraag.setString(3, achternaam);
+        return stmtInsertAanvraag.executeUpdate();
+    }
+
+    public List<Gebruiker> getAllGebruikersInAanvraag() throws SQLException {
+        List<Gebruiker> gebruikersList = new ArrayList<>();
+        Statement stmt = dbConnection.createStatement();
+        ResultSet rs = stmt.executeQuery(GETGEBRUIKERSINAANVRAAG);
+        while(rs.next()){
+            gebruikersList.add( new Gebruiker(
+                rs.getInt("gebruiker_id"),
+                rs.getString("voornaam"),
+                rs.getString("achternaam"),
+                rs.getString("email"),
+                rs.getString("rol"),
+                rs.getDate("aanvraagdatum"),
+                rs.getInt("aanvraag_status"),
+                rs.getInt("geregistreerd"),
+                rs.getBytes("wachtwoord_hash"),
+                rs.getBytes("salt")
+            ) );
+        }
+        return gebruikersList;
+    }
+
+    /**
+     * @param gebruiker_id gebruiker om aanvraag_status van te wijzigen
+     * @return int : aantal gewijzigde gebruikers (0 of 1)
+     * @throws SQLException
+     */
+    public int setGebruikerAanvraagStatusEnRol(int gebruiker_id, int aanvraag_status, String rol) throws  SQLException{
+        stmtSetGebruikerAanvraagStatusEnRol.setInt(1, aanvraag_status); // status 2 = goedgekeurd
+        stmtSetGebruikerAanvraagStatusEnRol.setString(2, rol);
+        stmtSetGebruikerAanvraagStatusEnRol.setInt(3,gebruiker_id);
+        return stmtSetGebruikerAanvraagStatusEnRol.executeUpdate();
     }
 }

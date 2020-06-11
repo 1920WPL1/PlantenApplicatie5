@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -12,11 +13,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerLogin">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="489.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerLogin">
    <children>
-      <VBox alignment="CENTER" layoutX="121.0" layoutY="129.0" prefHeight="284.0" prefWidth="249.0">
+      <VBox alignment="CENTER" focusTraversable="true" layoutX="121.0" layoutY="129.0" prefHeight="284.0" prefWidth="249.0">
          <children>
-            <TextField fx:id="txtEmail" focusTraversable="false" prefHeight="30.0" prefWidth="120.0" promptText="E-mailadres">
+            <TextField fx:id="txtEmail" prefHeight="30.0" prefWidth="120.0" promptText="E-mailadres">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
@@ -29,7 +30,7 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </Label>
-            <PasswordField fx:id="txtWachtwoord" focusTraversable="false" prefHeight="30.0" prefWidth="120.0" promptText="Wachtwoord">
+            <PasswordField fx:id="txtWachtwoord" prefHeight="30.0" prefWidth="120.0" promptText="Wachtwoord">
                <font>
                   <Font size="14.0" />
                </font>
@@ -44,6 +45,9 @@
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Label fx:id="lblWachtwoordVergeten" onMouseClicked="#click_WwVergeten" text="Wachtwoord vergeten?" textFill="#0f0cbc">
                <font>
@@ -52,6 +56,9 @@
                <VBox.margin>
                   <Insets bottom="50.0" />
                </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nog geen account?">
                <font>
@@ -65,6 +72,9 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
          </children>
       </VBox>

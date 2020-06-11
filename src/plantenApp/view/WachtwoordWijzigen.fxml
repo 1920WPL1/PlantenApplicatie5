@@ -1,52 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerWachtwoordWijzigen">
+<AnchorPane fx:id="anchorPane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="309.0" prefWidth="443.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantenApp.ControllerWachtwoordWijzigen">
    <children>
-      <TitledPane animated="false" collapsible="false" text="Wachtwoord wijzigen">
-         <content>
-            <AnchorPane>
+      <Button fx:id="btnVeranderWachtwoord" alignment="CENTER" layoutX="148.0" layoutY="232.0" mnemonicParsing="false" onAction="#Click_wijzigWachtwoord" prefHeight="30.0" style="-fx-background-color: blue;" text="Wijzig wachtwoord" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Text layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wachtwoord wijzigen" textAlignment="CENTER" wrappingWidth="443.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <HBox layoutX="54.0" layoutY="96.0" prefHeight="117.0" prefWidth="336.0">
+         <children>
+            <VBox focusTraversable="true" prefHeight="117.0" prefWidth="345.0">
                <children>
-                  <HBox layoutX="10.0" layoutY="10.0">
-                     <children>
-                        <VBox>
-                           <children>
-                              <Label prefHeight="30.0" text="Wachtwoord: ">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label prefHeight="30.0" text="Wachtwoord herhalen: ">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <VBox>
-                           <children>
-                              <TextField fx:id="txtWachtwoordWijzigen" prefHeight="30.0" prefWidth="120.0" promptText="****" />
-                              <TextField fx:id="txtBevWachtwoordWijzigen" prefHeight="30.0" prefWidth="120.0" promptText="****" />
-                              <HBox>
-                                 <children>
-                                    <Button fx:id="btnVeranderWachtwoord" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#Click_wijzigWachtwoord" prefHeight="30.0" text="Verander wachtwoord" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
+                  <PasswordField fx:id="pfWachtwoord" alignment="CENTER" prefHeight="30.0" promptText="Nieuw wachtwoord">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </PasswordField>
+                  <Label fx:id="lblCheckPassword" prefHeight="17.0" prefWidth="343.0">
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <PasswordField fx:id="pfWwHerhalen" alignment="CENTER" prefHeight="25.0" prefWidth="189.0" promptText="Nieuw wachtwoord herhalen">
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </PasswordField>
                </children>
-            </AnchorPane>
-         </content>
-      </TitledPane>
+            </VBox>
+         </children>
+      </HBox>
+      <ImageView fitHeight="58.0" fitWidth="66.0" layoutX="375.0" layoutY="14.0" onMouseClicked="#click_home" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/home.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>

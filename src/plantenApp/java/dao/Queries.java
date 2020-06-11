@@ -229,18 +229,28 @@ public interface Queries {
     /**
      * @Author Bart
      * de queries die gebruikt worden voor de gebruikerstabel
+     */
+    //region Gebruiker
+    //alle gebruikers ophalen
+    String GETALLGEBRUIKERS = "SELECT * FROM gebruiker";
+    //gebruiker ophalen adhv e-mailadres
+    String GETGEBRUIKERBYEMAILADRES = "SELECT * FROM gebruiker WHERE email = ?";
+    //aanvraag verstuurd --> dus in behandeling (0 = afgekeurd; 1 = in behandeling; 2 = goedgekeurd)
+    String INSERTAANVRAAG = "INSERT INTO gebruiker (email, voornaam, achternaam, aanvraagdatum, aanvraag_status, rol) VALUES (?, ?, ?, getdate(), 1, 'gast')";
+
+    /**
      * @Author Jasper, Bart
      * query SETWACHTWOORD_HASH
      */
-    //region Gebruiker
-    String GETALLGEBRUIKERS = "SELECT * FROM gebruiker";
-    String GETGEBRUIKERBYEMAILADRES = "SELECT * FROM gebruiker WHERE email = ?";
     String SETWACHTWOORDHASH = "UPDATE gebruiker SET wachtwoord_hash = ?, salt = ?, geregistreerd = 1 WHERE gebruiker_id = ?";
+
     /**
     * @Author Jasper
     */
     String GETGEBRUIKERSBYFULLNAME = "SELECT * FROM gebruiker WHERE voornaam LIKE ? OR achternaam LIKE ?";
     String SETGEBRUIKERBYID = "UPDATE gebruiker SET voornaam = ?, achternaam = ?, email = ?, rol = ? WHERE gebruiker_id = ?";
     String DELETEGEBRUIKERBYID = "DELETE FROM gebruiker WHERE gebruiker_id = ?";
+    String GETGEBRUIKERSINAANVRAAG = "SELECT * FROM gebruiker WHERE aanvraag_status = 1";
+    String SETGEBRUIKERAANVRAAGSTATUSANDROL = "UPDATE gebruiker SET aanvraag_status = ?, rol = ? WHERE gebruiker_id = ?";
     //endregion
 }

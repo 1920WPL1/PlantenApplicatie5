@@ -1,9 +1,9 @@
 package plantenApp;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import plantenApp.java.dao.Database;
 import plantenApp.java.dao.GebruikerDAO;
@@ -28,7 +28,7 @@ public class ControllerAanvraagForm {
     private Gebruiker user;
 
     /**
-     * Author Bart Maes
+     * @Author Bart Maes
      * bij opstarten connectie en gebruikerDao aanroepen
      */
     public void initialize() throws SQLException {
@@ -38,46 +38,54 @@ public class ControllerAanvraagForm {
         LoginMethods.checkEmail(txtEmail, lblValidateEmail);
     }
 
-    public void click_VerzendAanvraag(MouseEvent mouseEvent) throws SQLException {
+    /**
+     * @Author Bart Maes
+     * controles bij versturen van aanvraag + wegschrijven in database
+     */
+
+    public void click_VerzendAanvraag(ActionEvent actionEvent) throws SQLException {
         String sVoornaam = txtVoornaam.getText();
         String sAchternaam = txtAchternaam.getText();
         String sEmail = txtEmail.getText();
 
+        //controle of de realtime check op e-mail nog een foutmelding geeft of niet
         if (!lblValidateEmail.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Gelieve eerst een geldig e-mailadres in te vullen", "Ongeldig e-mailadres", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            //nogmaals check of alles ingevuld is (vooral de check of voornaam en achternaam zijn belangrijk, e-mail is al gecheckt)
+            //nogmaals check of alles ingevuld is (vooral de check op voornaam en achternaam zijn belangrijk, e-mail is eigenlijk al gecheckt)
             if (sVoornaam.trim().isEmpty() || sAchternaam.trim().isEmpty() || sEmail.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Gelieve alle velden in te vullen", "Ongeldige ingave", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 //controleren of user bestaat
-                user = gebruikerDAO.getByEmail(txtEmail.getText());
+                user = gebruikerDAO.getByEmail(sEmail);
 
+                //enkel de aanvraag uitvoeren als de persoon nog niet in database zit
+                //als de gebruiker wel al in de database zit (ook al is aanvraag in behandeling) is een aanvraag niet nuttig
                 if (user == null) {
                     //hier aanvraag uitvoeren
-
-                } else {
-                    //controleren of er al een aanvraag gebeurd is
-                    if (user.isAanvraag_status() == 0) {
-                        JOptionPane.showMessageDialog(null, "U heeft reeds een aanvraag ingediend, maar deze is helaas afgekeurd.", "Aanvraag afgekeurd.", JOptionPane.INFORMATION_MESSAGE);
+                    int iGelukt = gebruikerDAO.insertAanvraag(sEmail, sVoornaam, sAchternaam);
+                    //pop-up als de aanvraag goed is verzonden
+                    if (iGelukt == 1) {
+                        JOptionPane.showMessageDialog(null, "Uw aanvraag werd succesvol verzonden. Wij houden u verder op de hoogte via mail.", "Aanvraag succesvol verzonden.", JOptionPane.INFORMATION_MESSAGE);
+                        LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
                     } else {
-                        if (user.isAanvraag_status() == 1) {
-                            JOptionPane.showMessageDialog(null, "U heeft reeds een aanvraag ingediend, maar deze is nog in behandeling.", "Aanvraag in behandeling.", JOptionPane.INFORMATION_MESSAGE);
-                        } else {
-                            //aanvraag_goedgekeurd == 2
-                            JOptionPane.showMessageDialog(null, "U heeft reeds een aanvraag ingediend en deze is reeds goedgekeurd. Gelieve u te registreren.", "Aanvraag goedgekeurd.", JOptionPane.INFORMATION_MESSAGE);
-                        }
+                        JOptionPane.showMessageDialog(null, "Er is een fout opgetreden bij het versturen van uw aanvraag. Gelieve opnieuw te proberen.", "Fout opgetreden!", JOptionPane.INFORMATION_MESSAGE);
                     }
-
+                } else {
+                    //voor het geval er toch een ander e-mailadres ingegeven wordt (dan waarop gecheckt werd vooraleer naar dit scherm door te sturen) die wel al bestaat in de database
+                    JOptionPane.showMessageDialog(null, "Uw bent reeds gekend in ons systeem. U hoeft geen aanvraag in te dienen.", "Aanvraag overbodig.", JOptionPane.INFORMATION_MESSAGE);
+                    LoginMethods.loadScreen(anchorPane, getClass(), "view/Inloggen.fxml");
                 }
-
-
             }
         }
     }
 
-    public void click_AnnuleerAanvraag(MouseEvent mouseEvent) {
-        LoginMethods.OptionDialiog("Bent u zeker dat u de aanvraag wilt annuleren?",
+    /**
+     * @Author Bart Maes
+     * bij annuleren, terug naar inlogscherm
+     */
+    public void click_AnnuleerAanvraag(ActionEvent actionEvent) {
+        LoginMethods.OptionDialog("Bent u zeker dat u de aanvraag wilt annuleren?",
                 "Annuleren", anchorPane, getClass(), "view/Inloggen.fxml", "view/AanvraagToegang.fxml");
     }
 }

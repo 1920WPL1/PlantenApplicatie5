@@ -38,26 +38,23 @@ public class ControllerBeheerGebruikers {
 
     // documentatie listviews:  https://docs.oracle.com/javafx/2/ui_controls/list-view.htm
 
-    /**@Author Jasper
-     * @apiNote instellen van connection en weergave ListView
-     * @throws SQLException
-     */
+    /* @Author Jasper */
     public void initialize() throws SQLException {
         this.connection = Database.getInstance().getConnection();
 
         // Tonen van naam gebruikers ipv 'gebruiker' object
         // door CellFactory van ListView aan te passen zodat hij ListCells aanmaakt met eigen invulling voor updateItem( item, bool)
         lstGebruikersLijst.setCellFactory(param -> new ListCell<Gebruiker>() {
-                    @Override
-                    protected void updateItem(Gebruiker gebruiker, boolean isEmpty) {
-                        super.updateItem(gebruiker, isEmpty);
-                        if (gebruiker == null || isEmpty) {
-                            setText(null);
-                        } else {
-                            setText(gebruiker.getVoornaam() + " " + gebruiker.getAchternaam());
-                        }
-                    }
-                });
+            @Override
+            protected void updateItem(Gebruiker gebruiker, boolean isEmpty) {
+                super.updateItem(gebruiker, isEmpty);
+                if (gebruiker == null || isEmpty) {
+                    setText(null);
+                } else {
+                    setText(gebruiker.getVoornaam() + " " + gebruiker.getAchternaam());
+                }
+            }
+        });
 
         // Combobox met rol vullen
         cmbGebruikerRol.setItems(FXCollections.observableArrayList("gast", "student", "docent", "admin"));
@@ -93,6 +90,7 @@ public class ControllerBeheerGebruikers {
             }
         );
     }
+    /* @Author Jasper */
 
     public void refreshGebruikersFound() throws SQLException {
         List<Gebruiker> listGebruikersFound =
@@ -114,10 +112,10 @@ public class ControllerBeheerGebruikers {
     }
 
     /**@Author Jasper
-     * @param mouseEvent
+     * @param actionEvent
      * @throws SQLException
      */
-    public void clicked_wijzigGebruiker(MouseEvent mouseEvent) throws SQLException {
+    public void clicked_wijzigGebruiker(ActionEvent actionEvent) throws SQLException {
         if(gebruikerSelected == null)
         {
             lblMessage.setText("Gelieve een gebruiker te selecteren");
@@ -130,10 +128,10 @@ public class ControllerBeheerGebruikers {
     }
 
     /**@Author Jasper
-     * @param mouseEvent
+     * @param actionEvent
      * @throws SQLException
      */
-    public void clicked_VerwijderenGebruiker(MouseEvent mouseEvent) throws SQLException {
+    public void clicked_VerwijderenGebruiker(ActionEvent actionEvent) throws SQLException {
         if(gebruikerSelected == null)
         {
             lblMessage.setText("Gelieve een gebruiker te selecteren");
@@ -147,7 +145,8 @@ public class ControllerBeheerGebruikers {
         }
     }
 
-    public void clicked_NaarHoofdscherm(MouseEvent mouseEvent) {
-        LoginMethods.loadScreen(anchorPane, getClass(),"view/Hoofdscherm.fxml");
+
+    public void click_home(MouseEvent mouseEvent) {
+        LoginMethods.loadScreen(anchorPane, getClass(), "view/HoofdScherm.fxml");
     }
 }
