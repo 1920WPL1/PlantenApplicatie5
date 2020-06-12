@@ -130,6 +130,7 @@ public class ControllerBeheerRegistraties {
                 // instellen label message
                 String sMessage = (iGeslaagd == 1) ? "Aanvraag goedgekeurd" : "Aanvraag niet goedgekeurd";
                 lblMessage.setText(sMessage);
+                refreshAanvragenFound();
             } catch (SQLException e){
                 JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
             } catch (Exception e) {

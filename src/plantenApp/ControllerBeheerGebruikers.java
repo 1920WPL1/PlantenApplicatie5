@@ -131,6 +131,7 @@ public class ControllerBeheerGebruikers {
                         gebruikerSelected.getGebruiker_id(), txtVoornaam.getText(), txtNaam.getText(), txtEmail.getText(), cmbGebruikerRol.getSelectionModel().getSelectedItem());
                 String sResult = (iGeslaagd == 1) ? "Wijziging uitgevoerd" : "Wijziging niet uitgevoerd";
                 lblMessage.setText(sResult);
+                refreshGebruikersFound();
             } catch (SQLException e){
                 JOptionPane.showMessageDialog(null, "Geen verbinding met de server \r\n Contacteer uw systeembeheer indien dit probleem blijft aanhouden","Geen verbinding", JOptionPane.ERROR_MESSAGE);
             }
