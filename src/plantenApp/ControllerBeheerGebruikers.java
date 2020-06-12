@@ -52,7 +52,7 @@ public class ControllerBeheerGebruikers {
             protected void updateItem(Gebruiker gebruiker, boolean isEmpty) {
                 super.updateItem(gebruiker, isEmpty);
                 if (gebruiker == null || isEmpty) {
-                    setText(null);
+                    setText("");
                 } else {
                     setText(gebruiker.getVoornaam() + " " + gebruiker.getAchternaam());
                 }
